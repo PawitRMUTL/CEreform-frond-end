@@ -8,7 +8,7 @@ const useStyles = makeStyles()(() => ({
     fontFamily: 'Noto Sans Thai',
   },
   section: {
-    border: '4px solid red',
+    // border: '4px solid red',
     paddingLeft: '5%',
     paddingRight: '5%',
   },

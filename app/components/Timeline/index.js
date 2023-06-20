@@ -7,22 +7,24 @@ import {
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import { useMediaQuery } from '@mui/material';
-
+import { Box, useMediaQuery, Button } from '@mui/material';
+import { RiNumber1 } from 'react-icons/Ri';
+// import { Oneicon } from 'dan-images/one.png';
 function Timelinetcas() {
-  const isTablet = useMediaQuery('(max-width: 800px)');
+  const isTablet = useMediaQuery('(max-width: 1170px)');
   return (
     <div>
-      <VerticalTimeline>
+      <VerticalTimeline lineColor={'#CBCBCB'}>
         <VerticalTimelineElement
+          icon={<RiNumber1 />}
           className='vertical-timeline-element--work'
           contentStyle={{
-            background: 'rgb(33, 150, 243)',
-            color: '#fff',
+            background: '#FFF',
+            color: '#000',
           }}
-          contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243) ' }}
+          contentArrowStyle={{ borderRight: '7px solid  #FFF ' }}
           iconStyle={{
-            background: '#373737',
+            background: '#FE6F41',
             color: '#fff',
             width: '30px',
             height: '30px',
@@ -33,12 +35,21 @@ function Timelinetcas() {
               marginBlock: 5,
             }),
           }}>
-          <h3 className='vertical-timeline-element-title'>Creative Director</h3>
-          <h4 className='vertical-timeline-element-subtitle'>Miami, FL</h4>
-          <p>
-            Creative Direction, User Experience, Visual Design, Project
-            Management, Team Leading
-          </p>
+          <Box sx={{ display: 'flex', width: '100%' }}>
+            <Box sx={{ width: '50%' }}>
+              <p style={{ fontSize: '16px' }}>
+                กำหนดการรับสมัครนักศึกษา รอบ Pre-Entrance
+              </p>
+              <p style={{ fontSize: '12px' }}>
+                รับบางหลักสูตร แข่งขันกันที่การสอบสัมภาษณ์
+                เริ่มเปิดรับสมัครออนไลน์ วันที่ 10 ก.ย. 65 เป็นต้นไป
+              </p>
+              <Button variant='contained'>Contained</Button>
+            </Box>
+            <Box sx={{ border: '1px solid red', width: '50%' }}>
+              <p variant='h2'>Image</p>
+            </Box>
+          </Box>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className='vertical-timeline-element--work'

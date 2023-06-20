@@ -50,11 +50,7 @@ function TextAbout() {
         รวมถึงการประยุกต์เข้ากับปัญหาทางด้านการออกแบบคอมพิวเตอร์
         และอุปกรณ์ที่ใช้คอมพิวเตอร์ให้สามารถทำงานร่วมกันได้อย่างมีประสิทธิภาพ
       </Typography>
-      <Box
-        sx={{
-          paddingTop: 2,
-          marginLeft: 18,
-        }}>
+      <Box className={classes.buttonstyles}>
         <Button
           variant='contained'
           className={classes.Button}

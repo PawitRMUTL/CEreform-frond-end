@@ -10,6 +10,9 @@ const useStyles = makeStyles()((theme) => ({
   },
   imageListRespontive: {
     width: 580,
+    [theme.breakpoints.down('md')]: {
+      width: 400,
+    },
     [theme.breakpoints.down('sm')]: {
       width: 350,
     },
@@ -129,6 +132,14 @@ const useStyles = makeStyles()((theme) => ({
     borderRight: ' 2px solid #F5F5F5',
     [theme.breakpoints.down('sm')]: {
       width: '50%',
+    },
+  },
+  buttonstyles: {
+    paddingTop: 6,
+    marginLeft: theme.spacing(16),
+    [theme.breakpoints.down('md')]: {
+      paddingTop: 0,
+      marginLeft: theme.spacing(0),
     },
   },
 }));

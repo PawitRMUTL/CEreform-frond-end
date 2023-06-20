@@ -1,9 +1,10 @@
-@import "./../mixins";
-$sm: "(max-width: 600px)";
+/** @format */
+
+@import './../mixins';
+$sm: '(max-width: 600px)';
 
 .bodyForm {
   position: relative;
-  padding: 16px;
   @media #{$sm} {
     padding: 15px 10px;
   }
@@ -19,7 +20,7 @@ $sm: "(max-width: 600px)";
   width: 100%;
   text-align: right;
   padding: 8px 24px;
-  button{
+  button {
     margin-right: 5px;
   }
 }

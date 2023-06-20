@@ -55,13 +55,8 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
   },
   content: {
     width: '100%',
-    padding: theme.spacing(2),
     minHeight: '100%',
     overflow: 'hidden',
-    [theme.breakpoints.down('lg')]: {
-      paddingLeft: theme.spacing(1),
-      paddingRight: theme.spacing(1),
-    },
   },
   petal: {
     background: `url(${bg}) no-repeat`,

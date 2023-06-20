@@ -1,24 +1,22 @@
 /** @format */
 
 import React from 'react';
+import { Typography } from '@mui/material';
 // import Curriculum from '../Crads/Cours_crads';
 // import CalenderEdu from '../Crads/Calender_edu';
-// import Tcas from '../Crads/Tcas_crads';
-import { Typography } from '@mui/material';
-
 import {
   Gridsabout,
   // AutoplayCarousel,
   BannerCard,
   GridsLowwerBanner,
   Timelinetcas,
+  Footer,
   // HelpCard,
 } from '../../../components';
 import useStyles from './index-jss';
 
 function Portal() {
   const { classes } = useStyles();
-
   return (
     <div className={classes.root}>
       <BannerCard />
@@ -29,7 +27,7 @@ function Portal() {
         }}>
         <GridsLowwerBanner />
       </div>
-      <div className={classes.section}>
+      <section className={classes.section}>
         <Gridsabout />
         <div style={{ height: '100%' }}>
           <Typography
@@ -39,7 +37,10 @@ function Portal() {
           </Typography>
           <Timelinetcas />
         </div>
-      </div>
+      </section>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

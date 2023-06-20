@@ -25,7 +25,6 @@ export TemplateSettings from './TemplateSettings';
 // Card
 export ProductCard from './CardPaper/ProductCard';
 export Curriculum from './CardPaper/CourseCard';
-export TcasCard from './CardPaper/TcasCard';
 export Sildernew from './CardPaper/SildernewCard';
 export BannerCard from './CardPaper/BannerCard';
 
@@ -40,3 +39,5 @@ export Gridsabout from './Grid/GridsAbout';
 export GridsLowwerBanner from './Grid/GridsLowwerBanner';
 // Timeline
 export Timelinetcas from './Timeline';
+// Footer
+export Footer from './Footer';

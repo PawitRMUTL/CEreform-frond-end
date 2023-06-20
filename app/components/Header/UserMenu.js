@@ -3,8 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import axios from 'axios';
-
+// import axios from 'axios';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import ExitToApp from '@mui/icons-material/ExitToApp';
@@ -15,6 +14,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import dummy from 'dan-api/dummy/dummyContents';
 import link from 'dan-api/ui/link';
 import { Box, Typography } from '@mui/material';
+
+// import verify from '../verifyauthentication';
+
 // import useStyles from './header-jss';
 
 function UserMenu() {
@@ -37,21 +39,25 @@ function UserMenu() {
   const [showname, setShowname] = useState('');
   const [showstatus, setShowstate] = useState('');
   // ======================== end usestate   ================================
-
   // ======================== use effect =================================
   // -------------------- verify jwt
   useEffect(() => {
-    axios
-      .post('http://0.0.0.0:3200/api/verify_authen', {
-        token: username,
-        tokenRole: role,
-      })
-      .then((data) => {
-        setName(data.data.User);
-        setStatus(data.data.stateRole);
-        // console.log('data user : ' + data.data.User);
-        // console.log('data role : ' + data.data.stateRole);
-      });
+    setName('วาสสสสสสส');
+    setStatus('1');
+    // b3();
+    // verify(username, role);
+    // console.log(verify(username, role));
+    // axios
+    //   .post('http://0.0.0.0:3200/api/verify_authen', {
+    //     token: username,
+    //     tokenRole: role,
+    //   })
+    //   .then((data) => {
+    //     setName(data.data.User);
+    //     setStatus(data.data.stateRole);
+    //     console.log('data user : ' + data.data.User);
+    //     console.log('data role : ' + data.data.stateRole);
+    //   });
   }, []);
   // ------------------- set name & role
   useEffect(() => {
@@ -66,6 +72,7 @@ function UserMenu() {
         setShowname('กิตตินันท์');
       }
     }
+    // console.log(verify(username, role));
   }, [name, status]);
   // -------------------- set state switch login
   useEffect(() => {

@@ -10,7 +10,6 @@ import 'aos/dist/aos.css';
 
 function Gridsabout() {
   AOS.init();
-
   return (
     <Box
       sx={{
