@@ -3,7 +3,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import Curriculum from '../../containers/Pages/Crads/Cours_crads';
-
 import openscitrend from '../../../public/images/openscitrend.jpg';
 function Banafter() {
   return (
