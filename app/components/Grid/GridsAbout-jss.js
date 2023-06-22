@@ -1,7 +1,6 @@
 /** @format */
 
 import { makeStyles } from 'tss-react/mui';
-
 const useStyles = makeStyles()((theme) => ({
   typing: {
     [theme.breakpoints.down('sm')]: {
@@ -83,45 +82,48 @@ const useStyles = makeStyles()((theme) => ({
       marginTop: -30,
       // marginLeft: '2%',
       overflow: 'hidden',
-      marginRight: 0,
+      // marginRight: 0,
+      width: '100%',
     },
   },
   BgBox: {
     backgroundColor: '#FE6F41',
-    height: 75,
+    height: 90,
     borderRadius: '10px 10px 0px 0px',
     width: 380,
+    textAlign: 'center',
     [theme.breakpoints.down('md')]: {
-      height: 50,
+      height: 90,
     },
     [theme.breakpoints.down('sm')]: {
-      width: 418,
+      height: 50,
+      fontSize: '12px',
     },
   },
   BgBoxItem: {
     borderRadius: '0px 10px 10px 10px',
     color: '#373737',
     backgroundColor: '#ffffff',
-    height: 75,
+    height: 90,
+    width: '100%',
     display: 'flex',
-    textAlign: 'center',
+    textAlign: 'left',
+    // border: '3px solid red',
     [theme.breakpoints.down('md')]: {
+      height: 100,
       lineHeight: '60px',
     },
     [theme.breakpoints.down('sm')]: {
-      height: 100,
-      flexWrap: 'wrap',
-      borderRadius: '0px 0px 10px 10px',
-      lineHeight: '50px',
-    },
-  },
-  BgBoxOnlyLastItem: {
-    [theme.breakpoints.down('sm')]: {
-      borderRight: ' 0px solid #F5F5F5',
-      width: '50%',
+      overflowY: 'scroll',
+      // flexWrap: 'wrap',
+      zIndex: 1,
     },
   },
   BgBoxNormalTtem: {
+    width: '25%',
+    position: 'relative',
+    lineHeight: 1,
+    padding: theme.spacing(2),
     borderRight: ' 2px solid #F5F5F5',
     [theme.breakpoints.down('sm')]: {
       borderRight: ' 0px solid #F5F5F5',
@@ -129,8 +131,23 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   BgBoxMiddleSmTtem: {
+    width: '25%',
+    position: 'relative',
+    lineHeight: 1,
+    padding: theme.spacing(2),
     borderRight: ' 2px solid #F5F5F5',
     [theme.breakpoints.down('sm')]: {
+      width: '52%',
+      borderRight: ' 0px solid #F5F5F5',
+    },
+  },
+  BgBoxOnlyLastItem: {
+    width: '25%',
+    position: 'relative',
+    lineHeight: 1,
+    padding: theme.spacing(2),
+    [theme.breakpoints.down('sm')]: {
+      borderRight: ' 0px solid #F5F5F5',
       width: '50%',
     },
   },
@@ -140,6 +157,29 @@ const useStyles = makeStyles()((theme) => ({
     [theme.breakpoints.down('md')]: {
       paddingTop: 0,
       marginLeft: theme.spacing(0),
+    },
+  },
+  iconstlye: {
+    width: '64px',
+    height: '64px',
+    position: 'absolute',
+    right: 2,
+    bottom: 0,
+    opacity: 0.1,
+    padding: 10,
+  },
+  waltxtstlye: {
+    height: '22px',
+    width: '140px',
+    overflow: 'hidden',
+  },
+  whatare: {
+    padding: theme.spacing(3),
+    color: 'white',
+    fontSize: '32px',
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(1),
+      fontSize: '24px',
     },
   },
 }));

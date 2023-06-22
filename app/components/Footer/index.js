@@ -16,6 +16,7 @@ const round3 = Datafooter.slice(7, 10);
 
 export default function Footer() {
   const { classes } = useStyles();
+  // const isTablet = useMediaQuery('(max-width: 1170px)');
 
   return (
     <>

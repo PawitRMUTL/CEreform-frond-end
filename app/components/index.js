@@ -39,5 +39,8 @@ export Gridsabout from './Grid/GridsAbout';
 export GridsLowwerBanner from './Grid/GridsLowwerBanner';
 // Timeline
 export Timelinetcas from './Timeline';
+export Banbefore from './Timeline/Banbefore';
+export Banafter from './Timeline/Banafter';
+
 // Footer
 export Footer from './Footer';

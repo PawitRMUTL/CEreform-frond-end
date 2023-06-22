@@ -1,6 +1,5 @@
 /** @format */
 
-// import { Typography } from '@mui/material';
 import React from 'react';
 import {
   VerticalTimeline,
@@ -8,8 +7,16 @@ import {
 } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { Box, useMediaQuery, Button } from '@mui/material';
-import { RiNumber1 } from 'react-icons/Ri';
-// import { Oneicon } from 'dan-images/one.png';
+import {
+  RiNumber1,
+  RiNumber2,
+  RiNumber3,
+  RiNumber4,
+  RiStarFill,
+} from 'react-icons/Ri';
+import timelineData from '../../api/dummy/timeline';
+console.log(timelineData[0].subtitle);
+
 function Timelinetcas() {
   const isTablet = useMediaQuery('(max-width: 1170px)');
   return (
@@ -37,25 +44,61 @@ function Timelinetcas() {
           }}>
           <Box sx={{ display: 'flex', width: '100%' }}>
             <Box sx={{ width: '50%' }}>
-              <p style={{ fontSize: '16px' }}>
-                กำหนดการรับสมัครนักศึกษา รอบ Pre-Entrance
-              </p>
-              <p style={{ fontSize: '12px' }}>
-                รับบางหลักสูตร แข่งขันกันที่การสอบสัมภาษณ์
-                เริ่มเปิดรับสมัครออนไลน์ วันที่ 10 ก.ย. 65 เป็นต้นไป
-              </p>
-              <Button variant='contained'>Contained</Button>
+              <p style={{ fontSize: '16px' }}>{timelineData[0].title}</p>
+              <p style={{ fontSize: '12px' }}>{timelineData[0].subtitle}</p>
+              <Button variant='contained' href={timelineData[0].link}>
+                Contained
+              </Button>
             </Box>
-            <Box sx={{ border: '1px solid red', width: '50%' }}>
-              <p variant='h2'>Image</p>
+            <Box sx={{ width: '50%' }}>
+              <img src={timelineData[0].imgPath} />
+            </Box>
+          </Box>
+        </VerticalTimelineElement>
+        {/* ขวา */}
+        <VerticalTimelineElement
+          icon={<RiNumber2 />}
+          className='vertical-timeline-element--work'
+          contentStyle={{
+            background: '#FFF',
+            color: '#000',
+          }}
+          contentArrowStyle={{ borderRight: '7px solid  #FFF ' }}
+          iconStyle={{
+            background: '#FE6F41',
+            color: '#fff',
+            width: '30px',
+            height: '30px',
+            margin: '0px 0px 0px -15px',
+            marginBlock: 15,
+            ...(isTablet && {
+              margin: '0px 0px 0px 5px',
+              marginBlock: 5,
+            }),
+          }}>
+          <Box sx={{ display: 'flex', width: '100%' }}>
+            <Box sx={{ width: '50%' }}>
+              <img src={timelineData[1].imgPath} />
+            </Box>
+            <Box sx={{ width: '50%' }}>
+              <p style={{ fontSize: '16px' }}>{timelineData[1].title}</p>
+              <p style={{ fontSize: '12px' }}>{timelineData[1].subtitle}</p>
+              <Button variant='contained' href={timelineData[1].link}>
+                Contained
+              </Button>
             </Box>
           </Box>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          icon={<RiNumber3 />}
           className='vertical-timeline-element--work'
-          date='2010 - 2011 ดดด'
+          contentStyle={{
+            background: '#FFF',
+            color: '#000',
+          }}
+          contentArrowStyle={{ borderRight: '7px solid  #FFF ' }}
           iconStyle={{
-            background: '#373737',
+            background: '#FE6F41',
             color: '#fff',
             width: '30px',
             height: '30px',
@@ -66,20 +109,58 @@ function Timelinetcas() {
               marginBlock: 5,
             }),
           }}>
-          <h3 className='vertical-timeline-element-title'>Art Director</h3>
-          <h4 className='vertical-timeline-element-subtitle'>
-            San Francisco, CA
-          </h4>
-          <p>
-            Creative Direction, User Experience, Visual Design, SEO, Online
-            Marketing
-          </p>
+          <Box sx={{ display: 'flex', width: '100%' }}>
+            <Box sx={{ width: '50%' }}>
+              <p style={{ fontSize: '16px' }}>{timelineData[2].title}</p>
+              <p style={{ fontSize: '12px' }}>{timelineData[2].subtitle}</p>
+              <Button variant='contained' href={timelineData[2].link}>
+                Contained
+              </Button>
+            </Box>
+            <Box sx={{ width: '50%' }}>
+              <img src={timelineData[2].imgPath} />
+            </Box>
+          </Box>
+        </VerticalTimelineElement>
+        {/* ขวา */}
+        <VerticalTimelineElement
+          icon={<RiNumber4 />}
+          className='vertical-timeline-element--work'
+          contentStyle={{
+            background: '#FFF',
+            color: '#000',
+          }}
+          contentArrowStyle={{ borderRight: '7px solid  #FFF ' }}
+          iconStyle={{
+            background: '#FE6F41',
+            color: '#fff',
+            width: '30px',
+            height: '30px',
+            margin: '0px 0px 0px -15px',
+            marginBlock: 15,
+            ...(isTablet && {
+              margin: '0px 0px 0px 5px',
+              marginBlock: 5,
+            }),
+          }}>
+          <Box sx={{ display: 'flex', width: '100%' }}>
+            <Box sx={{ width: '50%' }}>
+              <img src={timelineData[3].imgPath} />
+            </Box>
+            <Box sx={{ width: '50%' }}>
+              <p style={{ fontSize: '16px' }}>{timelineData[3].title}</p>
+              <p style={{ fontSize: '12px' }}>{timelineData[3].subtitle}</p>
+              <Button variant='contained' href={timelineData[3].link}>
+                Contained
+              </Button>
+            </Box>
+          </Box>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          icon={<RiStarFill />}
           className='vertical-timeline-element--work'
-          date='2008 - 2010'
           iconStyle={{
-            background: '#373737',
+            background: '#FE6F41',
             color: '#fff',
             width: '30px',
             height: '30px',
@@ -89,34 +170,7 @@ function Timelinetcas() {
               margin: '0px 0px 0px 5px',
               marginBlock: 5,
             }),
-          }}>
-          <h3 className='vertical-timeline-element-title'>Web Designer</h3>
-          <h4 className='vertical-timeline-element-subtitle'>
-            Los Angeles, CA
-          </h4>
-          <p>User Experience, Visual Design</p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className='vertical-timeline-element--work'
-          date='2006 - 2008'
-          iconStyle={{
-            background: '#373737',
-            color: '#fff',
-            width: '30px',
-            height: '30px',
-            margin: '0px 0px 0px -15px',
-            marginBlock: 15,
-            ...(isTablet && {
-              margin: '0px 0px 0px 5px',
-              marginBlock: 5,
-            }),
-          }}>
-          <h3 className='vertical-timeline-element-title'>Web Designer</h3>
-          <h4 className='vertical-timeline-element-subtitle'>
-            San Francisco, CA
-          </h4>
-          <p>User Experience, Visual Design</p>
-        </VerticalTimelineElement>
+          }}></VerticalTimelineElement>
       </VerticalTimeline>
     </div>
   );

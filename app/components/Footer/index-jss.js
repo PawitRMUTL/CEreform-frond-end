@@ -26,7 +26,7 @@ const useStyles = makeStyles()((theme) => ({
   footerdata: {
     [theme.breakpoints.down('sm')]: {
       zIndex: 1,
-      marginRight: '42px',
+      marginRight: theme.spacing(10),
     },
   },
   abouttxt: {
