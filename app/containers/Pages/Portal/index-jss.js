@@ -14,12 +14,22 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   section: {
-    border: '4px solid red',
     height: '100 vh',
     marginTop: 30,
-    // paddingLeft: '5%',
-    // paddingRight: '5%',
+    // paddingLeft: '1%',
+    // paddingRight: '1%',
     // border: '2px solid red',
+  },
+  stylesGrid: {
+    marginTop: theme.spacing(5),
+    // border: '4px solid red',
+  },
+  gotostudyplan: {
+    marginTop: '2%',
+    width: '100%',
+    height: '460px',
+    // border: '4px solid red',
+    color: '#fff',
   },
 }));
 

@@ -6,6 +6,13 @@ import roundedThumbLight from 'dan-images/decoration/roundedThumbLight.png';
 import roundedThumbDark from 'dan-images/decoration/roundedThumbDark.png';
 
 const useStyles = makeStyles()((theme, _params, classes) => ({
+  subtitleplan: {
+    textAlign: 'center',
+    fontSize: '18px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '16px',
+    },
+  },
   card: {
     minWidth: 275,
     minHeight: 100,
@@ -356,6 +363,47 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     height: 75,
     display: 'flex',
     textAlign: 'center',
+  },
+  // studyplan
+  rootsplan: {
+    // width: '100%',
+    //   border: '5px solid red',
+    display: 'flex',
+    flexWrap: 'wrap',
+    padding: 10,
+    justifyContent: 'space-around',
+    gap: theme.spacing(4),
+  },
+  styletxt: {
+    // border: '3px solid red',
+    justifyContent: 'center', // Horizontally center the content
+    alignItems: 'center', // Vertically center the content
+    wordBreak: 'break-word',
+  },
+  setborder: {
+    width: '400px',
+    padding: theme.spacing(4),
+    backgroundColor: '#FFF',
+    borderRadius: '30px',
+    border: '2px solid #FE6F41',
+    position: 'relative',
+  },
+  setlightborder: {
+    // borderRadius: '30px',
+    width: 54,
+    height: 1,
+    borderTop: '2px solid #FFF',
+    position: 'absolute',
+    top: -2,
+    left: 34,
+    // bottom: 0,
+  },
+  imgstyles: {
+    width: '60px',
+    position: 'absolute',
+    top: -34,
+    padding: 8,
+    filter: 'drop-shadow(2px 2px 2px rgba(0, 0, 0,0.5))',
   },
 }));
 

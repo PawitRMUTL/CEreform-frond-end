@@ -24,9 +24,9 @@ export ErrorWrap from './Error/ErrorWrap';
 export TemplateSettings from './TemplateSettings';
 // Card
 export ProductCard from './CardPaper/ProductCard';
-export Curriculum from './CardPaper/CourseCard';
 export Sildernew from './CardPaper/SildernewCard';
 export BannerCard from './CardPaper/BannerCard';
+export Plancards from './CardPaper/PlanCard.js';
 
 // Calender_Education
 export CalenderEducation from './Calender/calenderedu';
@@ -39,8 +39,10 @@ export Gridsabout from './Grid/GridsAbout';
 export GridsLowwerBanner from './Grid/GridsLowwerBanner';
 // Timeline
 export Timelinetcas from './Timeline';
-export Banbefore from './Timeline/Banbefore';
-export Banafter from './Timeline/Banafter';
+export Bannerregis from './Timeline/Bannerregis';
+export Bannercurri from './Timeline/Bannercurri';
+export Loginstudy from './Timeline/Loginstudy';
+export Countsection from './Timeline/Countsection';
 
 // Footer
 export Footer from './Footer';

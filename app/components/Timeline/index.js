@@ -15,7 +15,7 @@ import {
   RiStarFill,
 } from 'react-icons/Ri';
 import timelineData from '../../api/dummy/timeline';
-console.log(timelineData[0].subtitle);
+// console.log(timelineData[0].subtitle);
 
 function Timelinetcas() {
   const isTablet = useMediaQuery('(max-width: 1170px)');

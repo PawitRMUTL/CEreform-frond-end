@@ -18,14 +18,17 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 function Curriculum(props) {
-  const { temppathimg, name, pathcurriculum } = props;
-  const { classes, cx } = useStyles();
+  const {
+    temppathimg, title,
+    pathcurriculum, subtitle
+  } = props;
+  const { classes } = useStyles();
   return (
     <Box
       sx={{
         margin: '45px 10px 40px 10px',
         backgroundColor: 'white',
-        height: 220,
+        height: 260,
         width: 270,
         boxShadow: '1px 1px 1px 1px #F1F1F1',
         borderRadius: 6,
@@ -41,21 +44,24 @@ function Curriculum(props) {
             marginTop: -5,
             width: 100,
             height: 100,
-            padding: 2,
-            backgroundColor: '#ECEFF1',
+            padding: 2.5,
+            backgroundColor: '#543C6C',
             borderRadius: 55,
+            gap: '2rem',
           }}>
           <img src={temppathimg} />
         </Grid>
-        <Grid>
-          <Typography sx={{ textAlign: 'center', padding: 4 }}>
-            {name}
+        <Grid sx={{ padding: 3 }}>
+          <Typography sx={{ textAlign: 'center', fontSize: '22px' }}>
+            {title}
           </Typography>
+          <Typography className={classes.subtitleplan}>{subtitle}</Typography>
         </Grid>
         <Button
+          sx={{ margin: 2 }}
           variant='contained'
           color='primary'
-          className={cx(classes.margin, classes.cssRoot)}
+          className={classes.cssRoot}
           href={pathcurriculum}>
           ดูเพิ่มเติม
         </Button>
@@ -66,8 +72,9 @@ function Curriculum(props) {
 
 Curriculum.propTypes = {
   temppathimg: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   pathcurriculum: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
 };
 
 export default Curriculum;
