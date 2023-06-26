@@ -348,9 +348,7 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   textCountSection: {
-    border: '1px solid red',
-    fontSize: '36px',
-    fontWeight: '600',
+    // border: '1px solid red',
     zIndex: 2,
     width: '100%',
     height: '55%',

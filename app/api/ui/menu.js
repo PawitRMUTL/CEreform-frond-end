@@ -29,12 +29,6 @@ module.exports = [
         link: '/app/pages/dashboard',
         icon: 'ion-ios-home-outline',
       },
-      {
-        key: 'form',
-        name: 'ห้อง LAB  ของสาขา',
-        link: '/app/pages/form',
-        icon: 'ion-ios-list-box-outline',
-      },
     ],
   },
   {

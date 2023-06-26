@@ -15,6 +15,7 @@ import {
   Plancards,
   Loginstudy,
   Countsection,
+  Project,
   // HelpCard,
 } from '../../../components';
 import useStyles from './index-jss';
@@ -100,17 +101,14 @@ function Portal() {
         <Box
           sx={{
             width: '100%',
-            height: '200px',
+            height: '600px',
             border: '3px solid red',
           }}>
-          <Typography variant='h6' textAlign={'center'}>
-            {' '}
-            รอออก่อน{' '}
-          </Typography>
+          <Project />
         </Box>
       </section>
       {/* section Project end */}
-      <Box sx={{ width: '100%', height: '390px', border: '2px solid blue' }}>
+      <Box sx={{ width: '100%', height: '388px' }}>
         <Countsection />
       </Box>
       <footer>
