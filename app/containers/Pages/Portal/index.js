@@ -15,7 +15,7 @@ import {
   Plancards,
   Loginstudy,
   Countsection,
-  Project,
+  ShowProject,
   // HelpCard,
 } from '../../../components';
 import useStyles from './index-jss';
@@ -94,7 +94,7 @@ function Portal() {
             color: 'transparent',
             fontWeight: 700,
             filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15))',
-            margin: '12px 0px 40px 0px',
+            margin: '12px 0px 8px 0px',
           }}>
           โครงการ
         </Typography>
@@ -102,15 +102,42 @@ function Portal() {
           sx={{
             width: '100%',
             height: '600px',
-            border: '3px solid red',
+            // border: '3px solid red',
           }}>
-          <Project />
+          <ShowProject />
         </Box>
       </section>
       {/* section Project end */}
       <Box sx={{ width: '100%', height: '388px' }}>
         <Countsection />
       </Box>
+
+      {/* section Carousel start */}
+      <section className={classes.section}>
+        <Typography
+          variant='h4'
+          sx={{
+            textAlign: 'center',
+            background:
+              'linear-gradient(94deg, rgba(255,155,123,1) 44%, rgba(254,111,65,1) 48%)',
+            backgroundClip: 'text',
+            color: 'transparent',
+            fontWeight: 700,
+            filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15))',
+            margin: '12px 0px 8px 0px',
+          }}>
+          ข่าวสาร / กิจกรรม
+        </Typography>
+        <Box
+          sx={{
+            width: '100%',
+            height: '600px',
+            // border: '3px solid red',
+          }}>
+          {/* <AutoplayCarousel /> */}
+        </Box>
+      </section>
+      {/* section Carousel end */}
       <footer>
         <Footer />
       </footer>

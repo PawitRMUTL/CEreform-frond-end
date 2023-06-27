@@ -16,9 +16,6 @@ const useStyles = makeStyles()((theme) => ({
   section: {
     height: '100 vh',
     marginTop: 30,
-    // paddingLeft: '1%',
-    // paddingRight: '1%',
-    // border: '2px solid red',
   },
   stylesGrid: {
     marginTop: theme.spacing(5),

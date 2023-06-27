@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import { makeStyles } from 'tss-react/mui';
 import Axios from 'axios';
 import { connect } from 'react-redux';
+import { Typography } from '@mui/material';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-light';
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import lightStyle from 'react-syntax-highlighter/dist/esm/styles/prism/prism';
@@ -132,11 +133,11 @@ function SourceReader(props) {
       </Button>
       <section dir="ltr" className={cx(classes.source, open ? classes.open : '')}>
         <div className={classes.src}>
-          <p>
+          <Typography>
             <Icon className="description">description</Icon>
             src/app/
             {componentName}
-          </p>
+          </Typography>
           <div className={classes.toggleContainer}>
             <ToggleButtonGroup value={style} exclusive onChange={handleStyle}>
               <ToggleButton value="light">

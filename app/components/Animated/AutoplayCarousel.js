@@ -5,8 +5,7 @@ import Slider from 'react-slick';
 import { makeStyles } from 'tss-react/mui';
 import PropTypes from 'prop-types';
 import {
-  Card, Typography, CardContent,
-  Box
+  Card, Typography, CardContent, Box
 } from '@mui/material';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -66,8 +65,8 @@ function AutoplayCarousel() {
   const settings = {
     dots: true,
     infinite: true,
-    centerMode: false,
-    speed: 500,
+    centerMode: true,
+    speed: 5000,
     autoplaySpeed: 2000,
     pauseOnHover: true,
     autoplay: true,
@@ -76,32 +75,32 @@ function AutoplayCarousel() {
     cssEase: 'ease-out',
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 915,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 613,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+    // responsive: [
+    //   {
+    //     breakpoint: 1024,
+    //     settings: {
+    //       slidesToShow: 3,
+    //       slidesToScroll: 3,
+    //       infinite: true,
+    //       dots: true,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 915,
+    //     settings: {
+    //       slidesToShow: 2,
+    //       slidesToScroll: 2,
+    //       initialSlide: 2,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 613,
+    //     settings: {
+    //       slidesToShow: 1,
+    //       slidesToScroll: 1,
+    //     },
+    //   },
+    // ],
   };
   return (
     <div className='container custom-arrow ' style={{ margin: 4 }}>

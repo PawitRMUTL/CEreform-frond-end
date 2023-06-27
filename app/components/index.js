@@ -33,7 +33,6 @@ export CalenderEducation from './Calender/calenderedu';
 // Slider Carousel
 export AutoplayCarousel from './Animated/AutoplayCarousel';
 export HelpCard from './Animated/Help';
-export ProjectShowSlider from './Animated/ProjectShowSlider';
 // Grids aboutus
 export Gridsabout from './Grid/GridsAbout';
 export GridsLowwerBanner from './Grid/GridsLowwerBanner';
@@ -44,6 +43,6 @@ export Bannercurri from './Timeline/Bannercurri';
 export Loginstudy from './Timeline/Loginstudy';
 export Countsection from './Timeline/Countsection';
 // Project
-export Project from './ProjectSystem';
+export ShowProject from './ProjectSystem';
 // Footer
 export Footer from './Footer';
