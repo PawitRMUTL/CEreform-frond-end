@@ -3,39 +3,40 @@ import imgApi from '../images/photos';
 const guideSteps = [
   {
     id: '1',
-    title: 'Hi, welcome',
+    title: 'Lorem ipsum dolor sit amet, consectetuer adipiscing',
     label:
-      'Here is some guide to use this template. Click next to continue or click continue or click on outside to skip it',
+      'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to',
     // imgPath: 'https://sv1.picz.in.th/images/2023/04/04/mcJgZW.jpg',
     imgPath: imgApi[21],
-    date: '12/02/2566',
+    date: 'December 31, 2022',
   },
   {
     id: '2',
-    title: 'Dark and Light Mode',
+    title: 'Lorem ipsum dolor sit amet, consectetuer adipiscing ',
     label:
-      'Enjoy your eyes with dark/light mode, just switch the option in theme panel or on header',
+      'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to',
     // imgPath: 'https://sv1.picz.in.th/images/2023/04/04/mcJlda.jpg',
     imgPath: imgApi[20],
-    date: '14/02/2566',
+    date: 'December 31, 2022',
   },
   {
     id: '3',
-    title: 'Themes and Layout',
+    title: 'Lorem ipsum dolor sit amet, consectetuer adipiscing ',
     label:
-      'Build your template with various themes and layout combination. It easy to adjust following your brand identity',
+      'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to',
+
     // imgPath: 'https://sv1.picz.in.th/images/2023/04/04/mcJOQb.jpg',
     imgPath: imgApi[19],
-    date: '17/02/2566',
+    date: 'December 31, 2022',
   },
   {
     id: '4',
-    title: 'Search Components and Pages',
+    title: 'Lorem ipsum dolor sit amet, consectetuer adipiscing ',
     label:
-      'Find any ui component or template page quicker continue or click continue o adjust following your brand identityor click',
+      'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to',
     // imgPath: 'https://sv1.picz.in.th/images/2023/04/04/mcJqp9.jpg',
     imgPath: imgApi[18],
-    date: '16/03/2566',
+    date: 'December 31, 2022',
   },
 ];
 

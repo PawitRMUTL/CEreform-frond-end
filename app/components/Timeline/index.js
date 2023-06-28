@@ -6,7 +6,7 @@ import {
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import { Box, useMediaQuery, Button } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import {
   RiNumber1,
   RiNumber2,
@@ -16,9 +16,11 @@ import {
 } from 'react-icons/Ri';
 import timelineData from '../../api/dummy/timeline';
 // console.log(timelineData[0].subtitle);
+import useStyles from './index-jss';
 
 function Timelinetcas() {
   const isTablet = useMediaQuery('(max-width: 1170px)');
+  const { classes } = useStyles();
   return (
     <div>
       <VerticalTimeline lineColor={'#CBCBCB'}>
@@ -43,12 +45,20 @@ function Timelinetcas() {
             }),
           }}>
           <Box sx={{ display: 'flex', width: '100%' }}>
-            <Box sx={{ width: '50%' }}>
+            <Box
+              sx={{
+                width: '50%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center', // Center horizontally
+              }}>
               <p style={{ fontSize: '16px' }}>{timelineData[0].title}</p>
               <p style={{ fontSize: '12px' }}>{timelineData[0].subtitle}</p>
-              <Button variant='contained' href={timelineData[0].link}>
-                Contained
-              </Button>
+              <button
+                href={timelineData[0].link}
+                className={classes.timelinebutton}>
+                อ่านเพิ่มเติม
+              </button>
             </Box>
             <Box sx={{ width: '50%' }}>
               <img src={timelineData[0].imgPath} />
@@ -80,12 +90,21 @@ function Timelinetcas() {
             <Box sx={{ width: '50%' }}>
               <img src={timelineData[1].imgPath} />
             </Box>
-            <Box sx={{ width: '50%' }}>
+            <Box
+              sx={{
+                width: '50%',
+
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center', // Center horizontally
+              }}>
               <p style={{ fontSize: '16px' }}>{timelineData[1].title}</p>
               <p style={{ fontSize: '12px' }}>{timelineData[1].subtitle}</p>
-              <Button variant='contained' href={timelineData[1].link}>
-                Contained
-              </Button>
+              <button
+                className={classes.timelinebutton}
+                href={timelineData[1].link}>
+                อ่านเพิ่มเติม
+              </button>
             </Box>
           </Box>
         </VerticalTimelineElement>
@@ -110,12 +129,21 @@ function Timelinetcas() {
             }),
           }}>
           <Box sx={{ display: 'flex', width: '100%' }}>
-            <Box sx={{ width: '50%' }}>
+            <Box
+              sx={{
+                width: '50%',
+
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center', // Center horizontally
+              }}>
               <p style={{ fontSize: '16px' }}>{timelineData[2].title}</p>
               <p style={{ fontSize: '12px' }}>{timelineData[2].subtitle}</p>
-              <Button variant='contained' href={timelineData[2].link}>
-                Contained
-              </Button>
+              <button
+                className={classes.timelinebutton}
+                href={timelineData[2].link}>
+                อ่านเพิ่มเติม
+              </button>
             </Box>
             <Box sx={{ width: '50%' }}>
               <img src={timelineData[2].imgPath} />
@@ -144,15 +172,31 @@ function Timelinetcas() {
             }),
           }}>
           <Box sx={{ display: 'flex', width: '100%' }}>
-            <Box sx={{ width: '50%' }}>
+            <Box
+              sx={{
+                width: '50%',
+
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center', // Center horizontally
+              }}>
               <img src={timelineData[3].imgPath} />
             </Box>
-            <Box sx={{ width: '50%' }}>
+            <Box
+              sx={{
+                width: '50%',
+
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center', // Center horizontally
+              }}>
               <p style={{ fontSize: '16px' }}>{timelineData[3].title}</p>
               <p style={{ fontSize: '12px' }}>{timelineData[3].subtitle}</p>
-              <Button variant='contained' href={timelineData[3].link}>
-                Contained
-              </Button>
+              <button
+                className={classes.timelinebutton}
+                href={timelineData[3].link}>
+                อ่านเพิ่มเติม
+              </button>
             </Box>
           </Box>
         </VerticalTimelineElement>

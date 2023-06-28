@@ -6,6 +6,8 @@
  * dependencies which will usually not change often enough
  * to warrant building them from scratch every time we use
  * the webpack process.
+ *
+ * @format
  */
 
 const { join } = require('path');
@@ -25,6 +27,11 @@ module.exports = require('./webpack.base.babel')({
   mode: 'development',
   context: process.cwd(),
   entry: dllConfig.dlls ? dllConfig.dlls : dllPlugin.entry(pkg),
+  resolve: {
+    fallback: {
+      constants: false,
+    },
+  },
   optimization: {
     minimize: false,
   },

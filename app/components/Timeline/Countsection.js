@@ -14,38 +14,28 @@ function Countsection() {
         <img src={imagebanner} className={classes.imgbackground} />
         <div className={classes.underimg}></div>
         <Box className={classes.textCountSection}>
-          <Box
-            sx={{
-              marginTop: 6,
-              display: 'flex',
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              gap: 6,
-              // justifyContent: 'center', // Horizontally center the content
-              justifyContent: 'space-evenly',
-              alignItems: 'center', // Vertically center the content
-            }}>
+          <Box className={classes.layouttext}>
             <Box sx={{ width: 100, textAlign: 'center' }}>
-              <Typography variant='h3'>
+              <Typography className={classes.texts}>
                 5<br />
                 คณะ
               </Typography>
             </Box>
             <Box sx={{ width: 100, textAlign: 'center' }}>
-              <Typography variant='h3'>
+              <Typography className={classes.texts}>
                 35 <br />
                 สาขา
               </Typography>
             </Box>
             <Box sx={{ width: 180, textAlign: 'center' }}>
-              <Typography variant='h3'>
+              <Typography className={classes.texts}>
                 2 <br />
                 วิทยาลัย
               </Typography>
             </Box>
             <Box sx={{ width: 180, textAlign: 'center' }}>
-              <Typography variant='h3'>
-                2239 <br />
+              <Typography className={classes.texts}>
+                2,239 <br />
                 บุคลากร
               </Typography>
             </Box>

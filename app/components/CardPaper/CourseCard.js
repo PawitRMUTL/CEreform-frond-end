@@ -19,18 +19,16 @@ const useStyles = makeStyles()((theme) => ({
 
 function Curriculum(props) {
   const {
-    temppathimg, title,
-    pathcurriculum, subtitle
+    temppathimg, title, pathcurriculum, subtitle
   } = props;
   const { classes } = useStyles();
   return (
     <Box
       sx={{
         margin: '45px 10px 40px 10px',
-        backgroundColor: 'white',
+        backgroundColor: '#F4F4F4',
         height: 260,
         width: 270,
-        boxShadow: '1px 1px 1px 1px #F1F1F1',
         borderRadius: 6,
         border: '0.5px ',
       }}>

@@ -1,7 +1,7 @@
 /** @format */
 
 import { makeStyles } from 'tss-react/mui';
-
+const orange = '#FE6F41';
 const useStyles = makeStyles()((theme) => ({
   setting: {
     width: '100%',
@@ -110,17 +110,17 @@ const useStyles = makeStyles()((theme) => ({
   },
   buttonstyles: {
     fontSize: '22px',
-    backgroundColor: '#FE6439',
+    backgroundColor: `${orange}`,
     color: '#FFFFFF',
     borderRadius: '50px',
     transition: 'transform .3s',
     '&:hover': {
-      backgroundColor: '#FE6439',
+      backgroundColor: `${orange}`,
       transform: 'scale(1.1)',
     },
     [theme.breakpoints.down('md')]: {
       backgroundColor: 'rgba(0, 0, 0, 0);',
-      color: '#FE6439',
+      color: `${orange}`,
       textDecoration: 'underline',
       '&:hover': {
         backgroundColor: 'rgba(0, 0, 0, 0);',
@@ -130,7 +130,7 @@ const useStyles = makeStyles()((theme) => ({
     [theme.breakpoints.down('sm')]: {
       fontSize: '16px',
       backgroundColor: 'rgba(0, 0, 0, 0);',
-      color: '#FE6439',
+      color: `${orange}`,
       textDecoration: 'underline',
       '&:hover': {
         backgroundColor: 'rgba(0, 0, 0, 0);',
@@ -140,17 +140,17 @@ const useStyles = makeStyles()((theme) => ({
   },
   buttonstyles1: {
     fontSize: '14px',
-    backgroundColor: '#FE6439',
+    backgroundColor: `${orange}`,
     color: '#FFFFFF',
     borderRadius: '50px',
     transition: 'transform .3s',
     '&:hover': {
-      backgroundColor: '#FE6439',
+      backgroundColor: `${orange}`,
       transform: 'scale(1.1)',
     },
     [theme.breakpoints.down('md')]: {
       backgroundColor: 'rgba(0, 0, 0, 0);',
-      color: '#FE6439',
+      color: `${orange}`,
       textDecoration: 'underline',
       '&:hover': {
         backgroundColor: 'rgba(0, 0, 0, 0);',
@@ -160,7 +160,7 @@ const useStyles = makeStyles()((theme) => ({
     [theme.breakpoints.down('sm')]: {
       fontSize: '14px',
       backgroundColor: 'rgba(0, 0, 0, 0);',
-      color: '#FE6439',
+      color: `${orange}`,
       textDecoration: 'underline',
       '&:hover': {
         backgroundColor: 'rgba(0, 0, 0, 0);',
@@ -319,17 +319,17 @@ const useStyles = makeStyles()((theme) => ({
     margin: theme.spacing(2),
     textTransform: 'uppercase',
     fontSize: '14px',
-    backgroundColor: '#FE6439',
+    backgroundColor: `${orange}`,
     color: '#FFFFFF',
     borderRadius: '50px',
     transition: 'transform .3s',
     '&:hover': {
-      backgroundColor: '#FE6439',
+      backgroundColor: `${orange}`,
       transform: 'scale(1.1)',
     },
     [theme.breakpoints.down('md')]: {
       backgroundColor: 'rgba(0, 0, 0, 0);',
-      color: '#FE6439',
+      color: `${orange}`,
       textDecoration: 'underline',
       '&:hover': {
         backgroundColor: 'rgba(0, 0, 0, 0);',
@@ -339,7 +339,7 @@ const useStyles = makeStyles()((theme) => ({
     [theme.breakpoints.down('sm')]: {
       fontSize: '16px',
       backgroundColor: 'rgba(0, 0, 0, 0);',
-      color: '#FE6439',
+      color: `${orange}`,
       textDecoration: 'underline',
       '&:hover': {
         backgroundColor: 'rgba(0, 0, 0, 0);',
@@ -356,6 +356,51 @@ const useStyles = makeStyles()((theme) => ({
     textAlign: 'center',
     padding: 20,
     color: '#FFF',
+    [theme.breakpoints.down('md')]: {
+      padding: 40,
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: 20,
+    },
+    [theme.breakpoints.down('xs')]: {
+      padding: 10,
+    },
+  },
+  texts: {
+    fontSize: '48px',
+    fontWeight: 500,
+    [theme.breakpoints.down('md')]: {
+      fontSize: '32px',
+    },
+    [theme.breakpoints.down('sm')]: { fontSize: '24px' },
+  },
+  layouttext: {
+    marginTop: 6,
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    [theme.breakpoints.down('md')]: {
+      gap: 6,
+    },
+    [theme.breakpoints.down('sm')]: {
+      justifyContent: 'space-around',
+    },
+  },
+  timelinebutton: {
+    width: '100px',
+    fontSize: '12px',
+    marginTop: '20px',
+    justifyContent: 'center',
+    backgroundColor: `${orange}`,
+    color: '#FFF',
+    borderRadius: '20px',
+    transition: 'transform .3s',
+    '&:hover': {
+      transform: 'scale(1.1)',
+    },
   },
 }));
 export default useStyles;

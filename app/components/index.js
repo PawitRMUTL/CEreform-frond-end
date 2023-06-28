@@ -32,7 +32,6 @@ export Plancards from './CardPaper/PlanCard.js';
 export CalenderEducation from './Calender/calenderedu';
 // Slider Carousel
 export AutoplayCarousel from './Animated/AutoplayCarousel';
-export HelpCard from './Animated/Help';
 // Grids aboutus
 export Gridsabout from './Grid/GridsAbout';
 export GridsLowwerBanner from './Grid/GridsLowwerBanner';

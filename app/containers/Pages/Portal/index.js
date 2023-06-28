@@ -5,7 +5,7 @@ import { Typography, Box } from '@mui/material';
 // import CalenderEdu from '../Crads/Calender_edu';
 import {
   Gridsabout,
-  // AutoplayCarousel,
+  AutoplayCarousel,
   BannerCard,
   GridsLowwerBanner,
   Timelinetcas,
@@ -72,11 +72,12 @@ function Portal() {
             color: 'transparent',
             fontWeight: 700,
             filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15))',
-            margin: '12px 0px 40px 0px',
           }}>
           เตรียมตัวก่อนเข้าเรียน
         </Typography>
-        <Plancards />
+        <div style={{ margin: '60px 0px 60px' }}>
+          <Plancards />
+        </div>
       </section>
       <Box className={classes.gotostudyplan}>
         <Loginstudy />
@@ -111,7 +112,6 @@ function Portal() {
       <Box sx={{ width: '100%', height: '388px' }}>
         <Countsection />
       </Box>
-
       {/* section Carousel start */}
       <section className={classes.section}>
         <Typography
@@ -124,17 +124,12 @@ function Portal() {
             color: 'transparent',
             fontWeight: 700,
             filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15))',
-            margin: '12px 0px 8px 0px',
+            margin: '12px 0px 24px 0px',
           }}>
           ข่าวสาร / กิจกรรม
         </Typography>
-        <Box
-          sx={{
-            width: '100%',
-            height: '600px',
-            // border: '3px solid red',
-          }}>
-          {/* <AutoplayCarousel /> */}
+        <Box className={classes.Carousel}>
+          <AutoplayCarousel />
         </Box>
       </section>
       {/* section Carousel end */}
