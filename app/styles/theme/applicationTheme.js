@@ -456,7 +456,7 @@ const applicationTheme = (color, mode, direction) => ({
           overflow: 'hidden',
           borderRadius: 8,
           boxShadow: 'none',
-          border: `1px solid ${themePalette(color, mode).palette.secondary.main}`,
+          border: `1px solid ${themePalette(color, mode).palette.primary.main}`,
         },
       }
     },
@@ -466,8 +466,8 @@ const applicationTheme = (color, mode, direction) => ({
           height: 32,
           boxShadow: 'none !important',
           '&$selected': {
-            color: themePalette(color, mode).palette.secondary.main,
-            backgroundColor: themePalette(color, mode).palette.secondary.light
+            color: themePalette(color, mode).palette.primary.main,
+            backgroundColor: themePalette(color, mode).palette.primary.light
           }
         },
       }
@@ -485,8 +485,8 @@ const applicationTheme = (color, mode, direction) => ({
           boxShadow: 'none',
           backgroundColor:
             mode === 'dark'
-              ? themePalette(color, mode).palette.secondary.dark
-              : themePalette(color, mode).palette.secondary.light,
+              ? themePalette(color, mode).palette.primary.dark
+              : themePalette(color, mode).palette.primary.light,
         },
         title: {
           padding: direction === 'rtl' ? '0 26px 0 0' : '0 0 0 26px',

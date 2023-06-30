@@ -8,7 +8,6 @@ import { ThemeContext } from './ThemeWrapper';
 import {
   Parent,
   Portal,
-  Aboutus,
   DashboardPage,
   BlankPage,
   Form,
@@ -16,6 +15,10 @@ import {
   Error,
   DemoPage,
   NotFound,
+  CECourses,
+  CalenderStudy,
+  allNew,
+  ComingSoon,
 } from '../pageListAsync';
 
 function Application(props) {
@@ -25,8 +28,10 @@ function Application(props) {
     <Dashboard history={history} changeMode={changeMode}>
       <Switch>
         <Route exact path='/' component={Portal} />
+        <Route exact path='/aboutus' component={CECourses} />
+        <Route path='/about-us/calender-study' component={CalenderStudy} />
+        <Route path='/about-us/allNew' component={allNew} />
         <Route exact path='/app/blank-page' component={BlankPage} />
-        <Route path='/app/about-us' component={Aboutus} />
         <Route path='/app/pages/dashboard' component={DashboardPage} />
         <Route path='/app/pages/form' component={Form} />
         <Route path='/app/pages/table' component={Table} />
@@ -34,6 +39,8 @@ function Application(props) {
         <Route path='/app/pages/error' component={Error} />
         <Route exact path='/app/pages' component={Parent} />
         <Route path='/app/pages/demopage' component={DemoPage} />
+        <Route path='/app/pages/ComingSoon' component={ComingSoon} />
+
         <Route component={NotFound} />
       </Switch>
     </Dashboard>

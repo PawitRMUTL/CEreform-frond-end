@@ -134,10 +134,20 @@ function UserMenu() {
         <Button
           // onClick={toggle}
           href='/login'
-          variant='contained'
+          variant='text'
           sx={{
             width: 100,
-            color: '#11111',
+            color: '#373737',
+            // backgroundColor: '#fff',
+            border: '1px solid transparent',
+            background:
+              'linear-gradient(white, white) padding-box, linear-gradient(to right, #FE6F41, #F8BA1C) border-box',
+
+            ':hover': {
+              color: '#FFF',
+              background: '#FE6F41',
+              border: '0px solid #FE6F41',
+            },
           }}>
           Login
         </Button>

@@ -6,7 +6,6 @@ const useStyles = makeStyles()(() => ({
   card: {
     maxWidth: 375,
     height: 450,
-    margin: 'auto',
   },
   boxlayouttxt: {
     padding: '0px 25px 0px 25px',

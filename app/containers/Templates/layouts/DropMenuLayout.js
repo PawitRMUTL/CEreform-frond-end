@@ -4,9 +4,8 @@ import React, { Fragment } from 'react';
 import { PropTypes } from 'prop-types';
 
 import Fade from '@mui/material/Fade';
-import Typography from '@mui/material/Typography';
 
-import { HeaderMenu, BreadCrumb } from 'dan-components';
+import { HeaderMenu } from 'dan-components';
 import dataMenu from 'dan-api/ui/menu';
 import Decoration from '../Decoration';
 import useStyles from '../appStyles-jss';
@@ -21,7 +20,7 @@ function DropMenuLayout(props) {
     deco,
     bgPosition,
     changeMode,
-    place,
+    // place,
     history,
     titleException,
     handleOpenGuide,
@@ -55,7 +54,7 @@ function DropMenuLayout(props) {
         <section className={cx(classes.mainWrap, classes.topbarLayout)}>
           {titleException.indexOf(history.location.pathname) < 0 && (
             <div className={classes.pageTitle}>
-              <Typography
+              {/* <Typography
                 component='h4'
                 className={
                   bgPosition === 'header'
@@ -69,7 +68,7 @@ function DropMenuLayout(props) {
                 separator=' / '
                 theme={bgPosition === 'header' ? 'dark' : 'light'}
                 location={history.location}
-              />
+              /> */}
             </div>
           )}
           {!pageLoaded && (

@@ -18,6 +18,11 @@ const useStyles = makeStyles()((theme) => ({
     margin: theme.spacing(10),
     // border: '2px solid red',
   },
+  sectionspce: {
+    height: '100 vh',
+    marginTop: theme.spacing(10),
+    // border: '2px solid red',
+  },
   stylesGrid: {
     marginTop: theme.spacing(5),
     // border: '4px solid red',
@@ -32,8 +37,8 @@ const useStyles = makeStyles()((theme) => ({
   Carousel: {
     width: '100%',
     height: '600px',
-    paddingLeft: '15%',
-    paddingRight: '15%',
+    paddingLeft: '5%',
+    paddingRight: '5%',
     [theme.breakpoints.down('md')]: {
       paddingLeft: '1px',
       paddingRight: '1px',

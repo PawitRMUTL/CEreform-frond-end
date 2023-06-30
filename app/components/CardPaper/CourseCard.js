@@ -4,15 +4,16 @@ import { Grid, Typography, Box } from '@mui/material';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from 'tss-react/mui';
-import { blue } from '@mui/material/colors';
 import Button from '@mui/material/Button';
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(() => ({
   cssRoot: {
-    color: theme.palette.getContrastText(blue[500]),
-    backgroundColor: blue[500],
+    color: '#FFF',
+    backgroundColor: '#FE6F41',
+    transition: 'transform .4s',
     '&:hover': {
-      backgroundColor: blue[700],
+      backgroundColor: '#FE6F41',
+      transform: 'scale(1.1)',
     },
   },
 }));
@@ -58,7 +59,6 @@ function Curriculum(props) {
         <Button
           sx={{ margin: 2 }}
           variant='contained'
-          color='primary'
           className={classes.cssRoot}
           href={pathcurriculum}>
           ดูเพิ่มเติม

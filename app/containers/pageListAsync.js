@@ -11,7 +11,16 @@ import loadable from '../utils/loadable';
 export const Portal = loadable(() => import('./Pages/Portal'), {
   fallback: <Loading />,
 });
-export const Aboutus = loadable(() => import('./Pages/Aboutus'), {
+export const CECourses = loadable(() => import('./Pages/Aboutus'), {
+  fallback: <Loading />,
+});
+export const CalenderStudy = loadable(
+  () => import('./Pages/Aboutus/CalenderStudy'),
+  {
+    fallback: <Loading />,
+  }
+);
+export const allNew = loadable(() => import('./Pages/Aboutus/ListNew'), {
   fallback: <Loading />,
 });
 export const BlankPage = loadable(() => import('./Pages/BlankPage/index'), {

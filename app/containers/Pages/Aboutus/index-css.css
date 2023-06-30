@@ -1,0 +1,79 @@
+/** @format */
+
+.section {
+  border: 2px solid red;
+  padding: 0px 5rem 0px 5rem;
+}
+article {
+  /* border: 2px solid green; */
+  height: 700;
+}
+article img {
+  width: 80px;
+  height: 80px;
+}
+.Card {
+  width: 400px;
+  height: 140px;
+  margin: 4px;
+  display: flex;
+  border-radius: 20px;
+}
+.Cardpart1 {
+  width: 30%;
+  /* // border: '2px solid black', */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 22; */
+  background-color: #bcc0c9;
+}
+.Cardpart2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 70%;
+  padding: 1rem;
+  font-size: 14px;
+  color: #373737;
+}
+button {
+  text-align: left;
+  padding: 0px;
+  margin-top: 10px;
+  color: #fe6f41;
+  font-size: 20px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  background-color: transparent;
+}
+
+.cardnewstyles {
+  display: flex;
+  justify-content: center;
+  padding-left: '2px';
+  padding-right: '2px';
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .cardnewstyles {
+    padding-left: 5px;
+    padding-right: 5px;
+    gap: 4px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .cardnewstyles {
+    padding-left: 2%;
+    padding-right: 2%;
+    gap: 15px;
+  }
+}

@@ -3,7 +3,7 @@ import { darken } from '@mui/material/styles';
 import bg from 'dan-images/petal_bg.svg';
 
 export const gradientBgLight = (theme) => `linear-gradient(-45deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.main} 33%, ${theme.palette.secondary.main} 100%);`;
-export const gradientBgDark = (theme) => `linear-gradient(-45deg, ${darken(theme.palette.primary.main, 0.4)} 0%, ${darken(theme.palette.primary.main, 0.4)} 33%, ${darken(theme.palette.secondary.main, 0.4)} 100%);`;
+export const gradientBgDark = (theme) => `linear-gradient(-45deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.main} 33%, ${theme.palette.secondary.main} 100%);`;
 
 const appFrame = {
   display: 'flex',
@@ -33,7 +33,7 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
   },
   appFrameLanding: {
     color: theme.palette.text.primary,
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.background.paper,
     minHeight: 1000,
   },
   appFrameSlider: {
@@ -45,6 +45,7 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
       position: 'absolute',
       overflow: 'hidden',
     },
+    // backgroundColor: '#fff',
     backgroundColor: theme.palette.background.default
   },
   topNav: {
@@ -78,6 +79,7 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
   bgWrap: {
     position: 'fixed',
     background: theme.palette.background.default,
+    // background: '#fff'
     width: '100%',
     height: '100%',
     top: 0,
@@ -197,8 +199,7 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
   },
   light: {},
   pageTitle: {
-    padding: theme.spacing(1),
-    paddingBottom: theme.spacing(3),
+    display: 'none',
     [theme.breakpoints.up('lg')]: {
       display: 'flex',
       justifyContent: 'space-between',

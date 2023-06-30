@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Typography, Box } from '@mui/material';
-// import CalenderEdu from '../Crads/Calender_edu';
 import {
   Gridsabout,
   AutoplayCarousel,
@@ -16,7 +15,6 @@ import {
   Loginstudy,
   Countsection,
   ShowProject,
-  // HelpCard,
 } from '../../../components';
 import useStyles from './index-jss';
 
@@ -113,7 +111,7 @@ function Portal() {
         <Countsection />
       </Box>
       {/* section Carousel start */}
-      <section className={classes.section}>
+      <section className={classes.sectionspce}>
         <Typography
           variant='h4'
           sx={{
@@ -124,7 +122,7 @@ function Portal() {
             color: 'transparent',
             fontWeight: 700,
             filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15))',
-            margin: '12px 0px 24px 0px',
+            margin: '12px 0px 36px 0px',
           }}>
           ข่าวสาร / กิจกรรม
         </Typography>

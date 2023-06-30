@@ -2,26 +2,26 @@
 
 import { makeStyles } from 'tss-react/mui';
 import { alpha, darken } from '@mui/material/styles';
-import {
-  gradientBgLight,
-  gradientBgDark,
-} from 'containers/Templates/appStyles-jss';
+// import {
+//   gradientBgLight,
+//   gradientBgDark,
+// } from 'containers/Templates/appStyles-jss';
 const drawerWidth = 240;
 const drawerBigWidth = 280;
 
 const useStyles = makeStyles()((theme, _params, classes) => ({
   appBar: {
-    background: 'rgba(0,0,0,0)',
+    background: '#F4F4F4',
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin', 'background'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     [`& .${classes.menuButton}`]: {
-      color:
-        theme.palette.mode === 'dark'
-          ? theme.palette.primary.light
-          : theme.palette.primary.main,
+      color: '#d32',
+      // theme.palette.mode === 'dark'
+      //   ? theme.palette.primary.light
+      //   : theme.palette.primary.main,
       backgroundColor: 'transparent',
       boxShadow: 'none',
       zIndex: 10,
@@ -140,6 +140,7 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     },
     [`& .${classes.menuButton}`]: {
       backgroundColor:
+        // '#f35',
         theme.palette.mode === 'dark'
           ? theme.palette.primary.main
           : theme.palette.primary.light,
@@ -150,6 +151,7 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     },
     [`&.${classes.darker}`]: {
       [`& .${classes.menuButton}`]: {
+        // color: '#dd2',
         color:
           theme.palette.mode === 'dark'
             ? theme.palette.primary.light
@@ -237,10 +239,8 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     backgroundAttachment: 'fixed',
     boxShadow: theme.shadows[3],
     [`&.${classes.gradientBg}`]: {
-      backgroundImage:
-        theme.palette.mode === 'dark'
-          ? gradientBgDark(theme)
-          : gradientBgLight(theme),
+      //
+      backgroundColor: '#f43',
     },
     [`&.${classes.solidBg}`]: {
       backgroundColor:
@@ -250,6 +250,7 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     },
     [`& .${classes.menuButton}`]: {
       color: theme.palette.common.white,
+      // color: '#F4f',
     },
   },
   fixed: {
@@ -376,9 +377,10 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
   },
   selected: {
     background: theme.palette.primary.main,
-    color: theme.palette.primary.light,
+    // color: theme.palette.primary.light,
+    color: '#FFF',
     '&:hover': {
-      background: theme.palette.primary.main,
+      background: '#FFF',
     },
     '& svg': {
       fill: theme.palette.primary.light,
@@ -533,6 +535,7 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     flexDirection: 'row-reverse',
     display: 'flex',
     alignItems: 'center',
+    // display:'none'
   },
 }));
 

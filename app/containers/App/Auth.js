@@ -6,7 +6,7 @@ import {
   Register,
   ResetPassword,
   ComingSoon,
-  Maintenance,
+  // Maintenance,
   NotFound,
 } from '../pageListAsync';
 
@@ -17,7 +17,7 @@ function Auth() {
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/reset-password" component={ResetPassword} />
-        <Route path="/maintenance" component={Maintenance} />
+        {/* <Route path="/maintenance" component={Maintenance} /> */}
         <Route path="/coming-soon" component={ComingSoon} />
         <Route component={NotFound} />
       </Switch>

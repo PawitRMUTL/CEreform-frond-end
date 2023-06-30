@@ -3,6 +3,8 @@
 import { makeStyles } from 'tss-react/mui';
 const useStyles = makeStyles()((theme) => ({
   typing: {
+    fontSize: '36px',
+    fontWeight: 500,
     [theme.breakpoints.down('sm')]: {
       fontSize: '26px',
     },
@@ -20,7 +22,7 @@ const useStyles = makeStyles()((theme) => ({
     paddingTop: 10,
     marginRight: 5,
     border: 0,
-    borderColor: '#FE6439',
+    borderColor: '#FE6F41',
     borderBottomWidth: '4px',
     borderTopWidth: 0,
     display: 'inline-block',
@@ -48,14 +50,36 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   Button: {
-    backgroundColor: '#FE6439',
+    fontFamily: 'Noto Sans Thai',
+    backgroundColor: '#FE6F41',
     width: 130,
     height: 45,
     fontSize: '14px',
     transition: 'transform .3s',
+    borderRadius: 20,
+    color: '#FFF',
     '&:hover': {
-      backgroundColor: '#FE6439',
+      backgroundColor: '#FE6F41',
       transform: 'scale(1.1)',
+    },
+    [theme.breakpoints.down('md')]: {
+      backgroundColor: 'rgba(0, 0, 0, 0);',
+      color: '#FE6F41',
+      textDecoration: 'underline',
+      '&:hover': {
+        backgroundColor: 'rgba(0, 0, 0, 0);',
+        transform: 'scale(1.1)',
+      },
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '16px',
+      backgroundColor: 'rgba(0, 0, 0, 0);',
+      color: '#FE6F41',
+      textDecoration: 'underline',
+      '&:hover': {
+        backgroundColor: 'rgba(0, 0, 0, 0);',
+        transform: 'scale(1.1)',
+      },
     },
   },
   ButtonRightWhatislooking: {

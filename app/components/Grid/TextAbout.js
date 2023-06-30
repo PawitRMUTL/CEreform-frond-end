@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Typewriter from 'typewriter-effect';
-import { Typography, Button, Box } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import useStyles from './GridsAbout-jss';
 function TextAbout() {
   const { classes } = useStyles();
@@ -13,11 +13,11 @@ function TextAbout() {
         <div className={classes.divider}></div>
         <div className={classes.txtstyle}>เกี่ยวกับวิศวกรรมคอมพิวเตอร์</div>
       </div>
-      <Typography
-        variant='h4'
-        sx={{
+      <div
+        style={{
           marginTop: 2,
           marginBottom: 2,
+          fontSize: 36,
         }}
         className={classes.typing}>
         <Typewriter
@@ -33,7 +33,7 @@ function TextAbout() {
               .start();
           }}
         />
-      </Typography>
+      </div>
       <Typography
         style={{
           fontSize: '18px',
@@ -51,12 +51,12 @@ function TextAbout() {
         และอุปกรณ์ที่ใช้คอมพิวเตอร์ให้สามารถทำงานร่วมกันได้อย่างมีประสิทธิภาพ
       </Typography>
       <Box className={classes.buttonstyles}>
-        <Button
+        <button
           variant='contained'
           className={classes.Button}
           href='/app/about-us'>
           รู้จักเรามากขึ้น
-        </Button>
+        </button>
       </Box>
     </div>
   );

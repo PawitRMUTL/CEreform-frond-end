@@ -10,11 +10,11 @@ import { IoChevronBackSharp, IoChevronForwardSharp } from 'react-icons/io5';
 import GuideData from '../../api/dummy/guideData';
 import useStyles from './index-jss';
 import divider from '../../../public/images/divider.svg';
+import './index-css.css';
 
 function AutoplayCarousel() {
   const { classes } = useStyles();
   const [activeItemIndex, setActiveItemIndex] = React.useState(0);
-  const chevronWidth = 40;
 
   const handleSlideChange = (index) => {
     setActiveItemIndex(index);
@@ -51,16 +51,28 @@ function AutoplayCarousel() {
   };
 
   return (
-    <div style={{ padding: `0 ${chevronWidth}px` }}>
+    <div className='layout'>
       <ItemsCarousel
         requestToChangeActive={handleSlideChange}
         activeItemIndex={activeItemIndex}
         numberOfCards={getNumberOfCards()}
         gutter={getGutter()}
         outsideChevron
-        chevronWidth={chevronWidth}
-        leftChevron={<IoChevronBackSharp />}
-        rightChevron={<IoChevronForwardSharp />}
+        chevronWidth={40}
+        leftChevron={
+          <button className='button'>
+            <div className='iconstyles'>
+              <IoChevronBackSharp />
+            </div>
+          </button>
+        }
+        rightChevron={
+          <button className='button'>
+            <div className='iconstylesr'>
+              <IoChevronForwardSharp />
+            </div>
+          </button>
+        }
         // autoPlay={true}
         infiniteLoop={true}>
         {Object.values(GuideData).map((data) => (
@@ -106,6 +118,18 @@ function AutoplayCarousel() {
           </Card>
         ))}
       </ItemsCarousel>
+      <div
+        style={{
+          marginTop: '3%',
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          flexGrow: 'initial',
+        }}>
+        <Button variant='outlined' className={classes.buttonlayout}>
+          อ่านเพิ่มเติม
+        </Button>
+      </div>
     </div>
   );
 }

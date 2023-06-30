@@ -54,11 +54,9 @@ function Timelinetcas() {
               }}>
               <p style={{ fontSize: '16px' }}>{timelineData[0].title}</p>
               <p style={{ fontSize: '12px' }}>{timelineData[0].subtitle}</p>
-              <button
-                href={timelineData[0].link}
-                className={classes.timelinebutton}>
+              <a href={timelineData[0].link} className={classes.timelinebutton}>
                 อ่านเพิ่มเติม
-              </button>
+              </a>
             </Box>
             <Box sx={{ width: '50%' }}>
               <img src={timelineData[0].imgPath} />
@@ -100,11 +98,9 @@ function Timelinetcas() {
               }}>
               <p style={{ fontSize: '16px' }}>{timelineData[1].title}</p>
               <p style={{ fontSize: '12px' }}>{timelineData[1].subtitle}</p>
-              <button
-                className={classes.timelinebutton}
-                href={timelineData[1].link}>
+              <a className={classes.timelinebutton} href={timelineData[1].link}>
                 อ่านเพิ่มเติม
-              </button>
+              </a>
             </Box>
           </Box>
         </VerticalTimelineElement>
@@ -139,11 +135,9 @@ function Timelinetcas() {
               }}>
               <p style={{ fontSize: '16px' }}>{timelineData[2].title}</p>
               <p style={{ fontSize: '12px' }}>{timelineData[2].subtitle}</p>
-              <button
-                className={classes.timelinebutton}
-                href={timelineData[2].link}>
+              <a className={classes.timelinebutton} href={timelineData[2].link}>
                 อ่านเพิ่มเติม
-              </button>
+              </a>
             </Box>
             <Box sx={{ width: '50%' }}>
               <img src={timelineData[2].imgPath} />
@@ -192,11 +186,9 @@ function Timelinetcas() {
               }}>
               <p style={{ fontSize: '16px' }}>{timelineData[3].title}</p>
               <p style={{ fontSize: '12px' }}>{timelineData[3].subtitle}</p>
-              <button
-                className={classes.timelinebutton}
-                href={timelineData[3].link}>
+              <a className={classes.timelinebutton} href={timelineData[3].link}>
                 อ่านเพิ่มเติม
-              </button>
+              </a>
             </Box>
           </Box>
         </VerticalTimelineElement>

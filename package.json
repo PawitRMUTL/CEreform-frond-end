@@ -164,6 +164,7 @@
     "minimist": "^1.2.5",
     "moment": "^2.29.4",
     "mui-datatables": "^4.3.0",
+    "multer": "^1.4.5-lts.1",
     "node-localstorage": "^2.2.1",
     "node-sass": "^8.0.0",
     "organism-react-scroll-nav": "^0.15.0",
@@ -222,7 +223,7 @@
     "sweetalert2": "^11.7.11",
     "terser-webpack-plugin": "^5.3.1",
     "tunnel-agent": "^0.6.0",
-    "typewriter-effect": "^2.19.0",
+    "typewriter-effect": "^2.20.1",
     "url-loader": "^4.1.1",
     "warning": "4.0.2",
     "workbox-webpack-plugin": "^6.5.4"

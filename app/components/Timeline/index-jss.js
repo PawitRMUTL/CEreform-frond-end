@@ -4,6 +4,7 @@ import { makeStyles } from 'tss-react/mui';
 const orange = '#FE6F41';
 const useStyles = makeStyles()((theme) => ({
   setting: {
+    fontFamily: 'Noto Sans Thai',
     width: '100%',
     height: '380px',
     overflow: 'hidden',
@@ -109,6 +110,7 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   buttonstyles: {
+    fontFamily: 'Noto Sans Thai',
     fontSize: '22px',
     backgroundColor: `${orange}`,
     color: '#FFFFFF',
@@ -139,6 +141,7 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   buttonstyles1: {
+    fontFamily: 'Noto Sans Thai',
     fontSize: '14px',
     backgroundColor: `${orange}`,
     color: '#FFFFFF',
@@ -191,6 +194,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   /// BannerCuuri
   bannercurriroot: {
+    fontFamily: 'Noto Sans Thai',
     height: '770px',
     position: 'relative',
     // overflow:'hie
@@ -390,9 +394,14 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   timelinebutton: {
+    fontFamily: 'Noto Sans Thai',
     width: '100px',
+    height: '30px',
+    padding: 6,
+    textDecoration: 'none',
     fontSize: '12px',
     marginTop: '20px',
+    textAlign: 'center',
     justifyContent: 'center',
     backgroundColor: `${orange}`,
     color: '#FFF',

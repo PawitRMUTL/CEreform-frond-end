@@ -1,9 +1,5 @@
 /** @format */
 
-* {
-  transition: all 0.3s ease-out;
-}
-
 html,
 body {
   height: 100%;
@@ -27,8 +23,13 @@ span {
   color: #666666;
 }
 
-span.small {
+.small {
   font-size: 14px;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 320px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 span.year {
