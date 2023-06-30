@@ -1,5 +1,6 @@
 {
-  "name": "dandelion_pro",
+  "homepage": "http:///PawitRMUTL.github.io/CEreform-frond-end",
+  "name": "CE-REFORM",
   "version": "2.5.0",
   "description": "React website tempate with focus on perfomance and design",
   "private": true,
@@ -7,9 +8,11 @@
     "npm": ">=6.12.0",
     "node": ">=12.13.0"
   },
-  "author": "Dandelion Pro Team",
+  "author": "Pawit",
   "license": "Envato Regular License",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
     "analyze": "node ./internals/scripts/analyze.js",
@@ -264,6 +267,7 @@
     "eslint-webpack-plugin": "2.6.0",
     "eventsource-polyfill": "0.9.6",
     "exports-loader": "0.7.0",
+    "gh-pages": "^5.0.0",
     "happypack": "^5.0.1",
     "html-loader": "0.5.5",
     "imports-loader": "0.8.0",
