@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useEffect, useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { makeStyles } from 'tss-react/mui';
@@ -38,14 +40,14 @@ const useStyles = makeStyles()((theme) => ({
     transition: 'all .5s',
     margin: '0 -10px',
     '& pre': {
-      paddingTop: '80px !important'
-    }
+      paddingTop: '80px !important',
+    },
   },
   preloader: {
     position: 'absolute',
     top: 36,
     left: 0,
-    width: '100%'
+    width: '100%',
   },
   open: {
     height: 'auto',
@@ -70,9 +72,9 @@ const useStyles = makeStyles()((theme) => ({
       '& span': {
         marginRight: 5,
         top: 3,
-        position: 'relative'
-      }
-    }
+        position: 'relative',
+      },
+    },
   },
   toggleContainer: {
     height: 56,
@@ -84,22 +86,19 @@ const useStyles = makeStyles()((theme) => ({
       color: '#000 !important',
       '&:hover': {
         background: 'rgba(255, 255, 255, 0.4) !important',
-      }
+      },
     },
   },
 }));
 
 function SourceReader(props) {
   const { classes, cx } = useStyles();
-  const {
-    componentName,
-    mode
-  } = props;
+  const { componentName, mode } = props;
   const [raws, setRaws] = useState([]);
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [style, setStyle] = useState(mode);
-
+  console.log('styles :' + style);
   const sourceOpen = () => {
     setLoading(true);
   };
@@ -110,7 +109,7 @@ function SourceReader(props) {
 
   useEffect(() => {
     if (loading) {
-      Axios.get(url + componentName).then(result => {
+      Axios.get(url + componentName).then((result) => {
         setRaws(result.data.records);
         setLoading(false);
       });
@@ -120,45 +119,52 @@ function SourceReader(props) {
   }, [loading]);
 
   SyntaxHighlighter.registerLanguage('jsx', jsx);
-  if (!codePreview.enable) { return false; }
+  if (!codePreview.enable) {
+    return false;
+  }
   return (
     <div>
-      <Button onClick={sourceOpen} color="secondary" className={classes.button} size="small">
-        { open ? (
+      <Button
+        onClick={sourceOpen}
+        color='secondary'
+        className={classes.button}
+        size='small'>
+        {open ? (
           <Close className={cx(classes.leftIcon, classes.iconSmall)} />
         ) : (
           <Code className={cx(classes.leftIcon, classes.iconSmall)} />
         )}
-        { open ? 'Hide Code' : 'Show Code' }
+        {open ? 'Hide Code' : 'Show Code'}
       </Button>
-      <section dir="ltr" className={cx(classes.source, open ? classes.open : '')}>
+      <section
+        dir='ltr'
+        className={cx(classes.source, open ? classes.open : '')}>
         <div className={classes.src}>
           <Typography>
-            <Icon className="description">description</Icon>
+            <Icon className='description'>description</Icon>
             src/app/
             {componentName}
           </Typography>
           <div className={classes.toggleContainer}>
             <ToggleButtonGroup value={style} exclusive onChange={handleStyle}>
-              <ToggleButton value="light">
-                Light
-              </ToggleButton>
-              <ToggleButton value="dark">
-                Dark
-              </ToggleButton>
+              <ToggleButton value='light'>Light</ToggleButton>
+              <ToggleButton value='dark'>Dark</ToggleButton>
             </ToggleButtonGroup>
           </div>
         </div>
         {loading && (
-          <LinearProgress color="secondary" className={classes.preloader} />
+          <LinearProgress color='secondary' className={classes.preloader} />
         )}
-        {raws.map((raw, index) => ([
+        {raws.map((raw, index) => [
           <div key={index.toString()}>
-            <SyntaxHighlighter language="jsx" style={style === 'dark' ? darkStyle : lightStyle} showLineNumbers="true">
+            <SyntaxHighlighter
+              language='jsx'
+              style={style === 'dark' ? darkStyle : lightStyle}
+              showLineNumbers='true'>
               {raw.source.toString()}
             </SyntaxHighlighter>
-          </div>
-        ]))}
+          </div>,
+        ])}
       </section>
     </div>
   );
@@ -170,12 +176,10 @@ SourceReader.propTypes = {
   mode: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = state => ({
-  mode: state.ui.type
+const mapStateToProps = (state) => ({
+  mode: state.ui.type,
 });
 
-const AppMapped = connect(
-  mapStateToProps,
-)(SourceReader);
+const AppMapped = connect(mapStateToProps)(SourceReader);
 
 export default AppMapped;
