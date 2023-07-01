@@ -155,7 +155,7 @@ function TemplateSettings(props) {
     <aside
       className={cx(
         classes.settingSidebar,
-        layout === 'right-sidebar' ? classes.leftSidebar : classes.rightSidebar,
+        layout === 'right-sidebar',
         show && classes.expanded
       )}>
       <div className={classes.toggleButton}>
