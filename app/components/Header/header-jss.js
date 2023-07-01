@@ -381,6 +381,7 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     color: '#FFF',
     '&:hover': {
       background: '#FFF',
+      color: '#000',
     },
     '& svg': {
       fill: theme.palette.primary.light,

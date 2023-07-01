@@ -122,7 +122,7 @@ function Portal() {
             color: 'transparent',
             fontWeight: 700,
             filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15))',
-            margin: '12px 0px 36px 0px',
+            margin: '0px 0px 36px 0px',
           }}>
           ข่าวสาร / กิจกรรม
         </Typography>

@@ -6,13 +6,13 @@ const lightPalette = {
       primary: {
         light: '#F4F4F4',
         main: '#E49615',
-        dark: '#01579B',
+        dark: '#373737',
         contrastText: '#fff',
       },
       secondary: {
         light: '#F4F4F4',
         main: '#E49615',
-        dark: '#01579B',
+        dark: '#373737',
         contrastText: '#fff',
       },
     },

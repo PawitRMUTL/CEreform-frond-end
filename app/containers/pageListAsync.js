@@ -3,7 +3,6 @@
  *
  * @format
  */
-
 import React from 'react';
 import Loading from 'dan-components/Loading';
 import loadable from '../utils/loadable';
@@ -21,6 +20,9 @@ export const CalenderStudy = loadable(
   }
 );
 export const allNew = loadable(() => import('./Pages/Aboutus/ListNew'), {
+  fallback: <Loading />,
+});
+export const personal = loadable(() => import('./Pages/Personal'), {
   fallback: <Loading />,
 });
 export const BlankPage = loadable(() => import('./Pages/BlankPage/index'), {

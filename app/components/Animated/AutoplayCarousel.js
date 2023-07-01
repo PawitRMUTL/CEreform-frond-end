@@ -126,7 +126,10 @@ function AutoplayCarousel() {
           justifyContent: 'center',
           flexGrow: 'initial',
         }}>
-        <Button variant='outlined' className={classes.buttonlayout}>
+        <Button
+          variant='outlined'
+          href='/about-us/allNew'
+          className={classes.buttonlayout}>
           อ่านเพิ่มเติม
         </Button>
       </div>

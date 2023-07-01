@@ -19,6 +19,7 @@ import {
   CalenderStudy,
   allNew,
   ComingSoon,
+  personal,
 } from '../pageListAsync';
 
 function Application(props) {
@@ -29,6 +30,7 @@ function Application(props) {
       <Switch>
         <Route exact path='/' component={Portal} />
         <Route exact path='/aboutus' component={CECourses} />
+        <Route exact path='/personal' component={personal} />
         <Route path='/about-us/calender-study' component={CalenderStudy} />
         <Route path='/about-us/allNew' component={allNew} />
         <Route exact path='/app/blank-page' component={BlankPage} />
@@ -40,7 +42,6 @@ function Application(props) {
         <Route exact path='/app/pages' component={Parent} />
         <Route path='/app/pages/demopage' component={DemoPage} />
         <Route path='/app/pages/ComingSoon' component={ComingSoon} />
-
         <Route component={NotFound} />
       </Switch>
     </Dashboard>

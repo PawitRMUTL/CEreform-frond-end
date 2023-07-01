@@ -1,6 +1,7 @@
 /** @format */
 * {
   font-family: 'Noto Sans Thai';
+  transition: ease-in-out 1ms;
 }
 .button {
   border-radius: 40px;
@@ -18,4 +19,3 @@
 .iconstylesr {
   margin-top: -5px;
 }
-

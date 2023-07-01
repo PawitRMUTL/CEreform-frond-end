@@ -41,7 +41,7 @@ module.exports = [
     key: 'presonal',
     name: 'งานบริหาร',
     icon: 'ion-ios-contact-outline',
-    linkParent: '/app/a',
+    linkParent: '/personal',
   },
   {
     key: 'course',

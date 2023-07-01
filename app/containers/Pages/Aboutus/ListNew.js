@@ -20,9 +20,6 @@ function allNew() {
     setName(name + 3);
   };
   const countData = GuideData.slice(0, `${name}`);
-  // const countData = GuideData;
-  console.log('GuideData : ' + GuideData);
-  console.log('countData  = ' + countData);
 
   return (
     <>

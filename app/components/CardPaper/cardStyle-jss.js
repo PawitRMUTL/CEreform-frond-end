@@ -373,6 +373,13 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     padding: 10,
     justifyContent: 'space-around',
     gap: theme.spacing(4),
+    [theme.breakpoints.down('md')]: {
+      gap: theme.spacing(8),
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: 0,
+      gap: theme.spacing(5),
+    },
   },
   styletxt: {
     // border: '3px solid red',

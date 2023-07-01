@@ -1,20 +1,22 @@
+/** @format */
+
 const darkPalette = {
   blueCyanTheme: {
     palette: {
       primary: {
-        light: '#E0F7FA',
-        main: '#00BCD4',
-        dark: '#00838F',
+        light: '#F4F4F4',
+        main: '#E49615',
+        dark: '#373737',
         contrastText: '#fff',
       },
       secondary: {
-        light: '#E1F5FE',
-        main: '#039BE5',
-        dark: '#01579B',
+        light: '#F4F4F4',
+        main: '#E49615',
+        dark: '#373737',
         contrastText: '#fff',
       },
     },
-  }
+  },
 };
 
 export default darkPalette;

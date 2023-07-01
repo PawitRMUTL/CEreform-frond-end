@@ -1,9 +1,11 @@
+/** @format */
+
 import lightPalette from './lightPalette';
-import darkPalette from './darkPalette';
+// import darkPalette from './darkPalette';
 
 const themePalette = (color, mode) => {
   if (mode === 'dark') {
-    return darkPalette[color];
+    return lightPalette[color];
   }
   return lightPalette[color];
 };

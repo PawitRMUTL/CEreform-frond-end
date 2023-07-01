@@ -10,17 +10,20 @@ const useStyles = makeStyles()((theme) => ({
       marginTop: '-14%',
     },
     [theme.breakpoints.down('sm')]: {
-      marginTop: '-25%',
+      marginTop: '-10%',
     },
   },
   section: {
     height: '100 vh',
-    margin: theme.spacing(10),
+    margin: theme.spacing(5),
+    [theme.breakpoints.down('sm')]: {
+      margin: theme.spacing(1),
+    },
     // border: '2px solid red',
   },
   sectionspce: {
     height: '100 vh',
-    marginTop: theme.spacing(10),
+    marginTop: theme.spacing(5),
     // border: '2px solid red',
   },
   stylesGrid: {

@@ -1,12 +1,21 @@
 /** @format */
 
 .section {
-  border: 2px solid red;
-  padding: 0px 5rem 0px 5rem;
+  /* border: 2px solid red; */
+  padding: 1rem 3rem 0px 3rem;
+  /* gap: 20px; */
+  transition: ease-in-out 2s;
+  font-family: 'Noto Sans Thai';
 }
 article {
   /* border: 2px solid green; */
+  padding: 2px;
   height: 700;
+  /* border: 1px solid goldenrod; */
+  gap: 20px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 article img {
   width: 80px;
@@ -39,12 +48,12 @@ article img {
   color: #373737;
 }
 button {
+  font-family: 'Noto Sans Thai';
   text-align: left;
   padding: 0px;
   margin-top: 10px;
   color: #fe6f41;
-  font-size: 20px;
-  font-family: Inter;
+  font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -67,6 +76,21 @@ button {
     padding-right: 5px;
     gap: 4px;
   }
+  article {
+    height: 700;
+    gap: 10px;
+    display: flex;
+    flex-shrink: 1;
+    /* justify-content: space-evenly; */
+    flex-wrap: wrap;
+  }
+  .Card {
+    width: 320px;
+    height: 140px;
+    margin: 4px;
+    display: flex;
+    border-radius: 20px;
+  }
 }
 
 /* Mobile Styles */
@@ -75,5 +99,17 @@ button {
     padding-left: 2%;
     padding-right: 2%;
     gap: 15px;
+  }
+  article {
+    height: 700;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .section {
+    padding: 1rem 1rem 0px 1rem;
+    transition: ease-in-out 2s;
+    font-family: 'Noto Sans Thai';
   }
 }
