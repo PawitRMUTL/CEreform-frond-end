@@ -4,7 +4,7 @@ import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()((theme) => ({
   root: {
-    marginTop: '-11%',
+    marginTop: '-4%',
     fontFamily: 'Noto Sans Thai',
     [theme.breakpoints.down('md')]: {
       marginTop: '-14%',

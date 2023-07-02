@@ -20,7 +20,6 @@ function allNew() {
     setName(name + 3);
   };
   const countData = GuideData.slice(0, `${name}`);
-
   return (
     <>
       <Box

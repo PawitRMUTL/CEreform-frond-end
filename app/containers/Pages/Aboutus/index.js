@@ -5,38 +5,37 @@ import axios from 'axios';
 
 function CECourses() {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [uploadStatus, setUploadStatus] = useState('');
+  const [fileName, setFileName] = useState('');
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
+    setFileName(event.target.files[0].name);
   };
 
-  const handleFormSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-
     const formData = new FormData();
-    formData.append('file', selectedFile);
-
-    try {
-      await axios.post('http://0.0.0.0:3200/api/uploadfilePDF', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+    formData.append('pdf-file', selectedFile, encodeURI(fileName));
+    formData.append('owner', '007');
+    // formData.append('doc_type', document_ce);
+    console.log(formData);
+    console.log('File Name in formData:', formData.get('pdf-file').name); // Logging the file name in formData
+    axios
+      .post('http://0.0.0.0:3200/api/uploadfilePDF', formData)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
-      setUploadStatus('ไฟล์ PDF อัปโหลดเรียบร้อยแล้ว');
-    } catch (error) {
-      console.error('เกิดข้อผิดพลาดในการอัปโหลดไฟล์ PDF:', error);
-      setUploadStatus('เกิดข้อผิดพลาดในการอัปโหลดไฟล์ PDF');
-    }
   };
 
   return (
     <div>
       <h2>TEST</h2>
-      {uploadStatus && <p>{uploadStatus}</p>}
-      <form onSubmit={handleFormSubmit}>
-        <input type='file' accept='.pdf' onChange={handleFileChange} />
-        <button type='submit'>อัปโหลด</button>
+      <form onSubmit={handleSubmit}>
+        <input type='file' onChange={handleFileChange} accept='.pdf' />
+        <button type='submit'>Upload</button>
       </form>
     </div>
   );

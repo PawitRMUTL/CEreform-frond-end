@@ -1,6 +1,7 @@
 /** @format */
 
 import React from 'react';
+
 import { Box, Card, Typography } from '@mui/material';
 import './index-css.css';
 import PDF from '../../../../public/images/pdf.png';
