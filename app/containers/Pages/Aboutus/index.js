@@ -15,11 +15,12 @@ function CECourses() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData();
-    formData.append('pdf-file', selectedFile, encodeURI(fileName));
-    formData.append('owner', '007');
-    // formData.append('doc_type', document_ce);
-    console.log(formData);
-    console.log('File Name in formData:', formData.get('pdf-file').name); // Logging the file name in formData
+    formData.append('pdf-file', selectedFile, fileName);
+    formData.append('owner', 'admin');
+    formData.append('type', 'cooperative');
+    formData.append('year', 2562);
+    // console.log(formData);
+    // console.log('File Name in formData:', formData.get('pdf-file').name); // Logging the file name in formData
     axios
       .post('http://0.0.0.0:3200/api/uploadfilePDF', formData)
       .then((response) => {

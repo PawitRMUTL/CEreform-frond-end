@@ -1,12 +1,34 @@
 /** @format */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Box, Card, Typography } from '@mui/material';
+import axios from 'axios';
 import './index-css.css';
 import PDF from '../../../../public/images/pdf.png';
 
 function CalenderStudy() {
+  const [namefile, Setnamefile] = useState();
+  const [checkvalue, Setcheckvalue] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get('http://0.0.0.0:3200/api/GetfilePFD')
+      .then((response) => {
+        if (checkvalue === false) {
+          Setcheckvalue(true);
+          Setnamefile(response.data);
+          console.log('namefile is กำลังทำจ้า', namefile);
+          console.log('เปลี่ยนเป็น ', checkvalue, 'แล้วนะ');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [checkvalue]);
+  console.log('data is:', namefile);
+  const RawdataFile = namefile;
+  console.log('Raw : ', RawdataFile);
   return (
     <>
       <header>
@@ -36,33 +58,6 @@ function CalenderStudy() {
               <button>Download file</button>
             </div>
           </Card>
-          <Card className='Card'>
-            <div className='Cardpart1'>
-              <img src={PDF} />
-            </div>
-            <div className='Cardpart2'>
-              <Typography>ปฎิทินการศึกษาประจำปีการศึกษา 2566</Typography>
-              <button>Download file</button>
-            </div>
-          </Card>
-          <Card className='Card'>
-            <div className='Cardpart1'>
-              <img src={PDF} />
-            </div>
-            <div className='Cardpart2'>
-              <Typography>ปฎิทินการศึกษาประจำปีการศึกษา 2565</Typography>
-              <button>Download file</button>
-            </div>
-          </Card>
-          <Card className='Card'>
-            <div className='Cardpart1'>
-              <img src={PDF} />
-            </div>
-            <div className='Cardpart2'>
-              <Typography>ปฎิทินการศึกษาประจำปีการศึกษา 2564</Typography>
-              <button>Download file</button>
-            </div>
-          </Card>
         </article>
       </section>
       <section className='section'>
@@ -76,15 +71,6 @@ function CalenderStudy() {
             </div>
             <div className='Cardpart2'>
               <Typography>ปฎิทินการศึกษาประจำปีการศึกษา 2566/1</Typography>
-              <button>Download file</button>
-            </div>
-          </Card>
-          <Card className='Card'>
-            <div className='Cardpart1'>
-              <img src={PDF} />
-            </div>
-            <div className='Cardpart2'>
-              <Typography>ปฎิทินการศึกษาประจำปีการศึกษา 2566/2</Typography>
               <button>Download file</button>
             </div>
           </Card>
