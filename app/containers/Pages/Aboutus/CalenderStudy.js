@@ -7,11 +7,6 @@ import axios from 'axios';
 import './index-css.css';
 import PDF from '../../../../public/images/pdf.png';
 
-function onSubmit(id, year) {
-  console.log('id : ', id);
-  console.log('year : ', year);
-}
-
 function CalenderStudy() {
   const [namefile, Setnamefile] = useState([]);
   const [checkvalue, Setcheckvalue] = useState(false);
@@ -37,6 +32,21 @@ function CalenderStudy() {
 
   const slicedFileTypeNormal = FileTypeNormal.slice(0, 4);
   const slicedFileTypeCooper = FileTypeCooper.slice(0, 2);
+
+  const Submit = (filename) => {
+    // using Java Script method to get PDF file
+    fetch(filename).then((response) => {
+      response.blob().then((blob) => {
+        // Creating new object of PDF file
+        const fileURL = window.URL.createObjectURL(blob);
+        // Setting various property values
+        const alink = document.createElement('a');
+        alink.href = fileURL;
+        alink.download = filename;
+        alink.click();
+      });
+    });
+  };
 
   return (
     <>
@@ -68,7 +78,7 @@ function CalenderStudy() {
                   <Typography>
                     ปฎิทินการศึกษาประจำปีการศึกษา {data.year}
                   </Typography>
-                  <button onClick={() => onSubmit(data.id, data.year)}>
+                  <button onClick={() => Submit(data.file_name)}>
                     Download file
                   </button>
                 </div>
@@ -92,7 +102,7 @@ function CalenderStudy() {
                     ปฎิทินการโครงการพัฒนาทักษะวิชาชีพของนักศึกษาประจำปีการศึกษา
                     {data.year}
                   </Typography>
-                  <button onClick={() => onSubmit(data.id, data.year)}>
+                  <button onClick={() => Submit(data.file_name)}>
                     Download file
                   </button>
                 </div>
