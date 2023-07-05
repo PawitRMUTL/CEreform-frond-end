@@ -18,7 +18,7 @@ function CECourses() {
     formData.append('pdf-file', selectedFile, fileName);
     formData.append('owner', 'admin');
     formData.append('type', 'cooperative');
-    formData.append('year', 2562);
+    formData.append('year', 2599);
     // console.log(formData);
     // console.log('File Name in formData:', formData.get('pdf-file').name); // Logging the file name in formData
     axios

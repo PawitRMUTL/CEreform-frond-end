@@ -7,28 +7,37 @@ import axios from 'axios';
 import './index-css.css';
 import PDF from '../../../../public/images/pdf.png';
 
+function onSubmit(id, year) {
+  console.log('id : ', id);
+  console.log('year : ', year);
+}
+
 function CalenderStudy() {
-  const [namefile, Setnamefile] = useState();
+  const [namefile, Setnamefile] = useState([]);
   const [checkvalue, Setcheckvalue] = useState(false);
 
   useEffect(() => {
-    axios
-      .get('http://0.0.0.0:3200/api/GetfilePFD')
-      .then((response) => {
-        if (checkvalue === false) {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://0.0.0.0:3200/api/GetfilePFD');
+        if (!checkvalue) {
           Setcheckvalue(true);
           Setnamefile(response.data);
-          console.log('namefile is กำลังทำจ้า', namefile);
-          console.log('เปลี่ยนเป็น ', checkvalue, 'แล้วนะ');
         }
-      })
-      .catch((error) => {
+      } catch (error) {
         console.log(error);
-      });
+      }
+    };
+
+    fetchData();
   }, [checkvalue]);
-  console.log('data is:', namefile);
-  const RawdataFile = namefile;
-  console.log('Raw : ', RawdataFile);
+
+  const FileTypeNormal = namefile.filter((data) => data.type === 'normal');
+  const FileTypeCooper = namefile.filter((data) => data.type === 'cooperative');
+
+  const slicedFileTypeNormal = FileTypeNormal.slice(0, 4);
+  const slicedFileTypeCooper = FileTypeCooper.slice(0, 2);
+
   return (
     <>
       <header>
@@ -49,31 +58,46 @@ function CalenderStudy() {
       <section className='section'>
         <Typography variant='h6'>ดาวน์โหลดปฏิทินการศึกษา</Typography>
         <article>
-          <Card className='Card'>
-            <div className='Cardpart1'>
-              <img src={PDF} />
-            </div>
-            <div className='Cardpart2'>
-              <Typography>ปฎิทินการศึกษาประจำปีการศึกษา 2566</Typography>
-              <button>Download file</button>
-            </div>
-          </Card>
+          {slicedFileTypeNormal && Object.values(slicedFileTypeNormal).map((data) => (
+              <Card className='Card' key={data.id}>
+                <div className='Cardpart1'>
+                  <img src={PDF} />
+                </div>
+                <div className='Cardpart2'>
+                  {/* <Typography>{data.file_name}</Typography> */}
+                  <Typography>
+                    ปฎิทินการศึกษาประจำปีการศึกษา {data.year}
+                  </Typography>
+                  <button onClick={() => onSubmit(data.id, data.year)}>
+                    Download file
+                  </button>
+                </div>
+              </Card>
+            ))}
         </article>
       </section>
       <section className='section'>
         <Typography variant='h6'>
-          ดาวน์โหลดปฏิทินการโครงการพัฒนาทักษะวิชาชีพของนักศึกษา-ปีการศึกษา-2566
+          ดาวน์โหลดปฏิทินการโครงการพัฒนาทักษะวิชาชีพของนักศึกษา
         </Typography>
         <article>
-          <Card className='Card'>
-            <div className='Cardpart1'>
-              <img src={PDF} />
-            </div>
-            <div className='Cardpart2'>
-              <Typography>ปฎิทินการศึกษาประจำปีการศึกษา 2566/1</Typography>
-              <button>Download file</button>
-            </div>
-          </Card>
+          {slicedFileTypeCooper && Object.values(slicedFileTypeCooper).map((data) => (
+              <Card className='Card' key={data.id}>
+                <div className='Cardpart1'>
+                  <img src={PDF} />
+                </div>
+                <div className='Cardpart2'>
+                  {/* <Typography>{data.file_name}</Typography> */}
+                  <Typography>
+                    ปฎิทินการโครงการพัฒนาทักษะวิชาชีพของนักศึกษาประจำปีการศึกษา
+                    {data.year}
+                  </Typography>
+                  <button onClick={() => onSubmit(data.id, data.year)}>
+                    Download file
+                  </button>
+                </div>
+              </Card>
+            ))}
         </article>
       </section>
     </>
