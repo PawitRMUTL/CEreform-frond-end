@@ -11,7 +11,7 @@ function BannerCard() {
         <img
           // src='./images/test-gif.gif'
           src={imagebanner}
-          style={{ width: '100%' }}
+          style={{ width: '100%', objectFit: 'cover' }}
         />
       </div>
     </>

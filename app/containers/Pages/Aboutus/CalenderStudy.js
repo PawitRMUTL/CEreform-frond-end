@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 import { Box, Card, Typography } from '@mui/material';
 import axios from 'axios';
-import './index-css.css';
+import './styles.css';
 import PDF from '../../../../public/images/pdf.png';
 
 function CalenderStudy() {

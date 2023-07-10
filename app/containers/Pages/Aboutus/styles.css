@@ -1,7 +1,7 @@
 /** @format */
 
 .section {
-  /* border: 2px solid red; */
+  border: 2px solid red;
   padding: 1rem 3rem 0px 3rem;
   /* gap: 20px; */
   transition: ease-in-out 2s;
@@ -67,6 +67,11 @@ button {
   padding-right: '2px';
   gap: 20px;
   flex-wrap: wrap;
+}
+
+.imgsyles {
+  width: 780px;
+  object-fit: cover;
 }
 
 /* Tablet Styles */

@@ -41,6 +41,9 @@ export Bannerregis from './Timeline/Bannerregis';
 export Bannercurri from './Timeline/Bannercurri';
 export Loginstudy from './Timeline/Loginstudy';
 export Countsection from './Timeline/Countsection';
+//  Subject
+export Basicsubject from './Subject/basicSubject';
+export FutureCareerSubport from './Subject/futureCareerSubport';
 // Project
 export ShowProject from './ProjectSystem';
 // Footer

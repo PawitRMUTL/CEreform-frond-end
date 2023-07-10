@@ -9,7 +9,7 @@ import divider from '../../../../public/images/divider.svg';
 import GuideData from '../../../api/dummy/guideData';
 import useStyles from './index-jss';
 import { Footer } from '../../../components';
-import './index-css.css';
+import './styles.css';
 // function count() {
 //   const [numberRow, SetnumberRow] = React.useState();
 // }
@@ -69,6 +69,7 @@ function allNew() {
                   justifyContent: 'end',
                 }}>
                 <Button
+                  href='/about-us/detail'
                   variant='text'
                   size='medium'
                   style={{ color: '#FE6439' }}>
