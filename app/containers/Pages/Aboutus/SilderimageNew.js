@@ -37,19 +37,19 @@ function showimage() {
         <Slider {...mainCarouselSettings} ref={mainCarouselRef}>
           <div>
             <img
-              src='http://via.placeholder.com/1050x700/C6FF00/767676/'
+              src='http://via.placeholder.com/1050x700/9D4646/FFFFFF/'
               alt='Slide 1'
             />
           </div>
           <div>
             <img
-              src='http://via.placeholder.com/1050x700/044920/767676/'
+              src='http://via.placeholder.com/1050x700/044920/FFFFFF/'
               alt='Slide 2'
             />
           </div>
           <div>
             <img
-              src='http://via.placeholder.com/1050x700/005800/767676/'
+              src='http://via.placeholder.com/1050x700/005800/FFFFFF/'
               alt='Slide 3'
             />
           </div>
@@ -60,19 +60,19 @@ function showimage() {
           <Slider {...thumbnailCarouselSettings}>
             <div onClick={() => handleThumbnailClick(0)}>
               <img
-                src='http://via.placeholder.com/1050x700/C6FF00/767676/'
+                src='http://via.placeholder.com/1050x700/9D4646/FFFFFF/'
                 alt='Thumbnail 1'
               />
             </div>
             <div onClick={() => handleThumbnailClick(1)}>
               <img
-                src='http://via.placeholder.com/1050x700/044920/767676/'
+                src='http://via.placeholder.com/1050x700/044920/FFFFFF/'
                 alt='Thumbnail 2'
               />
             </div>
             <div onClick={() => handleThumbnailClick(2)}>
               <img
-                src='http://via.placeholder.com/1050x700/005800/767676/'
+                src='http://via.placeholder.com/1050x700/005800/FFFFFF/'
                 alt='Thumbnail 3'
               />
             </div>

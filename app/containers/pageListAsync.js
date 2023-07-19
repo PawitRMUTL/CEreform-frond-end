@@ -6,7 +6,11 @@
 import React from 'react';
 import Loading from 'dan-components/Loading';
 import loadable from '../utils/loadable';
-//
+// Createfrom
+export const Createfrom = loadable(() => import('./Pages/Aboutus/CreateFrom'), {
+  fallback: <Loading />,
+});
+// test
 export const Portal = loadable(() => import('./Pages/Portal'), {
   fallback: <Loading />,
 });

@@ -9,6 +9,7 @@ import iconsub5 from '../../../public/images/basicsubject/005-archittec.png';
 import iconsub6 from '../../../public/images/basicsubject/006-comnet.png';
 import iconsub7 from '../../../public/images/basicsubject/007-Datasecurity.png';
 import iconsub8 from '../../../public/images/basicsubject/008-SA.png';
+import iconsub9 from '../../../public/images/basicsubject/009-operatingSystem.png';
 
 function Basicsubject() {
   return (
@@ -75,7 +76,7 @@ function Basicsubject() {
           </div>
         </div>
         <div className='stylesbasicsubject'>
-          <img src={iconsub8} />
+          <img src={iconsub9} />
           <div className='txtstyles'>
             <span>Operating System</span>
             <span>ระบบปฏิบัติการ</span>

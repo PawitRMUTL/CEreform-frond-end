@@ -1,0 +1,18 @@
+/** @format */
+
+.button {
+  border-radius: 40px;
+  width: 25px;
+  height: 35px;
+  padding-left: 10px;
+}
+.layout {
+  padding: 0px 2px 0px 2px;
+}
+.iconstyles {
+  margin-top: -5px;
+  margin-left: -2px;
+}
+.iconstylesr {
+  margin-top: -5px;
+}

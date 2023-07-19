@@ -1,7 +1,7 @@
 /** @format */
 
 .section {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   padding: 1rem 3rem 0px 3rem;
   /* gap: 20px; */
   transition: ease-in-out 2s;
@@ -10,7 +10,7 @@
 article {
   /* border: 2px solid green; */
   padding: 2px;
-  height: 700;
+  /* height: 700; */
   /* border: 1px solid goldenrod; */
   gap: 20px;
   display: flex;

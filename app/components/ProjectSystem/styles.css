@@ -1,0 +1,240 @@
+/** @format */
+
+html,
+body {
+  height: 100%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  width: 480px;
+  height: 157px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+span {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #666666;
+}
+
+.small {
+  font-size: 14px;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 320px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+span.year {
+  font-size: 14px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 1rem;
+}
+.title {
+  padding-top: 1rem;
+  color: #262626;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  text-overflow: ellipsis;
+  max-width: 320px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.go-corner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100px;
+  height: 32px;
+  overflow: hidden;
+  font-size: 12px;
+  top: 0;
+  right: 0;
+  background-color: #fe6439;
+  border-radius: 0 10px 0 10px;
+}
+.go-corner-Hardwere {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100px;
+  height: 32px;
+  overflow: hidden;
+  font-size: 12px;
+  top: 0;
+  right: 0;
+  background-color: #0d7af9;
+  border-radius: 0 10px 0 10px;
+}
+.go-corner-Hybrid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100px;
+  height: 32px;
+  overflow: hidden;
+  font-size: 12px;
+  top: 0;
+  right: 0;
+  background-color: #49bf00;
+  border-radius: 0 10px 0 10px;
+}
+.go-arrow {
+  margin-top: -4px;
+  margin-right: -4px;
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card1 {
+  display: block;
+  position: relative;
+  max-width: 380px;
+  background-color: #f4f4f4;
+  border-radius: 14px;
+  padding: 32px 24px;
+  margin: 12px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* border: 2px solid black; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card1:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -16px;
+  right: -16px;
+  background: #fe6439;
+  width: 100px;
+  height: 32px;
+  border-radius: 32px;
+  transform: scale(1);
+  transform-origin: 20% 45%;
+  transition: transform 0.5s ease-out;
+}
+
+.card1:hover:before {
+  transform: scale(21);
+}
+
+.card1:hover span {
+  transition: all 0.3s ease-out;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.card1:hover .title {
+  transition: all 0.3s ease-out;
+  color: #ffffff;
+}
+/* Card 2 */
+.card2 {
+  display: block;
+  position: relative;
+  max-width: 380px;
+  background-color: #f4f4f4;
+  border-radius: 14px;
+  padding: 32px 24px;
+  margin: 12px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* border: 2px solid black; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card2:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -16px;
+  right: -16px;
+  background: #0d7af9;
+  width: 100px;
+  height: 32px;
+  border-radius: 32px;
+  transform: scale(1);
+  transform-origin: 20% 45%;
+  transition: transform 0.5s ease-out;
+}
+
+.card2:hover:before {
+  transform: scale(21);
+}
+
+.card2:hover span {
+  transition: all 0.3s ease-out;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.card2:hover .title {
+  transition: all 0.3s ease-out;
+  color: #ffffff;
+}
+
+/* Card 3 */
+
+.card3 {
+  display: block;
+  position: relative;
+  max-width: 380px;
+  background-color: #f4f4f4;
+  border-radius: 14px;
+  padding: 32px 24px;
+  margin: 12px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* border: 2px solid black; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card3:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -16px;
+  right: -16px;
+  background: #49bf00;
+  width: 100px;
+  height: 32px;
+  border-radius: 32px;
+  transform: scale(1);
+  transform-origin: 20% 45%;
+  transition: transform 0.5s ease-out;
+}
+
+.card3:hover:before {
+  transform: scale(21);
+}
+
+.card3:hover span {
+  transition: all 0.3s ease-out;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.card3:hover .title {
+  transition: all 0.3s ease-out;
+  color: #ffffff;
+}

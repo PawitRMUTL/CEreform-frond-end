@@ -160,6 +160,7 @@ const useStyles = makeStyles()((theme) => ({
     lineHeight: 1,
     padding: theme.spacing(2),
     borderRight: ' 2px solid #F5F5F5',
+
     [theme.breakpoints.down('sm')]: {
       width: '52%',
       borderRight: ' 0px solid #F5F5F5',
@@ -191,6 +192,11 @@ const useStyles = makeStyles()((theme) => ({
     bottom: 0,
     opacity: 0.1,
     padding: 10,
+    '&hover :': {
+      width: '80px',
+      height: '80px',
+      overflow: 'hidden',
+    },
   },
   waltxtstlye: {
     height: '22px',

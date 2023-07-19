@@ -1,6 +1,6 @@
 /** @format */
 
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
 import useStyles from './index-jss';
 import plan from '../../../public/images/studyplan/backgroundstudyplan.jpg';
@@ -16,7 +16,9 @@ function Loginstudy() {
           สำหรับ นักศึกษามหาวิทยาลัยราชมงคลล้านนาเชียงใหม่
         </Typography>
 
-        <button className={classes.buttonstylesgotostudtplan}>get start</button>
+        <Button className={classes.buttonstylesgotostudtplan} href='/login'>
+          get start
+        </Button>
       </Box>
       <Box className={classes.underimgstudyplan}></Box>
       <img src={plan} className={classes.imgbackgroundlogin} />

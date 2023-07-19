@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import freshy from '../../../public/images/freshy.jpg';
 import useStyles from './index-jss';
 
@@ -15,7 +15,11 @@ function Bannerregis() {
         <Box className={classes.setboxtext}>
           สมัครเรียนเพื่อเป็นส่วนหนึ่งของครอบครัว CPE กับเรา
           <div className={classes.buttonRegis}>
-            <button className={classes.buttonstyles}>ลงทะเบียน Entrance</button>
+            <Button
+              href='https://entrance.rmutl.ac.th/main/?fbclid=IwAR3TYzoBX5n7Q0fwD1DGhnfpL3KooHjPiVNXx9vNtCA2o7ZoCARp5-ydh4g'
+              className={classes.buttonstyles}>
+              ลงทะเบียน Entrance
+            </Button>
           </div>
         </Box>
         <Box className={classes.txtpayterm}>
@@ -26,7 +30,7 @@ function Bannerregis() {
             <div className={classes.subtxtpayterm}>
               *ค่าธรรมเนียมการศึกษาอาจมีการเปลี่ยนแปลง
             </div>
-            <button className={classes.buttonstyles1}>อ่านเพิ่มเติม</button>
+            <Button className={classes.buttonstyles1}>อ่านเพิ่มเติม</Button>
           </Box>
         </Box>
       </Box>

@@ -6,7 +6,7 @@ import { AiOutlineEye } from 'react-icons/ai';
 
 import Sliderimage from './SilderimageNew';
 import './styles.css';
-
+import { Footer, Fromcontentnew } from '../../../components';
 function newdetail() {
   return (
     <>
@@ -32,11 +32,20 @@ function newdetail() {
           <Sliderimage />
         </div>
       </section>
-      <section>
-        <div>
+      <section className='section' style={{ marginTop: '-4%' }}>
+        <div
+          style={{
+            width: '100%',
+            border: '2px solid red',
+            marginBottom: '3px',
+          }}>
           <Typography>Test</Typography>
         </div>
+        <Fromcontentnew />
       </section>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }

@@ -63,11 +63,11 @@ const useStyles = makeStyles()((theme) => ({
   },
   txticon: {
     zIndex: 1,
-    width: 300,
+    width: 350,
     // border: '2px solid red',
     paddingTop: 2,
     [theme.breakpoints.down('md')]: {
-      width: 300,
+      width: 350,
     },
   },
   txtstlye: {

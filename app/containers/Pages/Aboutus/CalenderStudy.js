@@ -6,6 +6,7 @@ import { Box, Card, Typography } from '@mui/material';
 import axios from 'axios';
 import './styles.css';
 import PDF from '../../../../public/images/pdf.png';
+import { Footer } from '../../../components';
 
 function CalenderStudy() {
   const [namefile, Setnamefile] = useState([]);
@@ -110,6 +111,9 @@ function CalenderStudy() {
             ))}
         </article>
       </section>
+      <footer style={{ marginTop: '2%' }}>
+        <Footer />
+      </footer>
     </>
   );
 }

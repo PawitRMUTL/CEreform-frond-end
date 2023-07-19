@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Typewriter from 'typewriter-effect';
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, Button } from '@mui/material';
 import useStyles from './GridsAbout-jss';
 function TextAbout() {
   const { classes } = useStyles();
@@ -51,12 +51,9 @@ function TextAbout() {
         และอุปกรณ์ที่ใช้คอมพิวเตอร์ให้สามารถทำงานร่วมกันได้อย่างมีประสิทธิภาพ
       </Typography>
       <Box className={classes.buttonstyles}>
-        <button
-          variant='contained'
-          className={classes.Button}
-          href='/app/about-us'>
+        <Button variant='contained' className={classes.Button} href='/aboutus'>
           รู้จักเรามากขึ้น
-        </button>
+        </Button>
       </Box>
     </div>
   );

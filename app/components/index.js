@@ -16,6 +16,7 @@ export LoginForm from './Forms/LoginForm';
 export RegisterForm from './Forms/RegisterForm';
 export ResetForm from './Forms/ResetForm';
 export Notification from './Notification/Notification';
+export MaterialDropZone from './Forms/MaterialDropZone';
 // Table
 export EmptyData from './Tables/EmptyData';
 // Error
@@ -46,5 +47,7 @@ export Basicsubject from './Subject/basicSubject';
 export FutureCareerSubport from './Subject/futureCareerSubport';
 // Project
 export ShowProject from './ProjectSystem';
+// From
+export Fromcontentnew from './FromContent/Fromcontentnew';
 // Footer
 export Footer from './Footer';

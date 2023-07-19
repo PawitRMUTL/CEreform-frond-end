@@ -37,6 +37,8 @@ function Portal() {
         </div>
         <div style={{ marginTop: '2%' }}>
           <Bannerregis />
+        </div>
+        <div id='timeline'>
           <Typography
             variant='h4'
             sx={{
@@ -53,7 +55,10 @@ function Portal() {
             }}>
             การรับสมัครเรียนเรียน
           </Typography>
+
           <Timelinetcas />
+        </div>
+        <div id='curiculum'>
           <Bannercurri />
         </div>
       </section>
@@ -82,7 +87,7 @@ function Portal() {
       </Box>
       {/* section studyplan end */}
       {/* section Project start */}
-      <section className={classes.section}>
+      <section className={classes.section} id='project'>
         <Typography
           variant='h4'
           sx={{

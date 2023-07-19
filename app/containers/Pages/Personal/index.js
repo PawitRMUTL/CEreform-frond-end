@@ -5,8 +5,7 @@ import { Box, Card, Grid } from '@mui/material';
 import Button from '@mui/material/Button';
 import { makeStyles } from 'tss-react/mui';
 import Modal from '@mui/material/Modal';
-
-import './index-css.css';
+import './styles.css';
 
 function getModalStyle() {
   const top = 50;

@@ -10,7 +10,7 @@ import { IoChevronBackSharp, IoChevronForwardSharp } from 'react-icons/io5';
 import GuideData from '../../api/dummy/guideData';
 import useStyles from './index-jss';
 import divider from '../../../public/images/divider.svg';
-import './index-css.css';
+import './styles.css';
 
 function AutoplayCarousel() {
   const { classes } = useStyles();

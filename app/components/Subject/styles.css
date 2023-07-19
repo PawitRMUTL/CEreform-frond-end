@@ -33,7 +33,23 @@
 }
 .Career {
   margin-top: 3%;
+  padding: 20;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20;
 }
+.CareerSubject {
+  display: grid;
+  row-gap: 2em;
+}
+
+.CareerCard {
+  padding: 10px;
+  width: 309px;
+  height: 40px;
+}
+
 /* Tablet Styles */
 @media (max-width: 768px) {
   .rootbasicsubject {
@@ -52,6 +68,18 @@
   .stylesbasicsubject:nth-child(2) {
     /* border-left: 1px solid rgb(184, 184, 184);*/
     border-right: 0px solid rgb(184, 184, 184);
+  }
+  .CareerSubject {
+    margin-top: 2ch;
+    display: grid;
+  }
+  .CareerSubjectlast {
+    display: contents;
+  }
+  .CareerCardlast {
+    width: 309px;
+    height: 40px;
+    margin-bottom: 30px;
   }
 }
 

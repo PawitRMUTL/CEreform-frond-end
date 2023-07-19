@@ -2,8 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import './index-css.css';
+import './styles.css';
 
 function ShowHybrid(props) {
   const {
