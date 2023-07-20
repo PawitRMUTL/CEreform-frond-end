@@ -9,8 +9,10 @@ import './styles.css';
 import { Footer, Fromcontentnew } from '../../../components';
 function newdetail() {
   return (
-    <>
-      <section className='section'>
+    <div>
+      <section
+        className='section'
+        style={{ paddingLeft: '15%', paddingRight: '15%' }}>
         {/* topic in text */}
         <Typography variant='h3' fontWeight={500}>
           Topic : Lorem Ipsum
@@ -32,7 +34,9 @@ function newdetail() {
           <Sliderimage />
         </div>
       </section>
-      <section className='section' style={{ marginTop: '-4%' }}>
+      <section
+        className='section'
+        style={{ marginTop: '-4%', paddingLeft: '15%', paddingRight: '15%' }}>
         <div
           style={{
             width: '100%',
@@ -46,7 +50,7 @@ function newdetail() {
       <footer>
         <Footer />
       </footer>
-    </>
+    </div>
   );
 }
 

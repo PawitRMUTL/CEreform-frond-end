@@ -1,12 +1,12 @@
 /** @format */
 
 import { Card, Typography, Box } from '@mui/material';
-
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import divider from '../../../../public/images/divider.svg';
-import GuideData from '../../../api/dummy/guideData';
+// import GuideData from '../../../api/dummy/guideData';
 import useStyles from './index-jss';
 import { Footer } from '../../../components';
 import './styles.css';
@@ -15,11 +15,32 @@ import './styles.css';
 // }
 function allNew() {
   const { classes } = useStyles();
-  const [name, setName] = React.useState(6);
-  const count = () => {
-    setName(name + 3);
-  };
-  const countData = GuideData.slice(0, `${name}`);
+  const [newList, SetnewList] = useState([]);
+  const [checkvalue, Setcheckvalue] = useState(false);
+  // const [idNewimage, SetidNewimage] = useState();
+  // const [name, setName] = React.useState(6);
+  // const count = () => {
+  //   setName(name + 3);
+  // };
+  // const countData = GuideData.slice(0, `${name}`);
+  // const valueID = (id) => {
+  //   SetidNewimage(id);
+  // };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://0.0.0.0:3200/api/GetNewlist');
+        if (!checkvalue) {
+          Setcheckvalue(true);
+          SetnewList(response.data);
+        }
+      } catch (error) {
+        console.log('error fetchData is ', error);
+      }
+    };
+
+    fetchData();
+  }, [checkvalue]);
   return (
     <>
       <Box
@@ -37,9 +58,12 @@ function allNew() {
         ข่าวสาร
       </Box>
       <div className='cardnewstyles'>
-        {Object.values(countData).map((data) => (
-          <Card className={classes.card} key={data.id}>
-            <div className={classes.imgstytes}>
+        {Object.values(newList).map((data) => (
+          <Card className={classes.card} key={data.news_id}>
+            <div
+              className={classes.imgstytes}
+              // onChange={() => valueID(data.news_id)}
+            >
               <img src={data.imgPath} />
             </div>
             <Box className={classes.boxlayouttxt}>
@@ -51,17 +75,17 @@ function allNew() {
                 }}>
                 <img src={divider} />
                 <Typography className={classes.textdate}>
-                  {data.date}
+                  {data.news_date}
                 </Typography>
               </Box>
               <Typography className={classes.texttitle}>
-                {data.title}
+                {data.news_heading}
               </Typography>
               <Typography
                 variant='body2'
                 color='text.secondary'
                 className={classes.textlable}>
-                {data.label}
+                {data.news_name}
               </Typography>
               <Box
                 sx={{
@@ -102,7 +126,8 @@ function allNew() {
               animation: 'pulse 1s infinite',
             },
           }}
-          onClick={count}>
+          // onClick={count}
+        >
           อ่านเพิ่มเติม
         </Button>
       </div>

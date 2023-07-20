@@ -12,7 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import Snackbar from '@mui/material/Snackbar';
 import CloudUpload from '@mui/icons-material/CloudUpload';
 import 'dan-styles/vendors/react-dropzone/react-dropzone.css';
-import isImage from '../../containers/Pages/Aboutus/helpers/helpers.js';
+import isImage from './helpers/helpers.js';
 
 const useStyles = makeStyles()((theme) => ({
   dropItem: {
@@ -114,7 +114,8 @@ function MaterialDropZone(props) {
   };
 
   const Previews = ({ filesArray }) => filesArray.map((file, index) => {
-      const base64Img = URL.createObjectURL(file);
+    const base64Img = URL.createObjectURL(file);
+    // console.log(base64Img);
       if (isImage(file)) {
         return (
           <div key={index.toString()}>
