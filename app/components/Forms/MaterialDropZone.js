@@ -163,7 +163,7 @@ function MaterialDropZone(props) {
         formData.append(`image${index}`, file);
         // console.log(`Appended image${index}:`, file);
       });
-      formData.append('id_owner ', 99999);
+      formData.append('id_owner ', 10);
          axios
          .post('http://0.0.0.0:3200/api/uploadimageNew', formData)
            .then((response) => {

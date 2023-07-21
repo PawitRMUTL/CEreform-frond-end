@@ -3,29 +3,31 @@
 import { Card, Typography, Box } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import Button from '@mui/material/Button';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import divider from '../../../../public/images/divider.svg';
-// import GuideData from '../../../api/dummy/guideData';
 import useStyles from './index-jss';
 import { Footer } from '../../../components';
 import './styles.css';
-// function count() {
-//   const [numberRow, SetnumberRow] = React.useState();
-// }
 function allNew() {
   const { classes } = useStyles();
+  const navigate = useHistory();
+  const [imageDATA, setImageDATA] = useState([]);
   const [newList, SetnewList] = useState([]);
   const [checkvalue, Setcheckvalue] = useState(false);
-  // const [idNewimage, SetidNewimage] = useState();
-  // const [name, setName] = React.useState(6);
-  // const count = () => {
-  //   setName(name + 3);
-  // };
-  // const countData = GuideData.slice(0, `${name}`);
-  // const valueID = (id) => {
-  //   SetidNewimage(id);
-  // };
+  useEffect(() => {
+    if (newList !== undefined) {
+      // let ImageValue;
+      const promises = Object.values(newList).map((data) => import(`../../ImageNew/${data.filename}`).then((image) => image.default));
+      Promise.all(promises).then((imagePaths) => {
+        const ImageValue = [];
+        imagePaths.forEach((index) => ImageValue.push(index));
+        setImageDATA(ImageValue);
+      });
+    }
+  }, [newList]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -41,6 +43,13 @@ function allNew() {
 
     fetchData();
   }, [checkvalue]);
+  function valueID(id) {
+    const value = id;
+    // console.log(value);
+    // window.location.href = '/about-us/detail';
+    navigate.push('/about-us/detail', { news_id: value });
+  }
+
   return (
     <>
       <Box
@@ -58,13 +67,14 @@ function allNew() {
         ข่าวสาร
       </Box>
       <div className='cardnewstyles'>
-        {Object.values(newList).map((data) => (
+        {Object.values(newList).map((data, index) => (
           <Card className={classes.card} key={data.news_id}>
-            <div
-              className={classes.imgstytes}
-              // onChange={() => valueID(data.news_id)}
-            >
-              <img src={data.imgPath} />
+            <div className={classes.imgstytes}>
+              <img
+                src={imageDATA[index]}
+                style={{ height: 260, objectFit: 'cover' }}
+              />
+              {/* <img style={{ height: 260 }} /> */}
             </div>
             <Box className={classes.boxlayouttxt}>
               <Box
@@ -93,10 +103,11 @@ function allNew() {
                   justifyContent: 'end',
                 }}>
                 <Button
-                  href='/about-us/detail'
+                  // href='/about-us/detail'
                   variant='text'
                   size='medium'
-                  style={{ color: '#FE6439' }}>
+                  style={{ color: '#FE6439' }}
+                  onClick={() => valueID(data.news_id)}>
                   อ่านต่อ
                   <KeyboardArrowRight />
                 </Button>
@@ -131,7 +142,6 @@ function allNew() {
           อ่านเพิ่มเติม
         </Button>
       </div>
-
       <Footer />
     </>
   );

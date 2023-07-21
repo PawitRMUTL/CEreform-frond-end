@@ -3,11 +3,13 @@
 import React from 'react';
 import { Typography } from '@mui/material';
 import { AiOutlineEye } from 'react-icons/ai';
-
+import { useLocation } from 'react-router-dom';
 import Sliderimage from './SilderimageNew';
 import './styles.css';
 import { Footer, Fromcontentnew } from '../../../components';
 function newdetail() {
+  const location = useLocation();
+  console.log(location.state.news_id);
   return (
     <div>
       <section

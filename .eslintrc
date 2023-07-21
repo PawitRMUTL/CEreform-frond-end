@@ -21,6 +21,7 @@
     "indent": [0, 0, { "SwitchCase": 1 }],
     "no-console": 0,
     "no-alert": 0,
+    "useless": 0,
     "id-length": 0,
     "no-script-url": 0,
     "import/no-extraneous-dependencies": 0,

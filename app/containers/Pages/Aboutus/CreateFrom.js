@@ -21,8 +21,23 @@ function Createfrom() {
   };
   // console.log(imageData);
 
+  // const [imageName, setImageName] = useState('image1.png'); // Default image name
+
+  // const handleChangeImage = (event) => {
+  //   setImageName(event.target.value);
+  // };
+
+  // // Import the image dynamically based on the imageName variable
+  // const image = require(`../images/'${imageName}'`);
+
   return (
     <>
+      {/* <div> */}
+      {/* <img src={image.default} alt='Image' /> */}
+
+      {/* Input field to change the dynamic part of the image name */}
+      {/* <input type='text' value={imageName} onChange={handleChangeImage} /> */}
+      {/* </div> */}
       <div>
         <MaterialDropZone
           acceptedFiles={['image/jpeg', 'image/png', 'image/bmp']}
