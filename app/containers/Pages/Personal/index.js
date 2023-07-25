@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-import { Box, Card, Grid } from '@mui/material';
+import { Box, Card } from '@mui/material';
 import Button from '@mui/material/Button';
 import { makeStyles } from 'tss-react/mui';
 import Modal from '@mui/material/Modal';
@@ -72,54 +72,91 @@ function personal() {
 
       <section className='section'>
         <article>
-          <Box sx={{ flexGrow: 1 }}>
-            <Grid
-              container
-              spacing={{ xs: 2, md: 3 }}
-              columns={{ xs: 2, sm: 8, md: 12 }}>
-              {Array.from(Array(16)).map((_, index) => (
-                <Grid item xs={2} sm={4} md={4} key={index}>
-                  <Card className='Card'>
-                    <img src='/images/avatars/pp_boy2.svg' />
-                    <h2>John Dose </h2>
-                    <h4>
-                      จอน เดดด <br />
-                      Johndo@gmail.com
-                    </h4>
-                    <div>
-                      <Button
-                        type='button'
-                        onClick={handleOpen}
-                        sx={{
-                          color: '#FE6F41',
-                          background:
-                            'linear-gradient(white, white) padding-box, linear-gradient(to right, #FE6F41, #F8BA1C) border-box',
-                          borderRadius: '50em',
-                          border: '1px solid transparent',
-                          '&:hover': {
-                            background: 'linear-gradient(#FE6F41, #F8BA1C)',
-                            color: '#FFF',
-                            border: '1px solid',
-                          },
-                        }}>
-                        อ่านเพิ่มเติม
-                      </Button>
-                      <Modal
-                        open={open}
-                        onClose={handleClose}
-                        aria-labelledby='simple-modal-title'
-                        aria-describedby='simple-modal-description'>
-                        {body}
-                      </Modal>
-                    </div>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-          </Box>
+          {Array.from(Array(16)).map((_, index) => (
+            <Card className='Card' key={index}w>
+              <img src='/images/avatars/pp_boy2.svg' />
+              <h2>John Dose </h2>
+              <h4>
+                จอน เดดด <br />
+                Johndo@gmail.com
+              </h4>
+              <div>
+                <Button
+                  type='button'
+                  onClick={handleOpen}
+                  sx={{
+                    color: '#FE6F41',
+                    background:
+                      'linear-gradient(white, white) padding-box, linear-gradient(to right, #FE6F41, #F8BA1C) border-box',
+                    borderRadius: '50em',
+                    border: '1px solid transparent',
+                    '&:hover': {
+                      background: 'linear-gradient(#FE6F41, #F8BA1C)',
+                      color: '#FFF',
+                      border: '1px solid',
+                    },
+                  }}>
+                  อ่านเพิ่มเติม
+                </Button>
+                <Modal
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby='simple-modal-title'
+                  aria-describedby='simple-modal-description'>
+                  {body}
+                </Modal>
+              </div>
+            </Card>
+          ))}
         </article>
       </section>
     </>
   );
 }
 export default personal;
+
+// {
+//   <Grid
+//               container
+//               spacing={{ xs: 2, md: 6 }}
+//               columns={{ xs: 2, sm: 8, md: 12 }}>
+//               {Array.from(Array(16)).map((_, index) => (
+//                 <Grid item xs={2} sm={4} md={4} key={index}>
+//                   <Card className='Card'>
+//                     <img src='/images/avatars/pp_boy2.svg' />
+//                     <h2>John Dose </h2>
+//                     <h4>
+//                       จอน เดดด <br />
+//                       Johndo@gmail.com
+//                     </h4>
+//                     <div>
+//                       <Button
+//                         type='button'
+//                         onClick={handleOpen}
+//                         sx={{
+//                           color: '#FE6F41',
+//                           background:
+//                             'linear-gradient(white, white) padding-box, linear-gradient(to right, #FE6F41, #F8BA1C) border-box',
+//                           borderRadius: '50em',
+//                           border: '1px solid transparent',
+//                           '&:hover': {
+//                             background: 'linear-gradient(#FE6F41, #F8BA1C)',
+//                             color: '#FFF',
+//                             border: '1px solid',
+//                           },
+//                         }}>
+//                         อ่านเพิ่มเติม
+//                       </Button>
+//                       <Modal
+//                         open={open}
+//                         onClose={handleClose}
+//                         aria-labelledby='simple-modal-title'
+//                         aria-describedby='simple-modal-description'>
+//                         {body}
+//                       </Modal>
+//                     </div>
+//                   </Card>
+//                 </Grid>
+//               ))}
+//             </Grid>
+// }

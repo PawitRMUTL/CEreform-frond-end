@@ -21,10 +21,11 @@ const useStyles = makeStyles()(() => ({
     textAlign: 'left',
     lineHeight: '20px',
     width: '100%',
-    height: '82px',
+    height: '100px',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'normal',
+    // border: '2px solid red',
   },
   textdate: {
     textAlign: 'left',

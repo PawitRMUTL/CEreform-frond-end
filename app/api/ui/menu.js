@@ -26,13 +26,13 @@ module.exports = [
       {
         key: 'calender',
         name: 'ปฏิทินการศึกษา',
-        link: '/about-us/calender-study',
+        link: '/aboutus/calender-study',
         icon: 'ion-ios-home-outline',
       },
       {
         key: 'new',
         name: 'ข่าวสาร',
-        link: '/about-us/allNew',
+        link: '/aboutus/allNew',
         icon: 'ion-ios-home-outline',
       },
     ],

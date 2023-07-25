@@ -33,9 +33,9 @@ function Application(props) {
         <Route exact path='/' component={Portal} />
         <Route exact path='/aboutus' component={CECourses} />
         <Route exact path='/personal' component={personal} />
-        <Route path='/about-us/calender-study' component={CalenderStudy} />
-        <Route exact path='/about-us/allNew' component={allNew} />
-        <Route path='/about-us/detail' component={newdetail} />
+        <Route path='/aboutus/calender-study' component={CalenderStudy} />
+        <Route exact path='/aboutus/allNew' component={allNew} />
+        <Route path='/aboutus/detail' component={newdetail} />
         <Route path='/test' component={Createfrom} />
         <Route exact path='/app/blank-page' component={BlankPage} />
         <Route path='/app/pages/dashboard' component={DashboardPage} />

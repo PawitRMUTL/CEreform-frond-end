@@ -16,6 +16,12 @@ function allNew() {
   const [imageDATA, setImageDATA] = useState([]);
   const [newList, SetnewList] = useState([]);
   const [checkvalue, Setcheckvalue] = useState(false);
+  const [viewValue, SetviewValue] = useState(null);
+
+  useEffect(() => {
+    console.log('viewValue : ', viewValue);
+  }, [viewValue]);
+
   useEffect(() => {
     if (newList !== undefined) {
       // let ImageValue;
@@ -44,12 +50,11 @@ function allNew() {
     fetchData();
   }, [checkvalue]);
   function valueID(id) {
-    const value = id;
+    SetviewValue(viewValue + 1);
     // console.log(value);
     // window.location.href = '/about-us/detail';
-    navigate.push('/about-us/detail', { news_id: value });
+    navigate.push('/aboutus/detail', { news_id: id });
   }
-
   return (
     <>
       <Box
@@ -116,7 +121,7 @@ function allNew() {
           </Card>
         ))}
       </div>
-      <div
+      {/* <div
         style={{
           display: 'flex',
           justifyContent: 'center',
@@ -141,7 +146,7 @@ function allNew() {
         >
           อ่านเพิ่มเติม
         </Button>
-      </div>
+      </div> */}
       <Footer />
     </>
   );

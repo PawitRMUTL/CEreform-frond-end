@@ -1,13 +1,55 @@
 /** @format */
 
-import React, { useRef } from 'react';
-import Slider from 'react-slick';
+import React, { useRef, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
+import Slider from 'react-slick';
+import axios from 'axios';
 // Import the CSS styles for react-slick
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-function showimage() {
+import useStyles from './index-jss';
+function showimage(props) {
+  const { classes } = useStyles();
   const mainCarouselRef = useRef(null);
+  const { idNews } = props;
+  const [imageDATA, setImageDATA] = useState([]);
+  const [imageresponse, Setimageresponse] = useState([]);
+
+  useEffect(() => {
+    if (idNews !== undefined) {
+      // console.log('idNews', idNews);
+      const fetchData = async () => {
+        try {
+          const response = await axios.post(
+            'http://0.0.0.0:3200/api/Getimagesnews',
+            { id: idNews }
+          );
+          // console.log(response);
+          Setimageresponse(response.data);
+        } catch (error) {
+          console.log('error fetchData is'.error);
+        }
+      };
+
+      fetchData();
+    }
+  }, [idNews]);
+
+  useEffect(() => {
+    if (imageresponse !== undefined) {
+      // let ImageValue;
+      const promises = Object.values(imageresponse).map((data) => import(`../../ImageNew/${data.filename}`).then((image) => image.default));
+      Promise.all(promises).then((imagePaths) => {
+        const ImageValue = [];
+        imagePaths.forEach((index) => ImageValue.push(index));
+        setImageDATA(ImageValue);
+        // console.log(ImageValue);
+      });
+    }
+  }, [imageresponse]);
+
+  // console.log('imageresponse is ', imageresponse);
 
   const handleThumbnailClick = (index) => {
     mainCarouselRef.current.slickGoTo(index);
@@ -16,72 +58,68 @@ function showimage() {
   const mainCarouselSettings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true, // Enable autoplay
-    autoplaySpeed: 3000, // Set autoplay speed in milliseconds
-  };
-
-  const thumbnailCarouselSettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    focusOnSelect: true,
+    autoplaySpeed: 7000, // Set autoplay speed in milliseconds
   };
   return (
     <>
       <div>
         <Slider {...mainCarouselSettings} ref={mainCarouselRef}>
-          <div>
-            <img
-              src='http://via.placeholder.com/1050x700/9D4646/FFFFFF/'
-              alt='Slide 1'
-            />
-          </div>
-          <div>
-            <img
-              src='http://via.placeholder.com/1050x700/044920/FFFFFF/'
-              alt='Slide 2'
-            />
-          </div>
-          <div>
-            <img
-              src='http://via.placeholder.com/1050x700/005800/FFFFFF/'
-              alt='Slide 3'
-            />
-          </div>
+          {Object.values(imageDATA).map((data, index) => (
+            <div
+              onClick={() => handleThumbnailClick(index)}
+              key={data.filename}>
+              <img src={imageDATA[index]} />
+            </div>
+          ))}
           {/* Add more slides as needed */}
         </Slider>
-        <div style={{ width: 600, height: 200 }}>
-          {/* thumbnail Zone */}
-          <Slider {...thumbnailCarouselSettings}>
-            <div onClick={() => handleThumbnailClick(0)}>
-              <img
-                src='http://via.placeholder.com/1050x700/9D4646/FFFFFF/'
-                alt='Thumbnail 1'
-              />
+        {/* thumbnail image  */}
+        <div className={classes.thumbnail} >
+          {Object.values(imageDATA).map((data, index) => (
+            <div
+              onClick={() => handleThumbnailClick(index)}
+              key={data.filename}
+              style={{
+                marginRight: 10,
+                boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
+              }}>
+              <img src={imageDATA[index]} style={{ width: '200px' }} />
             </div>
-            <div onClick={() => handleThumbnailClick(1)}>
-              <img
-                src='http://via.placeholder.com/1050x700/044920/FFFFFF/'
-                alt='Thumbnail 2'
-              />
-            </div>
-            <div onClick={() => handleThumbnailClick(2)}>
-              <img
-                src='http://via.placeholder.com/1050x700/005800/FFFFFF/'
-                alt='Thumbnail 3'
-              />
-            </div>
-            {/* Add more thumbnails as needed */}
-          </Slider>
+          ))}
         </div>
       </div>
     </>
   );
 }
 
+showimage.propTypes = {
+  idNews: PropTypes.any,
+};
+
 export default showimage;
+
+//  <Slider {...thumbnailCarouselSettings}>
+//  <div onClick={() => handleThumbnailClick(0)}>
+//    <img
+//      src='http://via.placeholder.com/1050x700/9D4646/FFFFFF/'
+//      alt='Thumbnail 1'
+//    />
+//  </div>
+//  <div onClick={() => handleThumbnailClick(1)}>
+//    <img
+//      src='http://via.placeholder.com/1050x700/044920/FFFFFF/'
+//      alt='Thumbnail 2'
+//    />
+//  </div>
+//  <div onClick={() => handleThumbnailClick(2)}>
+//    <img
+//      src='http://via.placeholder.com/1050x700/005800/FFFFFF/'
+//      alt='Thumbnail 3'
+//    />
+//  </div>
+
+//  </Slider>

@@ -40,8 +40,8 @@ const useStyles = makeStyles()((theme) => ({
   Carousel: {
     width: '100%',
     height: '600px',
-    paddingLeft: '5%',
-    paddingRight: '5%',
+    paddingLeft: '10%',
+    paddingRight: '10%',
     [theme.breakpoints.down('md')]: {
       paddingLeft: '1px',
       paddingRight: '1px',

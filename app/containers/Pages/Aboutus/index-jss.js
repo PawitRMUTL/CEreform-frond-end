@@ -2,7 +2,7 @@
 
 import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles()(() => ({
+const useStyles = makeStyles()((theme) => ({
   card: {
     maxWidth: 375,
     height: 450,
@@ -64,6 +64,15 @@ const useStyles = makeStyles()(() => ({
       '100%': {
         transform: 'scale(1)',
       },
+    },
+  },
+  thumbnail: {
+    width: 800,
+    maxHeight: 200,
+    display: 'flex',
+    flexGrow: 2,
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
     },
   },
 }));
