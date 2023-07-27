@@ -10,7 +10,19 @@ import loadable from '../utils/loadable';
 export const Createfrom = loadable(() => import('./Pages/Aboutus/CreateFrom'), {
   fallback: <Loading />,
 });
-// test
+// StrutureCE
+export const StrutureCE = loadable(() => import('./Pages/Coures/StrutureCE'), {
+  fallback: <Loading />,
+});
+export const StrtureOfCoures = loadable(
+  () => import('./Pages/Coures/Coures_detail_CE'),
+  {
+    fallback: <Loading />,
+  }
+);
+export const Coures = loadable(() => import('./Pages/Coures'), {
+  fallback: <Loading />,
+});
 export const Portal = loadable(() => import('./Pages/Portal'), {
   fallback: <Loading />,
 });

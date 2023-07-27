@@ -28,7 +28,8 @@ export ProductCard from './CardPaper/ProductCard';
 export Sildernew from './CardPaper/SildernewCard';
 export BannerCard from './CardPaper/BannerCard';
 export Plancards from './CardPaper/PlanCard.js';
-
+export CasdShowFaculy from './CardPaper/CardCourseCE';
+export CardCourseStruture from './CardPaper/CardCourseStruture';
 // Calender_Education
 export CalenderEducation from './Calender/calenderedu';
 // Slider Carousel

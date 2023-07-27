@@ -56,15 +56,15 @@ module.exports = [
       {
         key: 'course_page_detail',
         name: 'หลักสูตรที่เปิดสอน',
-        link: '/app/pages/not-found',
+        link: '/Coures',
         icon: 'ion-ios-warning-outline',
       },
-      {
-        key: 'course_page_competency',
-        name: 'จัดสมรรถนะ',
-        link: '/app/pages/ComingSoon',
-        icon: 'ion-ios-warning-outline',
-      },
+      // {
+      //   key: 'course_page_competency',
+      //   name: 'จัดสมรรถนะ',
+      //   link: '/app/pages/ComingSoon',
+      //   icon: 'ion-ios-warning-outline',
+      // },
     ],
   },
   {

@@ -1,0 +1,54 @@
+/** @format */
+
+.iconIMG {
+  padding: 10px;
+  width: 80px;
+}
+.BoxIcon {
+  width: 100px;
+  height: 100px;
+  border-radius: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #fe6f41 0%, #ffbc58 100%);
+}
+.BoxLayout {
+  height: 320px;
+  /* border: 1px solid red; */
+  display: flex;
+}
+
+.layout {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  /* border: 1px solid red; */
+}
+.layoutRight {
+  display: flex;
+  padding-right: 10%;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  /* border: 1px solid red; */
+}
+.ButtonStyle {
+  height: 15%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  /* border: 2px solid red; */
+}
+/* detaill zone */
+.TextCredits {
+  display: flex;
+  justify-content: space-around;
+  /* justify-content: center; */
+  width: 100%;
+  border: 2px solid red;
+}
