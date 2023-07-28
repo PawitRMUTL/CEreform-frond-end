@@ -41,7 +41,7 @@ function personal() {
     setOpen(true);
   };
   const handleClose = () => setOpen(false);
-
+// API SELECT teacher by id
   useEffect(() => {
     if (tumbid !== undefined) {
       axios
@@ -52,9 +52,8 @@ function personal() {
         });
     }
   }, [tumbid]);
-
   // // // // // // // // // // // // // // // //
-
+  // API Read Teacher list
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -69,9 +68,9 @@ function personal() {
         console.log('error fetchData is ', error);
       }
     };
-
     fetchData();
   }, [checkvalue]);
+  // Load image
   useEffect(() => {
     if (teacherData !== undefined) {
       // let ImageValue;
@@ -108,7 +107,10 @@ function personal() {
             <div key={data.teacher_id}>
               <Card className='Card'>
                 <img src={imageDATA[index]} />
-                <h2>John Dose </h2>
+                <h2>
+                  {data.prefix_english} {data.first_name_english}{' '}
+                  {data.last_name_english}{' '}
+                </h2>
                 <h4>
                   {data.prefix} {data.first_name} {data.last_name}
                   <br />
@@ -152,7 +154,7 @@ function personal() {
               {Object.values(tumbteacher).map((data) => (
                 <div key={data.teacher_id}>
                   <Box sx={style} className='ModalLayout'>
-                    <div className='ModalCloseIcon' onClick={handleClose} >
+                    <div className='ModalCloseIcon' onClick={handleClose}>
                       <GrClose />
                     </div>
                     <img
@@ -164,10 +166,13 @@ function personal() {
                     <span className='Modaltitle' style={{ marginTop: '2rem' }}>
                       {data.prefix} {data.first_name} {data.last_name}
                     </span>
-                    <span className='Modaltitle'>lerm lopadle</span>
+                    <span className='Modaltitle'>
+                      {data.prefix_english} {data.first_name_english}{' '}
+                      {data.last_name_english}
+                    </span>
                     <span className='ModalEmail'>{data._email}</span>
                     <div className='ModalSubject'>
-                      <span>คณะ {data.subject} </span>
+                      <span>คณะ {data.section} </span>
                       <span>สาขาวิชา {data.major}</span>
                     </div>
                     <span
@@ -200,12 +205,11 @@ function personal() {
                     </span>
                     <div className='ModalSujectForTeccher'>
                       <ui>
-                        <li>---</li>
-                        <li>---</li>
-                        <li>---</li>
-                        <li>---</li>
-                        <li>---</li>
-                        <li>---</li>
+                        <li>{data.subject_teach1}</li>
+                        <li>{data.subject_teach2}</li>
+                        <li>{data.subject_teach3}</li>
+                        <li>{data.subject_teach4}</li>
+                        <li>{data.subject_teach5}</li>
                       </ui>
                     </div>
                     <div className='Modalicon'>

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {
-    Box, Button, Card, Typography
+  Box, Button, Card, Typography
 } from '@mui/material';
 import student from '../../../public/images/whatareyou/graduation-cap.png';
 import './index.css';
@@ -124,7 +124,9 @@ function CasdShowFaculy() {
             หมายเหตุ : เหมาะสำหรับ นักศึกษา ที่สำเร็จการศึกษาระดับ ม.6/ ปวช.
             /ปวส.
           </Typography>
-          <Button style={{ color: '#FE6439' }}>เข้าดูหลักสูตรเพิ่มเติม</Button>
+          <Button href='/app/pages/ComingSoon' style={{ color: '#FE6439' }}>
+            เข้าดูหลักสูตรเพิ่มเติม
+          </Button>
         </Box>
       </Card>
     </>

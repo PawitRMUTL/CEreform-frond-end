@@ -3,6 +3,7 @@
 import { Typography, Box } from '@mui/material';
 import React from 'react';
 import { CasdShowFaculy, Footer } from '../../../components';
+
 import './styles.css';
 
 function Coures() {

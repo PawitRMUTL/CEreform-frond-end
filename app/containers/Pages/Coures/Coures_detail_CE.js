@@ -3,7 +3,8 @@
 import { Typography } from '@mui/material';
 import React from 'react';
 import './styles.css';
-import { CardCourseStruture } from '../../../components';
+import { CardCourseStruture, Footer } from '../../../components';
+
 function StrtureOfCoures() {
   return (
     <>
@@ -23,6 +24,9 @@ function StrtureOfCoures() {
         <Typography fontWeight={500}> โครงสร้างหลักสูตร</Typography>
         <CardCourseStruture />
       </section>
+      <footer style={{ marginTop: '2%' }}>
+        <Footer />
+      </footer>
     </>
   );
 }

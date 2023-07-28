@@ -93,7 +93,8 @@ button {
 }
 .ModalSujectForTeccher ul,
 li {
-  text-indent: 20px;
+  word-wrap: break-word;
+  text-indent: 10px;
   font-size: 16px;
 }
 .ModalEmail {
