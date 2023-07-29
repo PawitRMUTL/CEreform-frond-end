@@ -33,6 +33,10 @@ function personal() {
   const [tumbdata, Settumbdata] = useState([]);
   const [tumbid, Settumbid] = useState(0);
   const [tumbteacher, Settumbteacher] = useState([]);
+  // DiplomaTeacher
+  const [Bachelor, SetBachelor] = useState([]);
+  const [Master, SetMaster] = useState([]);
+  const [Doctor, SetDoctor] = useState([]);
   // Modal Zone
   const [open, setOpen] = useState(false);
   const handleOpen = (imagevalues, id) => {
@@ -41,7 +45,7 @@ function personal() {
     setOpen(true);
   };
   const handleClose = () => setOpen(false);
-// API SELECT teacher by id
+  // API SELECT teacher by id
   useEffect(() => {
     if (tumbid !== undefined) {
       axios
@@ -52,7 +56,6 @@ function personal() {
         });
     }
   }, [tumbid]);
-  // // // // // // // // // // // // // // // //
   // API Read Teacher list
   useEffect(() => {
     const fetchData = async () => {
@@ -82,6 +85,15 @@ function personal() {
       });
     }
   }, [teacherData]);
+
+  useEffect(() => {
+    if (tumbteacher === undefined) {
+      console.log('undefined');
+    }
+    SetBachelor(tumbteacher[0]);
+    SetMaster(tumbteacher[1]);
+    SetDoctor(tumbteacher[2]);
+  }, [tumbteacher]);
 
   return (
     <>
@@ -187,10 +199,12 @@ function personal() {
                       คุณวุฒิ
                     </span>
                     <div className='ModalEducation'>
-                      <span>ป.ตรี</span>
-                      <span>univercity</span>
-                      <span>ป.โท</span>
-                      <span>univercity</span>
+                      <span>{Bachelor?.teacher_diploma} { Bachelor?.graduates_years }</span>
+                      <span>{ Bachelor?.university }</span>
+                      <span>{Master?.teacher_diploma} { Master?.graduates_years }</span>
+                      <span>{Master?.university}</span>
+                      <span>{Doctor?.teacher_diploma} { Doctor?.graduates_years }</span>
+                      <span>{ Doctor?.university }</span>
                     </div>
                     <span
                       style={{

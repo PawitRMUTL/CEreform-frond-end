@@ -56,6 +56,9 @@ export const Form = loadable(() => import('./Pages/Forms/ReduxForm'), {
 export const Table = loadable(() => import('./Pages/Table/BasicTable'), {
   fallback: <Loading />,
 });
+export const PortalLogin = loadable(() => import('./Pages/Users/PortalLogin'), {
+  fallback: <Loading />,
+});
 export const Login = loadable(() => import('./Pages/Users/Login'), {
   fallback: <Loading />,
 });
