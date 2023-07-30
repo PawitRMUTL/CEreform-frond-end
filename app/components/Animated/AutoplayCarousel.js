@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router';
 import ItemsCarousel from 'react-items-carousel';
 import axios from 'axios';
 import { Card, Typography, Box } from '@mui/material';
@@ -41,7 +41,10 @@ function AutoplayCarousel() {
 
   useEffect(() => {
     if (newList !== undefined) {
-      const promises = Object.values(newList).map((data) => import(`/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/CEreform-frond-end/app/containers/ImageNew/${data.filename}`).then((image) => image.default));
+      const promises = Object.values(newList).map((data) => import(
+        `/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/CEreform-frond-end/app/containers/ImageNew/${data.filename}`
+        ).then((image) => image.default)
+      );
       Promise.all(promises).then((imagePaths) => {
         const ImageValue = [];
         imagePaths.forEach((index) => ImageValue.push(index));
@@ -84,7 +87,7 @@ function AutoplayCarousel() {
     return 10; // For smaller screens and iPads
   };
 
-    function valueID(id) {
+  function valueID(id) {
     navigate.push('/aboutus/detail', { news_id: id });
   }
 

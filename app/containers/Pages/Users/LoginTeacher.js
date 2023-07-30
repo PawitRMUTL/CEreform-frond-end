@@ -4,7 +4,7 @@ import React from 'react';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import brand from 'dan-api/dummy/brand';
-import { LoginForm } from 'dan-components';
+import { LoginTeacherForm } from 'dan-components';
 import useStyles from 'dan-components/Forms/user-jss';
 import Cookies from 'js-cookie';
 import Swal from 'sweetalert2';
@@ -16,7 +16,7 @@ const now = new Date();
 // experis 1 day in cookie
 now.setDate(now.getDate() + 1);
 
-function Login() {
+function LoginTeacherPage() {
   // const [login, setIslogin] = React.useState(null);
   const [sucess, setSucess] = React.useState(null);
   const { classes } = useStyles();
@@ -34,20 +34,19 @@ function Login() {
   const submitForm = (values) => {
     axios
       .post('http://0.0.0.0:3200/api/authentication', {
-        username: values.username,
+        username: values.email,
         password: values.password,
-        // api/authentication
       })
       .then((data) => {
         if (data.data.statusCode === 404) {
           setSucess(false);
         } else {
-          Cookies.set('._jwtUsername', data.data.jwt, {
+          Cookies.set('._jwt', data.data.jwt, {
             expires: now,
             secure: true,
             // httpOnly: true,
           });
-          Cookies.set('._jwtRole', data.data.jwtRole, {
+          Cookies.set('._jwt-user', data.data.jwtUser, {
             expires: now,
             secure: true,
             // httpOnly: true,
@@ -64,7 +63,7 @@ function Login() {
       Toast.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'username & password is wrong',
+        text: 'username & password incorrect !',
       });
       setSucess(null);
     } else if (sucess === true) {
@@ -95,11 +94,11 @@ function Login() {
       </Helmet>
       <div className={classes.container}>
         <div className={classes.userFormWrap}>
-          <LoginForm onSubmit={(values) => submitForm(values)} />
+          <LoginTeacherForm onSubmit={(values) => submitForm(values)} />
         </div>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default LoginTeacherPage;

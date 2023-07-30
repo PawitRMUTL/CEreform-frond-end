@@ -1,3 +1,5 @@
+/** @format */
+
 import { makeStyles } from 'tss-react/mui';
 import { alpha } from '@mui/material/styles';
 import bg from 'dan-images/petal_grey_bg.svg';
@@ -8,7 +10,7 @@ const rootWraper = {
   display: 'flex',
   width: '100%',
   zIndex: 1,
-  position: 'relative'
+  position: 'relative',
 };
 
 const wrapper = (theme, opacity) => ({
@@ -19,12 +21,12 @@ const wrapper = (theme, opacity) => ({
   color: theme.palette.text.primary,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
-  backgroundAttachment: 'fixed'
+  backgroundAttachment: 'fixed',
 });
 
 const useStyles = makeStyles()((theme, _params, classes) => ({
   root: {
-    ...rootWraper
+    ...rootWraper,
   },
   rootFull: {
     ...rootWraper,
@@ -36,7 +38,7 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     justifyContent: 'center',
     width: '100%',
     [theme.breakpoints.down('lg')]: {
-      overflow: 'hidden'
+      overflow: 'hidden',
     },
   },
   containerSide: {
@@ -45,7 +47,7 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     justifyContent: 'flex-end',
     width: '100%',
     [theme.breakpoints.down('lg')]: {
-      overflow: 'hidden'
+      overflow: 'hidden',
     },
   },
   paperWrap: {
@@ -59,8 +61,8 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
       width: 480,
     },
     [`& .${classes.topBar}`]: {
-      marginBottom: theme.spacing(4)
-    }
+      marginBottom: theme.spacing(4),
+    },
   },
   fullWrap: {
     ...wrapper(theme, 0.9),
@@ -70,26 +72,27 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     alignItems: 'center',
     flexDirection: 'column',
     [`& .${classes.topBar}`]: {
-      width: '100%'
-    }
+      width: '100%',
+    },
   },
   petal: {
-    backgroundImage: theme.palette.mode === 'dark' ? `url(${bgLight})` : `url(${bg})`,
+    backgroundImage:
+      theme.palette.mode === 'dark' ? `url(${bgLight})` : `url(${bg})`,
   },
   icon: {},
   topBar: {
     display: 'flex',
     justifyContent: 'space-between',
     [`& .${classes.icon}`]: {
-      marginRight: theme.spacing(1)
+      marginRight: theme.spacing(1),
     },
     [theme.breakpoints.down('md')]: {
       justifyContent: 'center',
       marginBottom: theme.spacing(3),
       '& a': {
-        display: 'none'
-      }
-    }
+        display: 'none',
+      },
+    },
   },
   outer: {},
   brand: {
@@ -106,7 +109,7 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
       color: theme.palette.common.white,
     },
     [theme.breakpoints.down('lg')]: {
-      margin: theme.spacing(2)
+      margin: theme.spacing(2),
     },
     '& img': {
       width: 30,
@@ -115,10 +118,10 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
   },
   formWrap: {
     [theme.breakpoints.up('sm')]: {
-      padding: '0 100px'
+      padding: '0 100px',
     },
     [theme.breakpoints.up('md')]: {
-      padding: '0 150px'
+      padding: '0 150px',
     },
   },
   pageFormWrap: {
@@ -136,22 +139,22 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
   },
   formControl: {
     width: '100%',
-    marginBottom: theme.spacing(1)
+    marginBottom: theme.spacing(1),
   },
   socmedLogin: {
     [theme.breakpoints.up('sm')]: {
       padding: '24px 100px 1px',
     },
     '& button': {
-      padding: '4px 24px'
-    }
+      padding: '4px 24px',
+    },
   },
   socmedSideLogin: {
     padding: '24px 24px 1px',
     margin: '0 auto',
     '& button': {
       padding: '4px 16px',
-      margin: `0 ${theme.spacing(1)}`
+      margin: `0 ${theme.spacing(1)}`,
     },
     [theme.breakpoints.only('sm')]: {
       width: 480,
@@ -160,27 +163,27 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
   userFormWrap: {
     width: '94%',
     [theme.breakpoints.up('md')]: {
-      width: 720
+      width: 720,
     },
     [theme.breakpoints.down('md')]: {
-      marginBottom: theme.spacing(3)
+      marginBottom: theme.spacing(3),
     },
   },
   sideFormWrap: {
     height: '100%',
     [theme.breakpoints.down('md')]: {
-      width: '100%'
-    }
+      width: '100%',
+    },
   },
   fullFormWrap: {
     height: '100%',
-    width: '100%'
+    width: '100%',
   },
   title: {
     color: theme.palette.primary.main,
   },
   subtitle: {
-    fontSize: 14
+    fontSize: 14,
   },
   titleGradient: {
     background: gradientBgLight(theme),
@@ -190,8 +193,8 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     [theme.breakpoints.down('md')]: {
-      fontSize: '2.55em'
-    }
+      fontSize: '2.55em',
+    },
   },
   opening: {
     color: theme.palette.common.white,
@@ -201,16 +204,16 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
       display: 'block',
       [theme.breakpoints.down('lg')]: {
         fontSize: 32,
-        lineHeight: '48px'
-      }
+        lineHeight: '48px',
+      },
     },
     '& p': {
       color: theme.palette.common.white,
       fontSize: 18,
       [theme.breakpoints.down('lg')]: {
         fontSize: 14,
-      }
-    }
+      },
+    },
   },
   label: {},
   btnArea: {
@@ -221,22 +224,22 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     [`& .${classes.label}`]: {
       fontSize: 12,
       '& span': {
-        fontSize: 12
-      }
+        fontSize: 12,
+      },
     },
     '& button': {
-      margin: `0 ${theme.spacing(1)}`
+      margin: `0 ${theme.spacing(1)}`,
     },
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       '& button': {
         width: '100%',
-        margin: 5
-      }
+        margin: 5,
+      },
     },
   },
   noMargin: {
-    margin: 0
+    margin: 0,
   },
   redBtn: {
     color: red[500],
@@ -268,8 +271,8 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     fontSize: '0.875rem',
     '&:hover': {
       background: 'none',
-      color: theme.palette.secondary.main
-    }
+      color: theme.palette.secondary.main,
+    },
   },
   leftIcon: {
     marginRight: theme.spacing(1),
@@ -285,10 +288,10 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     padding: 5,
     background: theme.palette.grey[100],
     fontSize: 14,
-    position: 'relative'
+    position: 'relative',
   },
   welcomeWrap: {
-    position: 'relative'
+    position: 'relative',
   },
   tab: {
     margin: `${theme.spacing(3)} 0 ${theme.spacing(1)}`,
@@ -298,8 +301,8 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     color: theme.palette.secondary.main,
     textDecoration: 'none',
     '&:hover': {
-      textDecoration: 'underline'
-    }
+      textDecoration: 'underline',
+    },
   },
   socmedFull: {
     textAlign: 'center',
@@ -308,43 +311,43 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     '& button': {
       width: '100%',
       display: 'block',
-      margin: `0 auto ${theme.spacing(2)}`
+      margin: `0 auto ${theme.spacing(2)}`,
     },
     [theme.breakpoints.up('sm')]: {
       '& button': {
         width: 400,
-      }
-    }
+      },
+    },
   },
   lockWrap: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column'
-    }
+      flexDirection: 'column',
+    },
   },
   lockForm: {
     display: 'flex',
     alignItems: 'baseline',
   },
   unlockBtn: {
-    top: -4
+    top: -4,
   },
   notifyForm: {
     alignItems: 'baseline',
     [theme.breakpoints.down('sm')]: {
       '& button': {
         marginTop: theme.spacing(3),
-        width: '100%'
+        width: '100%',
       },
     },
     [theme.breakpoints.up('sm')]: {
       display: 'flex',
       '& button': {
-        width: 'auto'
-      }
-    }
+        width: 'auto',
+      },
+    },
   },
   lockField: {
     marginRight: theme.spacing(1),
@@ -355,9 +358,9 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
       background: alpha(theme.palette.primary.light, 0.3),
       border: 'none',
       '& svg': {
-        fill: alpha(theme.palette.common.white, 0.7)
-      }
-    }
+        fill: alpha(theme.palette.common.white, 0.7),
+      },
+    },
   },
   avatar: {
     width: 150,
@@ -365,18 +368,18 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     [theme.breakpoints.up('lg')]: {
       marginRight: theme.spacing(3),
     },
-    boxShadow: theme.glow.medium
+    boxShadow: theme.glow.medium,
   },
   userName: {
     color: theme.palette.common.white,
     fontWeight: theme.typography.fontWeightMedium,
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing(3),
-      textAlign: 'center'
-    }
+      textAlign: 'center',
+    },
   },
   hint: {
-    padding: theme.spacing(1)
+    padding: theme.spacing(1),
   },
   brandCenter: {
     display: 'flex',
@@ -386,27 +389,27 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
   centerAdornment: {
     justifyContent: 'center',
     '& > div': {
-      width: '100%'
+      width: '100%',
     },
     '& aside': {
       top: -10,
       [theme.breakpoints.up('sm')]: {
         left: 10,
       },
-      position: 'relative'
+      position: 'relative',
     },
     '& a i': {
       width: 32,
-      height: 32
-    }
+      height: 32,
+    },
   },
   centerV: {
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   optArea: {
     display: 'flex',
     justifyContent: 'space-between',
-    padding: `0 ${theme.spacing(0.5)}`
+    padding: `0 ${theme.spacing(0.5)}`,
   },
 }));
 

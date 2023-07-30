@@ -1,9 +1,10 @@
 /** @format */
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Slider from 'react-slick';
+// import Slider from 'react-slick';
+// import Slider from 'react-slick';
 import axios from 'axios';
 // Import the CSS styles for react-slick
 import 'slick-carousel/slick/slick.css';
@@ -11,7 +12,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import useStyles from './index-jss';
 function showimage(props) {
   const { classes } = useStyles();
-  const mainCarouselRef = useRef(null);
+  // const mainCarouselRef = useRef(null);
   const { idNews } = props;
   const [imageDATA, setImageDATA] = useState([]);
   const [imageresponse, Setimageresponse] = useState([]);
@@ -51,37 +52,37 @@ function showimage(props) {
 
   // console.log('imageresponse is ', imageresponse);
 
-  const handleThumbnailClick = (index) => {
-    mainCarouselRef.current.slickGoTo(index);
-  };
+  // const handleThumbnailClick = (index) => {
+  //   mainCarouselRef.current.slickGoTo(index);
+  // };
 
-  const mainCarouselSettings = {
-    dots: false,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true, // Enable autoplay
-    autoplaySpeed: 7000, // Set autoplay speed in milliseconds
-  };
+  // const mainCarouselSettings = {
+  //   dots: false,
+  //   infinite: true,
+  //   speed: 1000,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   autoplay: true, // Enable autoplay
+  //   autoplaySpeed: 7000, // Set autoplay speed in milliseconds
+  // };
   return (
     <>
       <div>
-        <Slider {...mainCarouselSettings} ref={mainCarouselRef}>
+        {/* <Slider {...mainCarouselSettings} ref={mainCarouselRef}>
           {Object.values(imageDATA).map((data, index) => (
             <div
               onClick={() => handleThumbnailClick(index)}
               key={data.filename}>
               <img src={imageDATA[index]} />
             </div>
-          ))}
-          {/* Add more slides as needed */}
-        </Slider>
+          ))} */}
+        {/* Add more slides as needed */}
+        {/* </Slider> */}
         {/* thumbnail image  */}
-        <div className={classes.thumbnail} >
+        <div className={classes.thumbnail}>
           {Object.values(imageDATA).map((data, index) => (
             <div
-              onClick={() => handleThumbnailClick(index)}
+              // onClick={() => handleThumbnailClick(index)}
               key={data.filename}
               style={{
                 marginRight: 10,

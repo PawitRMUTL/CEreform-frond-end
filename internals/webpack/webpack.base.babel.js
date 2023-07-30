@@ -1,5 +1,7 @@
 /**
  * COMMON WEBPACK CONFIGURATION
+ *
+ * @format
  */
 
 const path = require('path');
@@ -9,7 +11,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const HappyPack = require('happypack');
 const happyThreadPool = HappyPack.ThreadPool({ size: 5 });
 
-module.exports = options => ({
+module.exports = (options) => ({
   mode: options.mode,
   entry: options.entry,
   output: {
@@ -40,34 +42,38 @@ module.exports = options => ({
         // for a list of loaders, see https://webpack.js.org/loaders/#styling
         test: /\.css$/,
         exclude: /node_modules/,
-        use: [{
-          loader: 'style-loader'
-        }, {
-          loader: 'css-loader',
-          options:
+        use: [
           {
-            esModule: false,
-            sourceMap: false,
-            importLoaders: 10,
-            modules: false
-          }
-        }]
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: false,
+              sourceMap: false,
+              importLoaders: 10,
+              modules: false,
+            },
+          },
+        ],
       },
       {
         // Preprocess 3rd party .css files located in node_modules
         test: /\.css$/,
         include: /node_modules/,
-        use: [{
-          loader: 'style-loader'
-        }, {
-          loader: 'css-loader',
-          options:
+        use: [
           {
-            esModule: false,
-            importLoaders: 10,
-            modules: false
-          }
-        }]
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: false,
+              importLoaders: 10,
+              modules: false,
+            },
+          },
+        ],
       },
       {
         test: /\.(eot|otf|ttf|woff|woff2)$/,
@@ -75,38 +81,39 @@ module.exports = options => ({
       },
       {
         test: /\.(scss)$/,
-        use: [{
-          loader: 'style-loader'
-        },
-        {
-          loader: 'css-loader',
-          options:
+        use: [
           {
-            esModule: false,
-            sourceMap: false,
-            importLoaders: 10,
-            modules: true
-          }
-        },
-        {
-          loader: 'postcss-loader',
-          options: {
-            sourceMap: false
-          }
-        },
-        {
-          loader: 'sass-loader',
-          options: {
-            sassOptions: {
-              outputStyle: 'expanded',
-              sourceMap: false
-            }
-          }
-        }],
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: false,
+              sourceMap: false,
+              importLoaders: 10,
+              modules: true,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: false,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                outputStyle: 'expanded',
+                sourceMap: false,
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.md$/,
-        use: 'raw-loader'
+        use: 'raw-loader',
       },
       {
         test: /\.(jpg|png|gif|svg)$/,
@@ -185,24 +192,26 @@ module.exports = options => ({
     new HappyPack({
       id: 'js',
       threadPool: happyThreadPool,
-      loaders: ['babel-loader?cacheDirectory=true']
+      loaders: ['babel-loader?cacheDirectory=true'],
     }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
     }),
     new webpack.ProvidePlugin({
-      process: 'process/browser'
+      process: 'process/browser',
     }),
-    new webpack.ContextReplacementPlugin(/^\.\/locale$/, context => {
-      if (!/\/moment\//.test(context.context)) { return; }
+    new webpack.ContextReplacementPlugin(/^\.\/locale$/, (context) => {
+      if (!/\/moment\//.test(context.context)) {
+        return;
+      }
       // context needs to be modified in place
       Object.assign(context, {
         // include only CJK
         regExp: /^\.\/(ja|ko|zh)/,
         // point to the locale data folder relative to moment's src/lib/locale
-        request: '../../locale'
+        request: '../../locale',
       });
-    })
+    }),
   ]),
   resolve: {
     modules: ['browser', 'domain', 'node_modules', 'app'],
@@ -233,7 +242,7 @@ module.exports = options => ({
       'dan-api': path.resolve(__dirname, '../../app/api/'),
       'dan-images': path.resolve(__dirname, '../../public/images/'),
       'dan-vendor': path.resolve(__dirname, '../../node_modules/'),
-    }
+    },
   },
   devtool: options.devtool,
   target: 'web', // Make web variables accessible to webpack, e.g. window

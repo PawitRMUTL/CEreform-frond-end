@@ -47,6 +47,9 @@ module.exports = require('./webpack.base.babel')({
       name: '[name]',
       path: join(outputPath, '[name].json'),
     }),
+    new webpack.NormalModuleReplacementPlugin(/node:/, (resource) => {
+      resource.request = resource.request.replace(/^node:/, '');
+    }),
   ],
   performance: {
     hints: false,

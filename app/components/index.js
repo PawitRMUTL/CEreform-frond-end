@@ -12,7 +12,9 @@ export SearchUi from './Search/SearchUi';
 // Guide
 export GuideSlider from './GuideSlider';
 // Form
-export LoginForm from './Forms/LoginForm';
+export LoginTeacherForm from './Forms/LoginTeacherForm';
+export PortalForm from './Forms/Portal';
+export LoginForm from './Forms/LoginStudentForm';
 export RegisterForm from './Forms/RegisterForm';
 export ResetForm from './Forms/ResetForm';
 export Notification from './Notification/Notification';
