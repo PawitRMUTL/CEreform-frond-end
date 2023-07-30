@@ -36,17 +36,18 @@ function Login() {
       .post('http://0.0.0.0:3200/api/authentication', {
         username: values.username,
         password: values.password,
+        // api/authentication
       })
       .then((data) => {
         if (data.data.statusCode === 404) {
           setSucess(false);
         } else {
-          Cookies.set('._jwt', data.data.jwt, {
+          Cookies.set('._jwtUsername', data.data.jwt, {
             expires: now,
             secure: true,
             // httpOnly: true,
           });
-          Cookies.set('._jwt-user', data.data.jwtUser, {
+          Cookies.set('._jwtRole', data.data.jwtRole, {
             expires: now,
             secure: true,
             // httpOnly: true,
@@ -63,7 +64,7 @@ function Login() {
       Toast.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'username & password incorrect !',
+        text: 'username & password is wrong',
       });
       setSucess(null);
     } else if (sucess === true) {

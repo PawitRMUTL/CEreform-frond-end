@@ -15,8 +15,9 @@ function Loginstudy() {
         <Typography sx={{ color: '#797979' }}>
           สำหรับ นักศึกษามหาวิทยาลัยราชมงคลล้านนาเชียงใหม่
         </Typography>
-
-        <Button className={classes.buttonstylesgotostudtplan} href='/login'>
+        <Button
+          className={classes.buttonstylesgotostudtplan}
+          href='/loginStudent'>
           get start
         </Button>
       </Box>

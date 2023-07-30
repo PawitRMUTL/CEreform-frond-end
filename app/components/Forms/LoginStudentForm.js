@@ -83,7 +83,7 @@ function LoginForm(props) {
                   name='password'
                   component={TextFieldRedux}
                   type={showPassword ? 'text' : 'password'}
-                  helperText='โปรดระบุวันเดือนปีเกิดของท่าน (พ.ศ.) เช่น 01032540'
+                  helperText='โปรดระบุ ปี/เดือน/วัน เกิดของท่าน (พ.ศ.)  เช่น 20280704'
                   label='Your Password'
                   InputProps={{
                     endAdornment: (

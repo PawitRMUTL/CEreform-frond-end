@@ -4,7 +4,7 @@ import { INIT } from '../constants/reduxFormConstants';
 const initialState = {
   usersLogin: {
     username: '60523206001-8',
-    password: '04072028',
+    password: '20280704',
     remember: false
   }
 };

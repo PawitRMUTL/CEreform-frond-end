@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import Curriculum from '../CardPaper/CourseCard';
 import openscitrend from '../../../public/images/openscitrend.jpg';
 import curriculum from '../../api/dummy/curriculum';
@@ -50,7 +50,9 @@ function Bannercurri() {
               มีความเชี่ยวชาญเทคโนโลยี มีคุณธรรมจริยธรรม วิจัยและพัฒนา
               สร้างสรรค์นวัตกรรมเพื่อสังคมสู่สากล
             </Typography>
-            <button className={classes.buttonstyles1}>LEAN MORE</button>
+            <Button href='/Coures-CPE' className={classes.buttonstyles1}>
+              LEAN MORE
+            </Button>
           </Box>
         </Box>
         <Box className={classes.underimg}></Box>

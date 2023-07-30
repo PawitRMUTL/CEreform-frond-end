@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
-// import axios from 'axios';
+import axios from 'axios';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import ExitToApp from '@mui/icons-material/ExitToApp';
@@ -15,16 +15,14 @@ import dummy from 'dan-api/dummy/dummyContents';
 import link from 'dan-api/ui/link';
 import { Box, Typography } from '@mui/material';
 
-// import verify from '../verifyauthentication';
-
 // import useStyles from './header-jss';
 
 function UserMenu() {
   // const { classes, cx } = useStyles();
 
   // -------------------- getCookie
-  const username = Cookies.get('._jwt');
-  const role = Cookies.get('._jwt-user');
+  const username = Cookies.get('._jwtUsername');
+  const role = Cookies.get('._jwtRole');
   // ===============================
 
   // ======================= use state ================================
@@ -34,7 +32,7 @@ function UserMenu() {
     openMenu: null,
   });
   // -------------------- set username and role !!Nosql
-  const [name, setName] = useState('');
+  const [user, setUsername] = useState('');
   const [status, setStatus] = useState('');
   const [showname, setShowname] = useState('');
   const [showstatus, setShowstate] = useState('');
@@ -42,38 +40,31 @@ function UserMenu() {
   // ======================== use effect =================================
   // -------------------- verify jwt
   useEffect(() => {
-    setName('วาสสสสสสส');
-    setStatus('1');
-    // b3();
-    // verify(username, role);
-    // console.log(verify(username, role));
-    // axios
-    //   .post('http://0.0.0.0:3200/api/verify_authen', {
-    //     token: username,
-    //     tokenRole: role,
-    //   })
-    //   .then((data) => {
-    //     setName(data.data.User);
-    //     setStatus(data.data.stateRole);
-    //     console.log('data user : ' + data.data.User);
-    //     console.log('data role : ' + data.data.stateRole);
-    //   });
+    axios
+      .post('http://0.0.0.0:3200/api/verify_authen', {
+        token: username,
+        tokenRole: role,
+      })
+      .then((data) => {
+        setUsername(data.data.User);
+        setStatus(data.data.stateRole);
+      });
   }, []);
-  // ------------------- set name & role
+  // ------------------- Fetch Data FristName Student && Teacher && admin
   useEffect(() => {
-    if (name !== '' && status !== '') {
-      // console.log('name : ' + name);
-      // console.log('status : ' + status);
-      if (status === '1') {
-        setShowstate('นักเรียน');
-        setShowname('สุวิจักษณ์');
-      } else if (status === '2') {
-        setShowstate('บุคคลกร');
-        setShowname('กิตตินันท์');
+    if (user !== undefined) {
+      if (status === 'นักศึกษา') {
+        axios
+          .post('http://0.0.0.0:3200/api/ReadStudent', { username: user })
+          .then((data) => {
+            const setFristName = data.data[0].first_name;
+            setShowname(setFristName);
+            setShowstate(status);
+          });
       }
     }
-    // console.log(verify(username, role));
-  }, [name, status]);
+  }, [user, status]);
+
   // -------------------- set state switch login
   useEffect(() => {
     if (username !== undefined && role !== undefined) {
@@ -88,11 +79,11 @@ function UserMenu() {
       anchorEl: event.currentTarget,
     });
   };
-
+  // ButtonLogout and Remove Token
   const handleClose = () => {
     setMenuState({ anchorEl: null, openMenu: null });
-    Cookies.remove('._jwt');
-    Cookies.remove('._jwt-user');
+    Cookies.remove('._jwtUsername');
+    Cookies.remove('._jwtRole');
     setTimeout(() => {
       setIslogin(false);
     }, 1000);
@@ -115,8 +106,11 @@ function UserMenu() {
               textAlign: 'right',
               verticalAlign: 'middle',
             }}>
-            <Typography sx={{ fontSize: '14px' }}>
-              สวัสดีคุณ {showname}
+            <Typography
+              sx={{
+                fontSize: '14px',
+              }}>
+              {showname}
             </Typography>
             <Typography sx={{ fontSize: '12px', lineHeight: 0.7 }}>
               สถานะ : {showstatus}

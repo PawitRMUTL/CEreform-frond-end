@@ -46,7 +46,7 @@ function StrutureCE() {
                 ค่าธรรมเนียมการศึกษา
               </Typography>
               <Typography fontSize={24} fontWeight={500}>
-                9,000
+                16,000
               </Typography>
               <Typography fontSize={24} fontWeight={500}>
                 บาท / ภาคเรียน

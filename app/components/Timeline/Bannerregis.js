@@ -30,7 +30,9 @@ function Bannerregis() {
             <div className={classes.subtxtpayterm}>
               *ค่าธรรมเนียมการศึกษาอาจมีการเปลี่ยนแปลง
             </div>
-            <Button className={classes.buttonstyles1}>อ่านเพิ่มเติม</Button>
+            <Button href='/Coures-CPE' className={classes.buttonstyles1}>
+              อ่านเพิ่มเติม
+            </Button>
           </Box>
         </Box>
       </Box>
