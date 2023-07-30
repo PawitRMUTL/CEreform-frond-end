@@ -66,7 +66,7 @@ function PortalForm() {
             ระบบล็อคอินสำหรับอาจารย์
           </Button>
           <Button
-            href='/coming-soon'
+            href='/app/pages/ComingSoon'
             sx={{
               padding: '10px',
               height: '60px',

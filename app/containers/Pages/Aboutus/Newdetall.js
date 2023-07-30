@@ -4,14 +4,14 @@ import React, { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
 import axios from 'axios';
 import { AiOutlineEye } from 'react-icons/ai';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
+// import { useLocation } from 'react-router-dom';
 import Sliderimage from './SilderimageNew';
 import './styles.css';
 import { Footer } from '../../../components';
 function newdetail() {
   const location = useLocation();
   const [idNews, SetIdNews] = useState();
-
   const [checkvalue, Setcheckvalue] = useState(false);
   const [dataNew, SetDataNew] = useState([]);
   let newsid = [];

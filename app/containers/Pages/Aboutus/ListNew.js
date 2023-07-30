@@ -3,7 +3,7 @@
 import { Card, Typography, Box } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router';
 import Button from '@mui/material/Button';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import divider from '../../../../public/images/divider.svg';
