@@ -2,7 +2,7 @@
 
 .section {
   /* border: 2px solid red; */
-  padding: 1rem 3rem 0px 3rem;
+  padding: 1rem 1rem 0px 3rem;
   /* gap: 20px; */
   transition: ease-in-out 4s;
   font-family: 'Noto Sans Thai';
@@ -88,6 +88,8 @@ button {
   gap: 20px;
   flex-wrap: wrap;
   margin-bottom: 2%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .imgsyles {

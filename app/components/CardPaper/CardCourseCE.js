@@ -12,7 +12,7 @@ function CasdShowFaculy() {
     <>
       <Card
         sx={{
-          width: '70%',
+          width: '76%',
           height: '500px',
           margin: 'auto',
           marginBottom: '2%',
@@ -73,7 +73,7 @@ function CasdShowFaculy() {
       </Card>
       <Card
         sx={{
-          width: '70%',
+          width: '76%',
           height: '500px',
           margin: 'auto',
           marginBottom: '2%',

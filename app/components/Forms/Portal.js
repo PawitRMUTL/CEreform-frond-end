@@ -10,6 +10,10 @@ import Paper from '@mui/material/Paper';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import brand from 'dan-api/dummy/brand';
 import logo from 'dan-images/logoCPE.png';
+import student from 'dan-images/student.png';
+import teacher from 'dan-images/teacher.png';
+import cooperative from 'dan-images/cooperative.png';
+
 import useStyles from './user-jss';
 
 function PortalForm() {
@@ -34,13 +38,16 @@ function PortalForm() {
           </div>
         )}
         <section className={classes.formWrap}>
-          <Typography sx={{ fontSize: '20px', textAlign: 'center' }}>
+          <Typography
+            fontWeight={600}
+            sx={{ fontSize: '20px', textAlign: 'center' }}>
             ระบบล็อคอิน WEB-PORTAL
           </Typography>
         </section>
         <Box
           sx={{
-            height: '200px',
+            height: '300px',
+            // width: '1200px',
             display: 'flex',
             flexWrap: 'wrap',
             marginTop: '2%',
@@ -50,29 +57,59 @@ function PortalForm() {
           <Button
             href='/loginStudent'
             sx={{
-              padding: '10px',
-              height: '60px',
-              border: '1px solid',
+              color: '#000',
+              fontWeight: '500',
+              textAlign: 'center',
+              height: '216px',
+              width: '190px',
+              boxShadow: '0px 4px 4px 1px rgba(0, 0, 0, 0.2)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-evenly',
+              alignContent: 'center',
             }}>
-            ระบบล็อคอินสำหรับนักศึกษา
+            <img src={student} className={classes.iconhover} />
+            ระบบล็อคอิน
+            <br />
+            สำหรับนักศึกษา
           </Button>
           <Button
             href='/loginTeacher'
             sx={{
-              padding: '10px',
-              height: '60px',
-              border: '1px solid',
+              color: '#000',
+              fontWeight: '500',
+              textAlign: 'center',
+              height: '216px',
+              width: '190px',
+              boxShadow: '0px 4px 4px 1px rgba(0, 0, 0, 0.2)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-evenly',
+              alignContent: 'center',
             }}>
-            ระบบล็อคอินสำหรับอาจารย์
+            <img src={teacher} style={{ width: '72px' }} />
+            ระบบล็อคอิน
+            <br />
+            สำหรับอาจารย์
           </Button>
           <Button
             href='/app/pages/ComingSoon'
             sx={{
-              padding: '10px',
-              height: '60px',
-              border: '1px solid',
+              color: '#000',
+              fontWeight: '500',
+              textAlign: 'center',
+              height: '216px',
+              width: '190px',
+              boxShadow: '0px 4px 4px 1px rgba(0, 0, 0, 0.2)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-evenly',
+              alignContent: 'center',
             }}>
-            ระบบล็อคอินสำหรับสหกิจ
+            <img src={cooperative} style={{ width: '72px' }} />
+            ระบบล็อคอิน
+            <br />
+            สำหรับสหกิจ
           </Button>
         </Box>
       </Paper>

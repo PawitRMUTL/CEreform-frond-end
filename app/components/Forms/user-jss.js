@@ -411,6 +411,9 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     justifyContent: 'space-between',
     padding: `0 ${theme.spacing(0.5)}`,
   },
+  iconhover: {
+    width: '72px',
+  },
 }));
 
 // TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
