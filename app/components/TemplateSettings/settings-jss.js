@@ -55,9 +55,11 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     overflow: 'auto',
     height: 'calc(100% - 40px)',
     position: 'relative',
-    width: '100%'
+    width: '100%',
   },
   toggleButton: {
+    // จานสี Set theme dark
+    display: 'none',
     position: 'absolute',
     top: 300,
     backgroundColor: theme.palette.mode === 'dark' ? alpha(theme.palette.grey.A700, 0.75) : alpha(theme.palette.background.default, 0.95),
@@ -102,12 +104,12 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     marginRight: theme.spacing(0.5),
     fontSize: 18
   },
-  themeCheck: {
-    backgroundColor: theme.palette.secondary.main
-  },
-  themeCheckBar: {
-    backgroundColor: theme.palette.secondary.main
-  },
+  // themeCheck: {
+  //   backgroundColor: theme.palette.secondary.main
+  // },
+  // themeCheckBar: {
+  //   backgroundColor: theme.palette.secondary.main
+  // },
   group: {
     margin: `${theme.spacing(1)} 0`,
     width: '100%',

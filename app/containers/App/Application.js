@@ -1,10 +1,9 @@
 /** @format */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 import Dashboard from '../Templates/Dashboard';
-import { ThemeContext } from './ThemeWrapper';
 import {
   Parent,
   Portal,
@@ -30,9 +29,9 @@ import {
 
 function Application(props) {
   const { history } = props;
-  const changeMode = useContext(ThemeContext);
+  // const changeMode = useContext(ThemeContext); changeMode={changeMode}
   return (
-    <Dashboard history={history} changeMode={changeMode}>
+    <Dashboard history={history} >
       <Switch>
         <Route exact path='/' component={Portal} />
         <Route exact path='/aboutus' component={CECourses} />
