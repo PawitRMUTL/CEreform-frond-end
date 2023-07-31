@@ -82,6 +82,9 @@ function UserMenu() {
   // ButtonLogout and Remove Token
   const handleClose = () => {
     setMenuState({ anchorEl: null, openMenu: null });
+  };
+  // handleLogout
+  const handleLogout = () => {
     Cookies.remove('._jwtUsername');
     Cookies.remove('._jwtRole');
     setTimeout(() => {
@@ -150,16 +153,17 @@ function UserMenu() {
         <Menu
           id='menu-appbar'
           anchorEl={anchorEl}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
+          // anchorOrigin={{
+          //   vertical: 'button',
+          //   horizontal: 'center',
+          // }}
+          // transformOrigin={{
+          //   vertical: 'button',
+          //   horizontal: 'center',
+          // }}
           open={openMenu === 'user-setting'}
-          onClose={handleClose}>
+          onClose={handleClose}
+          placement='bottom-start'>
           <MenuItem component={Link} to={link.profile}>
             My Profile
           </MenuItem>
@@ -171,7 +175,7 @@ function UserMenu() {
           </MenuItem>
           <Divider />
           {/* Login Zone */}
-          <MenuItem onClick={handleClose} component={Link}>
+          <MenuItem onClick={handleLogout} component={Link}>
             <ListItemIcon>
               <ExitToApp />
             </ListItemIcon>

@@ -4,6 +4,7 @@ import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()((theme) => ({
   root: {
+    transition: 'ease-in-out 2s',
     marginTop: '-4%',
     fontFamily: 'Noto Sans Thai',
     [theme.breakpoints.down('md')]: {

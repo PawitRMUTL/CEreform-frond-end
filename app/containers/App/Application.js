@@ -25,6 +25,7 @@ import {
   Coures,
   StrtureOfCoures,
   StrutureCE,
+  contactus,
 } from '../pageListAsync';
 
 function Application(props) {
@@ -42,6 +43,7 @@ function Application(props) {
         <Route path='/Coures' component={Coures} />
         <Route path='/Coures-CPE' component={StrutureCE} />
         <Route path='/Coures-CPE-detail' component={StrtureOfCoures} />
+        <Route path='/Contact-us' component={contactus} />
         <Route path='/test' component={Createfrom} />
         <Route exact path='/app/blank-page' component={BlankPage} />
         <Route path='/app/pages/dashboard' component={DashboardPage} />

@@ -72,7 +72,7 @@ const useStyles = makeStyles()((theme) => ({
     display: 'flex',
     flexGrow: 2,
     [theme.breakpoints.down('md')]: {
-      display: 'none',
+      overflowX: 'scroll',
     },
   },
 }));

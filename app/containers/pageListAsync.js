@@ -35,6 +35,9 @@ export const CalenderStudy = loadable(
     fallback: <Loading />,
   }
 );
+export const contactus = loadable(() => import('./Pages/Contactus'), {
+  fallback: <Loading />,
+});
 export const allNew = loadable(() => import('./Pages/Aboutus/ListNew'), {
   fallback: <Loading />,
 });

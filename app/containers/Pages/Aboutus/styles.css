@@ -4,7 +4,7 @@
   /* border: 2px solid red; */
   padding: 1rem 3rem 0px 3rem;
   /* gap: 20px; */
-  transition: ease-in-out 2s;
+  transition: ease-in-out 4s;
   font-family: 'Noto Sans Thai';
 }
 /* style={{ paddingLeft: '15%', paddingRight: '15%' }} */
@@ -94,7 +94,9 @@ button {
   width: 780px;
   object-fit: cover;
 }
-
+.tunmbnaill {
+  width: 200px;
+}
 /* Tablet Styles */
 @media (max-width: 768px) {
   .cardnewstyles {
@@ -120,6 +122,9 @@ button {
   .sectionnewdetaill {
     padding-left: 5%;
     padding-right: 5%;
+  }
+  .tunmbnaill {
+    width: 100px;
   }
 }
 

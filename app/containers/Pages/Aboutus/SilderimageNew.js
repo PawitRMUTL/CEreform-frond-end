@@ -3,16 +3,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-// import Slider from 'react-slick';
-// import Slider from 'react-slick';
 import axios from 'axios';
-// Import the CSS styles for react-slick
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import useStyles from './index-jss';
 function showimage(props) {
   const { classes } = useStyles();
-  // const mainCarouselRef = useRef(null);
   const { idNews } = props;
   const [imageDATA, setImageDATA] = useState([]);
   const [imageresponse, Setimageresponse] = useState([]);
@@ -49,46 +43,41 @@ function showimage(props) {
       });
     }
   }, [imageresponse]);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
-  // console.log('imageresponse is ', imageresponse);
-
-  // const handleThumbnailClick = (index) => {
-  //   mainCarouselRef.current.slickGoTo(index);
-  // };
-
-  // const mainCarouselSettings = {
-  //   dots: false,
-  //   infinite: true,
-  //   speed: 1000,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   autoplay: true, // Enable autoplay
-  //   autoplaySpeed: 7000, // Set autoplay speed in milliseconds
-  // };
+  const handleThumbnailClick = (index) => {
+    setSelectedImageIndex(index);
+  };
   return (
     <>
       <div>
-        {/* <Slider {...mainCarouselSettings} ref={mainCarouselRef}>
-          {Object.values(imageDATA).map((data, index) => (
-            <div
-              onClick={() => handleThumbnailClick(index)}
-              key={data.filename}>
-              <img src={imageDATA[index]} />
-            </div>
-          ))} */}
+        {Object.values(imageDATA).map((data, index) => (
+          <div
+            onClick={() => handleThumbnailClick(index)}
+            // onClick={() => handleThumbnailClick(index)}
+            key={data.filename}
+            style={{
+              display: index === selectedImageIndex ? 'block' : 'none',
+            }}>
+            <img src={imageDATA[index]} />
+          </div>
+        ))}
         {/* Add more slides as needed */}
-        {/* </Slider> */}
         {/* thumbnail image  */}
         <div className={classes.thumbnail}>
           {Object.values(imageDATA).map((data, index) => (
             <div
+              onClick={() => handleThumbnailClick(index)}
               // onClick={() => handleThumbnailClick(index)}
               key={data.filename}
               style={{
                 marginRight: 10,
-                boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
+                boxShadow:
+                  index === selectedImageIndex
+                    ? 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
+                    : 'none',
               }}>
-              <img src={imageDATA[index]} style={{ width: '200px' }} />
+              <img src={imageDATA[index]} className='tunmbnaill' />
             </div>
           ))}
         </div>

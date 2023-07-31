@@ -83,7 +83,7 @@ module.exports = [
     key: 'contactus',
     name: 'ติดต่อเรา',
     icon: 'ion-ios-contact-outline',
-    linkParent: '/app/pages/demopage',
+    linkParent: '/Contact-us',
   },
   // {
   //   key: 'pages',
