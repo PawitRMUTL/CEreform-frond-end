@@ -59,7 +59,7 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
   },
   toggleButton: {
     // จานสี Set theme dark
-    // display: 'none',
+    display: 'none',
     position: 'absolute',
     top: 300,
     backgroundColor: theme.palette.mode === 'light' ? alpha(theme.palette.grey.A700, 0.75) : alpha(theme.palette.background.default, 0.95),
