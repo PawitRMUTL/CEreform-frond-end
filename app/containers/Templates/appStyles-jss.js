@@ -1,5 +1,5 @@
 import { makeStyles } from 'tss-react/mui';
-import { darken } from '@mui/material/styles';
+// import { darken } from '@mui/material/styles';
 import bg from 'dan-images/petal_bg.svg';
 
 export const gradientBgLight = (theme) => `linear-gradient(-45deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.main} 33%, ${theme.palette.secondary.main} 100%);`;
@@ -108,9 +108,9 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     backgroundImage: theme.palette.mode === 'dark' ? gradientBgDark(theme) : gradientBgLight(theme),
     backgroundAttachment: 'fixed'
   },
-  solidBg: {
-    backgroundColor: theme.palette.mode === 'dark' ? darken(theme.palette.primary.main, 0.4) : theme.palette.primary.main
-  },
+  // solidBg: {
+  //   backgroundColor: theme.palette.mode === 'dark' ? darken(theme.palette.primary.main, 0.4) : theme.palette.primary.main
+  // },
   decorationWave: {
     width: '100%',
     height: 'auto',

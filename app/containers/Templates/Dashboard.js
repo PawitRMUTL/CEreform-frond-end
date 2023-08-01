@@ -89,7 +89,7 @@ function Dashboard(props) {
         layout === 'top-navigation' || layout === 'mega-menu'
           ? classes.topNav
           : classes.sideNav,
-        mode === 'dark' ? 'dark-mode' : 'light-mode'
+        mode === 'dark' ? 'light-mode' : 'light-mode'
       )}>
       <GuideSlider openGuide={openGuide} closeGuide={handleCloseGuide} />
       {

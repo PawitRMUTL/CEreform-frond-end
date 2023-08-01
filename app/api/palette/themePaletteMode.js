@@ -3,7 +3,7 @@
 import lightPalette from './lightPalette';
 
 const themePalette = (color, mode) => {
-  if (mode === 'dark') {
+  if (mode === 'light') {
     return lightPalette[color];
   }
   return lightPalette[color];

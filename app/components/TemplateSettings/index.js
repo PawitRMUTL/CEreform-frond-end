@@ -66,11 +66,11 @@ function TemplateSettings(props) {
   };
 
   // Theme Mode Handle
-  const handleSwitchMode = event => {
+  const handleSwitchMode = () => {
     const { changeMode } = props;
-    const mode = event.target.checked ? 'dark' : 'light';
-    changeMode(mode);
-    setDark(event.target.checked);
+    // const mode = event.target.checked ? 'light' : 'light';
+    changeMode('light');
+    setDark('light');
   };
 
   const handeSwitchDirection = event => { // eslint-disable-line
