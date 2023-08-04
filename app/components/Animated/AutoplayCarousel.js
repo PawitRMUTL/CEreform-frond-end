@@ -24,7 +24,6 @@ function AutoplayCarousel() {
   const [imageDATA, setImageDATA] = useState([]);
   const [newList, SetnewList] = useState([]);
   const [checkvalue, Setcheckvalue] = useState(false);
-  console.log(imageDATA);
   useEffect(() => {
     const fetchData = async () => {
       try {

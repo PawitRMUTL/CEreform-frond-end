@@ -10,9 +10,9 @@ import Paper from '@mui/material/Paper';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import brand from 'dan-api/dummy/brand';
 import logo from 'dan-images/logoCPE.png';
-import student from 'dan-images/student.png';
-import teacher from 'dan-images/teacher.png';
-import cooperative from 'dan-images/cooperative.png';
+// import student from 'dan-images/student.png';
+// import teacher from 'dan-images/teacher.png';
+// import cooperative from 'dan-images/cooperative.png';
 
 import useStyles from './user-jss';
 
@@ -68,7 +68,7 @@ function PortalForm() {
               justifyContent: 'space-evenly',
               alignContent: 'center',
             }}>
-            <img src={student} className={classes.iconhover} />
+            {/* <img src={student} className={classes.iconhover} /> */}
             ระบบล็อคอิน
             <br />
             สำหรับนักศึกษา
@@ -87,7 +87,7 @@ function PortalForm() {
               justifyContent: 'space-evenly',
               alignContent: 'center',
             }}>
-            <img src={teacher} style={{ width: '72px' }} />
+            {/* <img src={teacher} style={{ width: '72px' }} /> */}
             ระบบล็อคอิน
             <br />
             สำหรับอาจารย์
@@ -106,7 +106,7 @@ function PortalForm() {
               justifyContent: 'space-evenly',
               alignContent: 'center',
             }}>
-            <img src={cooperative} style={{ width: '72px' }} />
+            {/* <img src={cooperative} style={{ width: '72px' }} /> */}
             ระบบล็อคอิน
             <br />
             สำหรับสหกิจ

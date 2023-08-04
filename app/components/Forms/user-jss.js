@@ -414,6 +414,24 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
   iconhover: {
     width: '72px',
   },
+  layoutBox: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    marginBottom: '2%',
+    textAlign: 'center',
+    gap: '10px',
+    overflowX: 'scroll',
+  },
+  layoutButton: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    backgroundColor: '#d6d6d6',
+    borderRadius: '10px',
+    // border: '3px solid red',
+  },
 }));
 
 // TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.

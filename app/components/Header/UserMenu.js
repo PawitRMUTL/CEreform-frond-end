@@ -62,9 +62,17 @@ function UserMenu() {
             setShowstate(status);
           });
       }
+      if (status === 'อาจารย์') {
+        axios
+          .post('http://0.0.0.0:3200/api/ReadTeacher', { username: user })
+          .then((data) => {
+            const setFristName = data.data[0].first_name;
+            setShowname(setFristName);
+            setShowstate(status);
+          });
+      }
     }
   }, [user, status]);
-
   // -------------------- set state switch login
   useEffect(() => {
     if (username !== undefined && role !== undefined) {
@@ -113,7 +121,7 @@ function UserMenu() {
               sx={{
                 fontSize: '14px',
               }}>
-              {showname}
+              สวัสดีคุณ {showname}
             </Typography>
             <Typography sx={{ fontSize: '12px', lineHeight: 0.7 }}>
               สถานะ : {showstatus}
@@ -153,14 +161,6 @@ function UserMenu() {
         <Menu
           id='menu-appbar'
           anchorEl={anchorEl}
-          // anchorOrigin={{
-          //   vertical: 'button',
-          //   horizontal: 'center',
-          // }}
-          // transformOrigin={{
-          //   vertical: 'button',
-          //   horizontal: 'center',
-          // }}
           open={openMenu === 'user-setting'}
           onClose={handleClose}
           placement='bottom-start'>

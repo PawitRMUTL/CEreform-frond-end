@@ -13,7 +13,8 @@ export SearchUi from './Search/SearchUi';
 export GuideSlider from './GuideSlider';
 // Form
 export LoginTeacherForm from './Forms/LoginTeacherForm';
-export PortalForm from './Forms/Portal';
+export PortalShortcut from './Forms/PortalShortcut';
+export PortalForm from './Forms/Portalfrom';
 export LoginForm from './Forms/LoginStudentForm';
 export RegisterForm from './Forms/RegisterForm';
 export ResetForm from './Forms/ResetForm';

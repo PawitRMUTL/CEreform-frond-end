@@ -33,20 +33,20 @@ function LoginTeacherPage() {
   });
   const submitForm = (values) => {
     axios
-      .post('http://0.0.0.0:3200/api/authentication', {
-        username: values.email,
+      .post('http://0.0.0.0:3200/api/authenticationTEA-CHER', {
+        username: values.username,
         password: values.password,
       })
       .then((data) => {
         if (data.data.statusCode === 404) {
           setSucess(false);
         } else {
-          Cookies.set('._jwt', data.data.jwt, {
+          Cookies.set('._jwtUsername', data.data.jwt, {
             expires: now,
             secure: true,
             // httpOnly: true,
           });
-          Cookies.set('._jwt-user', data.data.jwtUser, {
+          Cookies.set('._jwtRole', data.data.jwtRole, {
             expires: now,
             secure: true,
             // httpOnly: true,
@@ -74,7 +74,7 @@ function LoginTeacherPage() {
       // setIslogin(true);
       setSucess(null);
       setTimeout(() => {
-        window.location.href = '/';
+        window.location.href = '/Portal';
       }, 1000);
     }
   }, [sucess]);

@@ -11,7 +11,7 @@
   },
   "parser": "@babel/eslint-parser",
   "rules": {
-    "validateLineBreaks": 0,
+    "linebreak-style": 0,
     "no-plusplus": 0,
     "import/no-import-module-exports": 0,
     "no-nested-ternary": 0,
