@@ -137,7 +137,7 @@ HeaderMenu.propTypes = {
   dataMenu: PropTypes.array.isRequired,
   openMobileNav: PropTypes.bool.isRequired,
   mode: PropTypes.string.isRequired,
-  changeMode: PropTypes.func.any,
+  // changeMode: PropTypes.func.any,
   openGuide: PropTypes.func.isRequired,
   toggleDrawerOpen: PropTypes.func.isRequired,
   loadTransition: PropTypes.func.isRequired,

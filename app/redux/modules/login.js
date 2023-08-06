@@ -3,10 +3,10 @@ import { INIT } from '../constants/reduxFormConstants';
 
 const initialState = {
   usersLogin: {
-    // username: '60523206001-8',
-    // password: '20280704',
-    username: 'pichit@rmutl.ac.th',
-    password: '10101',
+    username: '60523206001-8',
+    password: '20280704',
+    // username: 'pichit@rmutl.ac.th',
+    // password: '10101',
     remember: false
   }
 };

@@ -110,8 +110,8 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
   },
   solidBg: {
     background: 'linear-gradient(270deg, #478c9b, #dfdfdf, #ff980a)',
-    animation: '$gradient 55s ease-in-out infinite',
-    backgroundSize: '200% 150%',
+    animation: 'gradient 40s ease-in-out infinite',
+    backgroundSize: '200% 200%',
     height: '100vh',
     '@keyframes gradient': {
       '0%': {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+// import MenuItem from '@mui/material/MenuItem';
 import Avatar from '@mui/material/Avatar';
 import brand from 'dan-api/dummy/brand';
 import dummy from 'dan-api/dummy/dummyContents';
@@ -36,11 +36,11 @@ function SidebarContent(props) {
     loadTransition,
     leftSidebar,
     dataMenu,
-    status,
+    // status,
     anchorEl,
-    openMenuStatus,
-    closeMenuStatus,
-    changeStatus,
+    // openMenuStatus,
+    // closeMenuStatus,
+    // changeStatus,
     isLogin
   } = props;
 
@@ -76,18 +76,17 @@ function SidebarContent(props) {
             />
             <div>
               <h4>{dummy.user.name}</h4>
-              <Button size="small" onClick={openMenuStatus}>
-                <i className={cx(classes.dotStatus, setStatus(status))} />
-                {status}
+              <Button size="small" >
+                <i className={cx(classes.dotStatus, setStatus())} />
               </Button>
               <Menu
                 id="status-menu"
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
-                onClose={closeMenuStatus}
+                // onClose={closeMenuStatus}
                 className={classes.statusMenu}
               >
-                <MenuItem onClick={() => changeStatus('online')}>
+                {/* <MenuItem onClick={() => changeStatus('online')}>
                   <i className={cx(classes.dotStatus, classes.online)} />
                   Online
                 </MenuItem>
@@ -102,7 +101,7 @@ function SidebarContent(props) {
                 <MenuItem onClick={() => changeStatus('offline')}>
                   <i className={cx(classes.dotStatus, classes.offline)} />
                   Offline
-                </MenuItem>
+                </MenuItem> */}
               </Menu>
             </div>
           </div>
@@ -132,11 +131,11 @@ SidebarContent.propTypes = {
   loadTransition: PropTypes.func,
   leftSidebar: PropTypes.bool.isRequired,
   dataMenu: PropTypes.array.isRequired,
-  status: PropTypes.string.isRequired,
+  // status: PropTypes.string.any,
   anchorEl: PropTypes.object,
-  openMenuStatus: PropTypes.func.isRequired,
-  closeMenuStatus: PropTypes.func.isRequired,
-  changeStatus: PropTypes.func.isRequired,
+  // openMenuStatus: PropTypes.func.isRequired,
+  // closeMenuStatus: PropTypes.func.isRequired,
+  // changeStatus: PropTypes.func.isRequired,
   isLogin: PropTypes.bool
 };
 

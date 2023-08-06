@@ -19,6 +19,7 @@ function PortalShortcut() {
   const [teacher, Setteacher] = useState(false);
 
   const linkHome = '/';
+  const linkPersonel = '/Backoffice/personel';
   // -------------------- verify jwt
   useEffect(() => {
     axios
@@ -55,6 +56,9 @@ function PortalShortcut() {
           <Box className={classes.layoutBox}>
             <Box width={236} height={105} className={classes.layoutButton}>
               <Typography>My profile</Typography>
+              <Button href={linkPersonel} sx={{ width: 9 }}>
+                <GrFormNextLink />
+              </Button>
             </Box>
             <Box width={236} height={105} className={classes.layoutButton}>
               <Typography>Website CE-REFORM</Typography>
@@ -95,6 +99,9 @@ function PortalShortcut() {
           <Box className={classes.layoutBox}>
             <Box width={236} height={105} className={classes.layoutButton}>
               <Typography>My profile</Typography>
+              <Button href={linkPersonel} sx={{ width: 9 }}>
+                <GrFormNextLink />
+              </Button>
             </Box>
             <Box width={236} height={105} className={classes.layoutButton}>
               <Typography>Website CE-REFORM</Typography>

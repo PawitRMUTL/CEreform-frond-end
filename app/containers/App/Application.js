@@ -25,13 +25,14 @@ import {
   StrtureOfCoures,
   StrutureCE,
   contactus,
+  Backoffice,
 } from '../pageListAsync';
 
 function Application(props) {
   const { history } = props;
   // const changeMode = useContext(ThemeContext); changeMode={changeMode}
   return (
-    <Dashboard history={history} >
+    <Dashboard history={history}>
       <Switch>
         <Route exact path='/' component={Portal} />
         <Route exact path='/aboutus' component={CECourses} />
@@ -43,6 +44,7 @@ function Application(props) {
         <Route path='/Coures-CPE' component={StrutureCE} />
         <Route path='/Coures-CPE-detail' component={StrtureOfCoures} />
         <Route path='/Contact-us' component={contactus} />
+        <Route path='/Backoffice/personel' component={Backoffice} />
         <Route path='/test' component={Createfrom} />
         <Route exact path='/app/blank-page' component={BlankPage} />
         <Route path='/app/pages/dashboard' component={DashboardPage} />

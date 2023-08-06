@@ -6,6 +6,10 @@
 import React from 'react';
 import Loading from 'dan-components/Loading';
 import loadable from '../utils/loadable';
+// Backoffice
+export const Backoffice = loadable(() => import('./Pages/Backoffice'), {
+  fallback: <Loading />,
+});
 // Createfrom
 export const Createfrom = loadable(() => import('./Pages/Aboutus/CreateFrom'), {
   fallback: <Loading />,
@@ -18,7 +22,7 @@ export const StrtureOfCoures = loadable(
   () => import('./Pages/Coures/Coures_detail_CE'),
   {
     fallback: <Loading />,
-  }
+  },
 );
 export const Coures = loadable(() => import('./Pages/Coures'), {
   fallback: <Loading />,
@@ -33,7 +37,7 @@ export const CalenderStudy = loadable(
   () => import('./Pages/Aboutus/CalenderStudy'),
   {
     fallback: <Loading />,
-  }
+  },
 );
 export const contactus = loadable(() => import('./Pages/Contactus'), {
   fallback: <Loading />,
@@ -69,7 +73,7 @@ export const LoginDedicated = loadable(
   () => import('./Pages/Standalone/LoginDedicated'),
   {
     fallback: <Loading />,
-  }
+  },
 );
 export const Register = loadable(() => import('./Pages/Users/Register'), {
   fallback: <Loading />,
@@ -78,7 +82,7 @@ export const ResetPassword = loadable(
   () => import('./Pages/Users/ResetPassword'),
   {
     fallback: <Loading />,
-  }
+  },
 );
 export const NotFound = loadable(() => import('./NotFound/NotFound'), {
   fallback: <Loading />,
@@ -87,7 +91,7 @@ export const NotFoundDedicated = loadable(
   () => import('./Pages/Standalone/NotFoundDedicated'),
   {
     fallback: <Loading />,
-  }
+  },
 );
 export const Error = loadable(() => import('./Pages/Error'), {
   fallback: <Loading />,

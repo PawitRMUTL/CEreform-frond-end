@@ -152,6 +152,7 @@
     "file-saver": "^2.0.5",
     "file-type": "^18.5.0",
     "fontfaceobserver": "2.1.0",
+    "formik": "^2.4.3",
     "history": "4.9.0",
     "hoist-non-react-statics": "3.3.0",
     "html-webpack-plugin": "^5.5.0",
@@ -193,7 +194,7 @@
     "react-dropzone": "^10.2.1",
     "react-helmet": "6.1.0",
     "react-icons": "^4.9.0",
-    "react-imask": "^6.4.0",
+    "react-imask": "^6.6.3",
     "react-intl": "^6.2.5",
     "react-is": "^18.2.0",
     "react-jss": "^10.0.0",
@@ -234,7 +235,8 @@
     "typewriter-effect": "^2.20.1",
     "url-loader": "^4.1.1",
     "warning": "4.0.2",
-    "workbox-webpack-plugin": "^6.5.4"
+    "workbox-webpack-plugin": "^6.5.4",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@babel/cli": "7.17.6",

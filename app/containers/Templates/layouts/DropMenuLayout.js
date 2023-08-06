@@ -19,7 +19,7 @@ function DropMenuLayout(props) {
     gradient,
     deco,
     bgPosition,
-    changeMode,
+    // changeMode,
     // place,
     history,
     titleException,
@@ -28,6 +28,8 @@ function DropMenuLayout(props) {
     sidebarOpen,
     loadTransition,
   } = props;
+  const changeMode = 'light';
+
   return (
     <Fragment>
       <HeaderMenu
@@ -93,7 +95,7 @@ function DropMenuLayout(props) {
 DropMenuLayout.propTypes = {
   children: PropTypes.node.isRequired,
   history: PropTypes.object.isRequired,
-  changeMode: PropTypes.func.isRequired,
+  // changeMode: PropTypes.func.isRequired,
   toggleDrawer: PropTypes.func.isRequired,
   loadTransition: PropTypes.func.isRequired,
   sidebarOpen: PropTypes.bool.isRequired,
