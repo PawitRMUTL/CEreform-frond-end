@@ -420,7 +420,8 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     marginBottom: '2%',
     textAlign: 'center',
     gap: '10px',
-    overflowX: 'scroll',
+    // overflowX: 'scroll',
+    // border: '3px solid red',
   },
   layoutButton: {
     display: 'flex',

@@ -18,9 +18,9 @@ function allNew() {
   const [checkvalue, Setcheckvalue] = useState(false);
   const [viewValue, SetviewValue] = useState(null);
 
-  useEffect(() => {
-    console.log('viewValue : ', viewValue);
-  }, [viewValue]);
+  // useEffect(() => {
+  //   console.log('viewValue : ', viewValue);
+  // }, [viewValue]);
 
   useEffect(() => {
     if (newList !== undefined) {

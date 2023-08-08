@@ -23,7 +23,7 @@ function Personelstudent(props) {
       })
       .then((data) => {
         SetShowUser(data.data[0]);
-        SetDATE(data.data[0].brithday);
+        SetDATE(data.data[0].birthday);
       });
   }, [idrmutl]);
   const originalDate = new Date(DATE);
@@ -63,6 +63,7 @@ function Personelstudent(props) {
             แก้ไขข้อมูลส่วนตัว
           </Button>
           <DialogStudent
+            thunmbDate={ShowUser.birthday}
             Status={showDialog}
             prefix={ShowUser.prefix}
             firstname={ShowUser.first_name}

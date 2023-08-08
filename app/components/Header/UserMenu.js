@@ -12,7 +12,6 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import dummy from 'dan-api/dummy/dummyContents';
-import link from 'dan-api/ui/link';
 import { Box, Typography } from '@mui/material';
 
 // import useStyles from './header-jss';
@@ -164,14 +163,11 @@ function UserMenu() {
           open={openMenu === 'user-setting'}
           onClose={handleClose}
           placement='bottom-start'>
-          <MenuItem component={Link} to={link.profile}>
+          <MenuItem component={Link} to='/Portal'>
+            ShortCut Menu
+          </MenuItem>
+          <MenuItem component={Link} to='/Backoffice/personel'>
             My Profile
-          </MenuItem>
-          <MenuItem component={Link} to={link.calendar}>
-            My Calendar
-          </MenuItem>
-          <MenuItem component={Link} to={link.email}>
-            My Inbox
           </MenuItem>
           <Divider />
           {/* Login Zone */}
