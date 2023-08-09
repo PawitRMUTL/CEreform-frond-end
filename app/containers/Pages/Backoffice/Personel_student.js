@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import dummy from 'dan-api/dummy/dummyContents';
+// import dummy from 'dan-api/dummy/dummyContents';
 import Avatar from '@mui/material/Avatar';
 import DialogStudent from './dialogStudent';
 import DialogImageStudent from './dialogImageStudent';
@@ -12,10 +12,12 @@ import useStyles from './index-jss';
 function Personelstudent(props) {
   const { classes } = useStyles();
   const { idrmutl } = props;
-  const [ShowUser, SetShowUser] = useState('');
+  const [thumbuser, Setthumbuser] = useState([]);
+  const [ShowUser, SetShowUser] = useState([]);
   const [DATE, SetDATE] = useState('');
   const [showDialog, setShowDialog] = useState(false);
   const [Dialogimage, setDialogImage] = useState(false);
+  const [ShowImage, SetShowimage] = useState([]);
 
   //   console.log(username);
   useEffect(() => {
@@ -24,10 +26,22 @@ function Personelstudent(props) {
         username: idrmutl,
       })
       .then((data) => {
+        Setthumbuser(data.data);
         SetShowUser(data.data[0]);
         SetDATE(data.data[0].birthday);
       });
   }, [idrmutl]);
+  useEffect(() => {
+    if (thumbuser !== undefined) {
+      // let ImageValue;
+      const promises = Object.values(thumbuser).map((data) => import(`/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/student/${data.image}`).then((image) => image.default));
+      Promise.all(promises).then((imagePaths) => {
+        const ImageValue = [];
+        imagePaths.forEach((index) => ImageValue.push(index));
+        SetShowimage(ImageValue);
+      });
+    }
+  }, [thumbuser]);
   const originalDate = new Date(DATE);
   const convertedDate = originalDate.toLocaleString('th-TH', {
     day: 'numeric',
@@ -55,8 +69,8 @@ function Personelstudent(props) {
     <>
       <Card className={classes.Layout}>
         <Avatar
-          alt={dummy.user.name}
-          src={dummy.user.avatar}
+          alt={ShowUser.firstname}
+          src={ShowImage}
           sx={{ width: '100px', height: '100px' }}
         />
         <Typography>สถานะ : {ShowUser.status} </Typography>
@@ -96,7 +110,7 @@ function Personelstudent(props) {
             แก้ไขรูปภาพ
             <DialogImageStudent
               Status={Dialogimage}
-            idrmutl={ShowUser.id_rmutl}
+              idrmutl={ShowUser.id_rmutl}
               handleClose={handleCloseDialogImage}
             />
           </Button>

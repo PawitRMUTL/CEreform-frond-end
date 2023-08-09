@@ -38,7 +38,7 @@ function DialogImageStudent(props) {
           />
         </DialogContent>
         <DialogActions>
-          <Button href='/Backoffice/personel'>Cancel</Button>
+          <Button onClick={handleClose} >Cancel</Button>
         </DialogActions>
       </Dialog>
     </div>

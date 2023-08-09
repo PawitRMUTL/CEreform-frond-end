@@ -171,7 +171,6 @@ function MaterialDropZoneUser(props) {
          .post('http://0.0.0.0:3200/api/uploadimageStudent', formData)
            .then((response) => {
            onSucsessForm(response);
-           console.log(response);
          })
          .catch((error) => {
            console.log(error);
