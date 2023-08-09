@@ -20,6 +20,7 @@ export RegisterForm from './Forms/RegisterForm';
 export ResetForm from './Forms/ResetForm';
 export Notification from './Notification/Notification';
 export MaterialDropZone from './Forms/MaterialDropZone';
+export MaterialDropZoneUser from './Forms/MaterialDropZoneUser';
 // Table
 export EmptyData from './Tables/EmptyData';
 // Error

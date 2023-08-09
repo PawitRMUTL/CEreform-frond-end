@@ -6,8 +6,8 @@ import axios from 'axios';
 import { MaterialDropZone } from '../../../components';
 function Createfrom() {
   const [files] = useState([]);
-  // const [checkvalue, Setcheckvalue] = useState(false);
   const [imageData, setImageData] = useState();
+  // const [checkvalue, Setcheckvalue] = useState(false);
 
   const fetchImage = async () => {
     try {

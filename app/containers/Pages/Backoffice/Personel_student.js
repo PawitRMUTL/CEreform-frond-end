@@ -6,6 +6,7 @@ import axios from 'axios';
 import dummy from 'dan-api/dummy/dummyContents';
 import Avatar from '@mui/material/Avatar';
 import DialogStudent from './dialogStudent';
+import DialogImageStudent from './dialogImageStudent';
 import useStyles from './index-jss';
 
 function Personelstudent(props) {
@@ -14,6 +15,7 @@ function Personelstudent(props) {
   const [ShowUser, SetShowUser] = useState('');
   const [DATE, SetDATE] = useState('');
   const [showDialog, setShowDialog] = useState(false);
+  const [Dialogimage, setDialogImage] = useState(false);
 
   //   console.log(username);
   useEffect(() => {
@@ -32,13 +34,22 @@ function Personelstudent(props) {
     month: 'long',
     year: 'numeric',
   });
-
+  // edit personel
   const handleOpenDialog = () => {
     setShowDialog(true);
   };
 
   const handleCloseDialog = () => {
     setShowDialog(false);
+  };
+
+  // upload && edit image
+  const handleOpenDialogImage = () => {
+    setDialogImage(true);
+  };
+
+  const handleCloseDialogImage = () => {
+    setDialogImage(false);
   };
   return (
     <>
@@ -79,7 +90,16 @@ function Personelstudent(props) {
             religion={ShowUser.religion}
             handleClose={handleCloseDialog}
           />
-          <Button className={classes.buttonlayout}>แก้ไขรูปภาพ</Button>
+          <Button
+            className={classes.buttonlayout}
+            onClick={handleOpenDialogImage}>
+            แก้ไขรูปภาพ
+            <DialogImageStudent
+              Status={Dialogimage}
+            idrmutl={ShowUser.id_rmutl}
+              handleClose={handleCloseDialogImage}
+            />
+          </Button>
         </Box>
         <Box className={classes.LayoutShowContent}>
           {ShowUser ? (
