@@ -39,7 +39,7 @@ const useStyles = makeStyles()(() => ({
     '&:hover': {
       background: 'linear-gradient(#FE6F41, #F8BA1C)',
       color: '#FFF',
-      border: 'none',
+      // border: 'none',
       animation: 'pulse 1s infinite',
     },
     '@keyframes pulse': {

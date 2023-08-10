@@ -80,7 +80,7 @@ function Personelstudent(props) {
         <Typography>{ShowUser.email}</Typography>
       </Card>
       <Card className={classes.BanerContent}>
-        <Typography>ข้อมูลส่วนตัว</Typography>
+        <Typography fontSize={22} fontWeight={500}>ข้อมูลส่วนตัว</Typography>
       </Card>
       <Card sx={{ padding: '2%', marginTop: '1%' }}>
         <Box sx={{ display: 'flex', justifyContent: 'end' }}>
@@ -128,7 +128,7 @@ function Personelstudent(props) {
               </Box>
               <Box sx={{ display: 'flex' }}>
                 <Typography sx={{ marginRight: '2px', fontWeight: 600 }}>
-                  รหัสนักศึกษา / Student ID :
+                  รหัสอาจารย์ / Teacher ID :
                 </Typography>
                 <Typography>{ShowUser.id_rmutl}</Typography>
               </Box>

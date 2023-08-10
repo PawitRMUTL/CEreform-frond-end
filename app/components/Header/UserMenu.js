@@ -11,7 +11,7 @@ import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import dummy from 'dan-api/dummy/dummyContents';
+// import dummy from 'dan-api/dummy/dummyContents';
 import { Box, Typography } from '@mui/material';
 
 // import useStyles from './header-jss';
@@ -35,6 +35,8 @@ function UserMenu() {
   const [status, setStatus] = useState('');
   const [showname, setShowname] = useState('');
   const [showstatus, setShowstate] = useState('');
+  const [thumbuser, Setthumbuser] = useState([]);
+  const [ShowImage, SetShowimage] = useState([]);
   // ======================== end usestate   ================================
   // ======================== use effect =================================
   // -------------------- verify jwt
@@ -56,6 +58,7 @@ function UserMenu() {
         axios
           .post('http://0.0.0.0:3200/api/ReadStudent', { username: user })
           .then((data) => {
+            Setthumbuser(data.data);
             const setFristName = data.data[0].first_name;
             setShowname(setFristName);
             setShowstate(status);
@@ -66,6 +69,7 @@ function UserMenu() {
           .post('http://0.0.0.0:3200/api/ReadTeacher', { username: user })
           .then((data) => {
             const setFristName = data.data[0].first_name;
+            Setthumbuser(data.data);
             setShowname(setFristName);
             setShowstate(status);
           });
@@ -78,6 +82,28 @@ function UserMenu() {
       setIslogin(true);
     }
   }, [username]);
+  // --------------------- set image
+  useEffect(() => {
+    if (thumbuser !== undefined) {
+      if (status === 'นักศึกษา') {
+        // let ImageValue;
+        const promises = Object.values(thumbuser).map((data) => import(`/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/student/${data.image}`).then((image) => image.default));
+        Promise.all(promises).then((imagePaths) => {
+          const ImageValue = [];
+          imagePaths.forEach((index) => ImageValue.push(index));
+          SetShowimage(ImageValue);
+        });
+      }
+      if (status === 'อาจารย์') {
+        const promises = Object.values(thumbuser).map((data) => import(`/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/teacher/${data._image}`).then((image) => image.default));
+        Promise.all(promises).then((imagePaths) => {
+          const ImageValue = [];
+          imagePaths.forEach((index) => ImageValue.push(index));
+          SetShowimage(ImageValue);
+        });
+      }
+    }
+  }, [thumbuser]);
   // ======================= end effect ===============================
   const handleMenu = (menu) => (event) => {
     const { openMenu } = menuState;
@@ -128,8 +154,8 @@ function UserMenu() {
           </Box>
           <Button onClick={handleMenu('user-setting')}>
             <Avatar
-              alt={dummy.user.name}
-              src={dummy.user.avatar}
+              alt={showname}
+              src={ShowImage}
               sx={{ width: '50px', height: '50px' }}
             />
           </Button>

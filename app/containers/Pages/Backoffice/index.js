@@ -44,7 +44,7 @@ function Backoffice() {
       ) : null}
       {UserTeacher ? (
         <>
-          <Personelteacher />
+          <Personelteacher idrmutl={name} />
         </>
       ) : null}
     </>

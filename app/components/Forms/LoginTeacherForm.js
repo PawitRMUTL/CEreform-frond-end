@@ -12,13 +12,12 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
 import Typography from '@mui/material/Typography';
 import FormControl from '@mui/material/FormControl';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import ArrowForward from '@mui/icons-material/ArrowForward';
 import Paper from '@mui/material/Paper';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import brand from 'dan-api/dummy/brand';
 import logo from 'dan-images/logoCPE.png';
-import { TextFieldRedux, CheckboxRedux } from './ReduxFormMUI';
+import { TextFieldRedux } from './ReduxFormMUI';
 import useStyles from './user-jss';
 
 // import { ContentDivider } from '../Divider';
@@ -118,20 +117,6 @@ function LoginForm(props) {
                   className={classes.field}
                 />
               </FormControl>
-            </div>
-            <div className={classes.optArea}>
-              <FormControlLabel
-                className={classes.label}
-                control={<Field name='checkbox' component={CheckboxRedux} />}
-                label='Remember'
-              />
-              <Button
-                size='small'
-                component={LinkBtn}
-                to='/reset-password'
-                className={classes.buttonLink}>
-                Forgot Password
-              </Button>
             </div>
             <div className={classes.btnArea}>
               <Button
