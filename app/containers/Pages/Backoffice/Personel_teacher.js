@@ -5,6 +5,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Avatar from '@mui/material/Avatar';
 import { FcPlus } from 'react-icons/fc';
+import DialogTeacher from './dialogTeacher';
+import DialogEducationTeacher from './dialogEducationTeacher';
+import DialogImageTeacher from './dialogImageTeacher';
+import DialogSubjectTeacher from './dialogSubjectTeacher';
 import useStyles from './index-jss';
 function Personelteacher(props) {
   const { classes } = useStyles();
@@ -12,8 +16,11 @@ function Personelteacher(props) {
   const [thumbuser, Setthumbuser] = useState([]);
   const [ShowUser, SetShowUser] = useState([]);
   const [DATE, SetDATE] = useState('');
-  // const [showDialog, setShowDialog] = useState(false);
-  // const [Dialogimage, setDialogImage] = useState(false);
+  // SET DIALOG
+  const [showDialog, setShowDialog] = useState(false);
+  const [showDialogEducation, setShowDialogEducation] = useState(false);
+  const [Dialogimage, setDialogImage] = useState(false);
+  const [DialogSubject, Setdialogsubject] = useState(false);
   // const [ShowImage, SetShowimage] = useState([]);
   // SENT ID
   const [thunbID, SetThumbid] = useState([]);
@@ -40,7 +47,7 @@ function Personelteacher(props) {
         SetThumbid(data.data[0].teacher_id);
         Setthumbuser(data.data);
         SetShowUser(data.data[0]);
-        SetDATE(data.data[0].birthday);
+        SetDATE(data.data[0].brithday);
       });
   }, [idrmutl]);
   // fetch educate   --------------------------------
@@ -67,10 +74,30 @@ function Personelteacher(props) {
   // Log Data  --------------------------------
   useEffect(() => {
     if (thumbuser !== undefined) {
-      console.log('thumbuser', thumbuser);
+      console.log('user is', ShowUser);
+      // console.log('thumbuser', thumbuser);
       // console.log('ShowUser', ShowUser);
     }
   }, [thumbuser]);
+  const handleOpenDialogSubject = () => {
+    Setdialogsubject(true);
+  };
+  const handleOpenDialogImage = () => {
+    setDialogImage(true);
+  };
+  const handleOpenDialogEducation = () => {
+    setShowDialogEducation(true);
+  };
+  const handleOpenDialog = () => {
+    setShowDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setShowDialog(false);
+    setShowDialogEducation(false);
+    setDialogImage(false);
+    Setdialogsubject(false);
+  };
 
   return (
     <>
@@ -90,8 +117,13 @@ function Personelteacher(props) {
               '&:hover': {
                 cursor: 'pointer', // Changing cursor on hover
               },
-            }}>
+            }}
+            onClick={handleOpenDialogImage}>
             <FcPlus />
+            <DialogImageTeacher
+              Status={Dialogimage}
+              handleClose={handleCloseDialog}
+            />
           </Box>
         </Box>
         <Typography>สถานะ : {ShowUser.status} </Typography>
@@ -128,8 +160,27 @@ function Personelteacher(props) {
               <Typography fontWeight={600} fontSize={18}>
                 ข้อมูลส่วนตัว
               </Typography>
-              <Button className={classes.buttonlayout}>
+              <Button
+                className={classes.buttonlayout}
+                onClick={handleOpenDialog}>
                 แก้ไขข้อมูลส่วนตัว
+                <DialogTeacher
+                  idteacher={ShowUser.teacher_id}
+                  Status={showDialog}
+                  handleClose={handleCloseDialog}
+                  thunmbDate={ShowUser.brithday}
+                  prefix={ShowUser.prefix}
+                  firstname={ShowUser.first_name}
+                  lastname={ShowUser.last_name}
+                  idrmutl={ShowUser.id_rmutl}
+                  email={ShowUser._email}
+                  status={ShowUser.status}
+                  birthday={convertedDate}
+                  gender={ShowUser.gender}
+                  nationality={ShowUser.nationality}
+                  religion={ShowUser.religion}
+                  phone={ShowUser._phone}
+                />
               </Button>
             </Box>
             {ShowUser ? (
@@ -152,7 +203,13 @@ function Personelteacher(props) {
                   <Typography sx={{ marginRight: '2px', fontWeight: 600 }}>
                     RMUTL Email :
                   </Typography>
-                  <Typography>{ShowUser.email}</Typography>
+                  <Typography>{ShowUser._email}</Typography>
+                </Box>
+                <Box sx={{ display: 'flex' }}>
+                  <Typography sx={{ marginRight: '2px', fontWeight: 600 }}>
+                    เบอร์โทรศัพท์ / Phone :
+                  </Typography>
+                  <Typography>{ShowUser._phone}</Typography>
                 </Box>
                 <Box sx={{ display: 'flex' }}>
                   <Typography sx={{ marginRight: '2px', fontWeight: 600 }}>
@@ -192,8 +249,14 @@ function Personelteacher(props) {
               <Typography fontWeight={600} fontSize={18}>
                 วิชาที่รับผิดชอบ
               </Typography>
-              <Button className={classes.buttonlayout}>
+              <Button
+                className={classes.buttonlayout}
+                onClick={handleOpenDialogSubject}>
                 แก้ไขวิชาที่รับผิดชอบ
+                <DialogSubjectTeacher
+                  Status={DialogSubject}
+                  handleClose={handleCloseDialog}
+                />
               </Button>
             </Box>
             <Box>
@@ -222,7 +285,15 @@ function Personelteacher(props) {
               sx={{ margin: '1% 0px 1% 0px' }}>
               วุฒิการศึกษา
             </Typography>
-            <Button className={classes.buttonlayout}>แก้ไขวุฒิการศึกษา</Button>
+            <Button
+              className={classes.buttonlayout}
+              onClick={handleOpenDialogEducation}>
+              แก้ไขวุฒิการศึกษา
+              <DialogEducationTeacher
+                Status={showDialogEducation}
+                handleClose={handleCloseDialog}
+              />
+            </Button>
           </Box>
           <Box>
             {Doctor ? (

@@ -12,6 +12,10 @@ const prefixData = [
     label: 'นางสาว',
   },
   {
+    value: 'ผศ.',
+    label: 'ผู้ช่วยศาสตราจารย์',
+  },
+  {
     value: 'อื่นๆ',
     label: 'อื่นๆ',
   },

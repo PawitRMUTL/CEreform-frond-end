@@ -9,6 +9,7 @@ const initialState = {
     // password: '20200701',
     // username: 'pichit@rmutl.ac.th',
     username: 'kwanchai@rmutl.ac.th',
+    // username: 'john@rmutl.ac.th',
     password: '10101',
     remember: false
   }
