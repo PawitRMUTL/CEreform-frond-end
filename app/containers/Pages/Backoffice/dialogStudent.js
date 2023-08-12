@@ -56,13 +56,19 @@ function DialogStudent(props) {
   }, [Status]);
 
   const submitForm = (formData) => {
-    axios.post('http://0.0.0.0:3200/api/UpdateStudent', {
-      id: idrmutl,
-      email: formData.selecteEmail,
-      date: formData.selectedDate,
-      religion: formData.selectedReligion,
-      nationality: formData.selectedNationality,
-    });
+    axios
+      .post('http://0.0.0.0:3200/api/UpdateStudent', {
+        id: idrmutl,
+        email: formData.selecteEmail,
+        date: formData.selectedDate,
+        religion: formData.selectedReligion,
+        nationality: formData.selectedNationality,
+      })
+      .then((data) => {
+        if (data.status === 200) {
+          setOpen(!Status);
+        }
+      });
   };
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -72,6 +78,9 @@ function DialogStudent(props) {
       selectedReligion,
       selectedNationality,
     });
+  };
+  const handleCanCel = () => {
+    setOpen(!Status);
   };
 
   return (
@@ -260,7 +269,7 @@ function DialogStudent(props) {
             </Box>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
+            <Button onClick={handleCanCel}>Cancel</Button>
             <Button type='submit'>Submit</Button>
           </DialogActions>
         </form>

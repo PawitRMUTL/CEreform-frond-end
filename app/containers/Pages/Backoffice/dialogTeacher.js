@@ -89,12 +89,16 @@ function DialogTeacher(props) {
       })
       .then((data) => {
         if (data.status === 200) {
+          setOpen(!Status);
+        }
+        setTimeout(() => {
           Toast.fire({
             icon: 'success',
-            title: 'Signed in successfully',
+            title: 'Update successfully',
           });
-        }
-      });
+        }, 500);
+      })
+      .catch(Error);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -109,6 +113,10 @@ function DialogTeacher(props) {
       selectedNationality,
       selectPhone,
     });
+  };
+
+  const handleCanCel = () => {
+    setOpen(!Status);
   };
 
   return (
@@ -294,7 +302,7 @@ function DialogTeacher(props) {
             </TextField>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
+            <Button onClick={handleCanCel}>Cancel</Button>
             <Button type='submit'>Submit</Button>
           </DialogActions>
         </form>

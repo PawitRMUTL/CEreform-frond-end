@@ -18,6 +18,10 @@ function DialogImageTeacher(props) {
   useEffect(() => {
     setOpen(Status);
   }, [Status]);
+  const handleCanCel = () => {
+    setOpen(!Status);
+  };
+
   return (
     <div>
       <Dialog open={open} onClose={handleClose}>
@@ -35,7 +39,7 @@ function DialogImageTeacher(props) {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleCanCel}>Cancel</Button>
         </DialogActions>
       </Dialog>
     </div>

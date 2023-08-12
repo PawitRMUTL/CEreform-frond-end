@@ -254,18 +254,44 @@ function Personelteacher(props) {
                 onClick={handleOpenDialogSubject}>
                 แก้ไขวิชาที่รับผิดชอบ
                 <DialogSubjectTeacher
+                  idteacher={ShowUser.teacher_id}
                   Status={DialogSubject}
                   handleClose={handleCloseDialog}
+                  Subjectteach1={ShowUser.subject_teach1}
+                  Subjectteach2={ShowUser.subject_teach2}
+                  Subjectteach3={ShowUser.subject_teach3}
+                  Subjectteach4={ShowUser.subject_teach4}
+                  Subjectteach5={ShowUser.subject_teach5}
                 />
               </Button>
             </Box>
             <Box>
               <ol style={{ listStyleType: 'decimal', paddingLeft: '6%' }}>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                {ShowUser.subject_teach1 ? (
+                  <li>
+                    <Typography>{ShowUser.subject_teach1}</Typography>
+                  </li>
+                ) : null}
+                {ShowUser.subject_teach2 ? (
+                  <li>
+                    <Typography>{ShowUser.subject_teach2}</Typography>
+                  </li>
+                ) : null}
+                {ShowUser.subject_teach3 ? (
+                  <li>
+                    <Typography>{ShowUser.subject_teach3}</Typography>
+                  </li>
+                ) : null}
+                {ShowUser.subject_teach4 ? (
+                  <li>
+                    <Typography>{ShowUser.subject_teach4}</Typography>
+                  </li>
+                ) : null}
+                {ShowUser.subject_teach5 ? (
+                  <li>
+                    <Typography>{ShowUser.subject_teach5}</Typography>
+                  </li>
+                ) : null}
               </ol>
             </Box>
           </Card>
