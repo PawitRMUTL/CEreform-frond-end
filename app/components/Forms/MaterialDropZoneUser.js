@@ -48,9 +48,8 @@ function MaterialDropZoneUser(props) {
   const [acceptedFiles] = useState(props.acceptedFiles); // eslint-disable-line
   const { classes, cx } = useStyles();
   const {
-    idrmutl, showPreviews, maxSize, text, filesLimit, ...rest
+    state, idrmutl, showPreviews, maxSize, text, filesLimit, ...rest
   } = props;
-
   const onDrop = useCallback(
     (filesVal) => {
       let oldFiles = files;
@@ -63,7 +62,7 @@ function MaterialDropZoneUser(props) {
         setFiles(oldFiles);
       }
     },
-    [files, filesLimit]
+    [files, filesLimit],
   );
   const onDropRejected = () => {
     setOpenSnackbar(true);
@@ -94,12 +93,12 @@ function MaterialDropZoneUser(props) {
         return tempFiles;
       });
     },
-    [files]
+    [files],
   );
 
   const fileSizeLimit = maxSize || 3000000;
   const DeleteBtn = (
-    { file, index } // eslint-disable-line
+    { file, index }, // eslint-disable-line
   ) => (
     <div className='middle'>
       <IconButton onClick={() => handleRemove(file, index)} size='large'>
@@ -114,8 +113,8 @@ function MaterialDropZoneUser(props) {
   };
 
   const Previews = ({ filesArray }) => filesArray.map((file, index) => {
-    const base64Img = URL.createObjectURL(file);
-    // console.log(base64Img);
+      const base64Img = URL.createObjectURL(file);
+      // console.log(base64Img);
       if (isImage(file)) {
         return (
           <div key={index.toString()}>
@@ -158,23 +157,46 @@ function MaterialDropZoneUser(props) {
       />;
     } else {
       event.preventDefault();
-      const formData = new FormData();
-      files.forEach((file, index) => {
-        const modifiedFile = new File([file], `stu_${idrmutl}.jpg`, { type: file.type });
-        formData.append(`image${index}`, modifiedFile);
-        // console.log(`Appended image${index}:`, modifiedFile);
-        // formData.append(`image${index}`, file);
-        // console.log(`Appended image${index}:`, file);
-      });
-      formData.append('owner', idrmutl);
-         axios
-         .post('http://0.0.0.0:3200/api/uploadimageStudent', formData)
-           .then((response) => {
-           onSucsessForm(response);
-         })
-         .catch((error) => {
-           console.log(error);
-         });
+      if (state === 'อาจารย์' || state === 'หัวหน้าหลักสูตร' || state === 'รองหัวหน้าหลักสูตร') {
+        const formData = new FormData();
+        files.forEach((file, index) => {
+          const modifiedFile = new File([file], `_${idrmutl}.png`, {
+            type: file.type,
+          });
+          formData.append(`image${index}`, modifiedFile);
+          console.log(`Appended image${index}:`, modifiedFile);
+        });
+        formData.append('owner', idrmutl);
+        axios
+          .post('http://0.0.0.0:3200/api/uploadimageTeacher', formData)
+          .then((response) => {
+            onSucsessForm(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        // ถ้านักศึกษา upload image
+        const formData = new FormData();
+        files.forEach((file, index) => {
+          const modifiedFile = new File([file], `stu_${idrmutl}.jpg`, {
+            type: file.type,
+          });
+          formData.append(`image${index}`, modifiedFile);
+          // console.log(`Appended image${index}:`, modifiedFile);
+          // formData.append(`image${index}`, file);
+          // console.log(`Appended image${index}:`, file);
+        });
+        formData.append('owner', idrmutl);
+        axios
+          .post('http://0.0.0.0:3200/api/uploadimageStudent', formData)
+          .then((response) => {
+            onSucsessForm(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     }
   };
   return (
@@ -225,6 +247,7 @@ function MaterialDropZoneUser(props) {
 }
 
 MaterialDropZoneUser.propTypes = {
+  state: PropTypes.string,
   idrmutl: PropTypes.string,
   files: PropTypes.array.isRequired,
   text: PropTypes.string.isRequired,

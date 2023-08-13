@@ -12,12 +12,16 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { MaterialDropZoneUser } from '../../../components';
 
 function DialogImageTeacher(props) {
-  const { Status, handleClose, idrmutl } = props;
+  const {
+    Status, handleClose, idrmutl, state
+  } = props;
   const [files] = useState([]);
   const [open, setOpen] = useState(false);
+  // on Open
   useEffect(() => {
     setOpen(Status);
   }, [Status]);
+  // on Close
   const handleCanCel = () => {
     setOpen(!Status);
   };
@@ -30,6 +34,7 @@ function DialogImageTeacher(props) {
           <DialogContentText>Upload Image Profile</DialogContentText>
           <MaterialDropZoneUser
             idrmutl={idrmutl}
+            state={state}
             acceptedFiles={['image/jpeg', 'image/png', 'image/bmp']}
             files={files}
             showPreviews

@@ -21,7 +21,7 @@ function Personelteacher(props) {
   const [showDialogEducation, setShowDialogEducation] = useState(false);
   const [Dialogimage, setDialogImage] = useState(false);
   const [DialogSubject, Setdialogsubject] = useState(false);
-  // const [ShowImage, SetShowimage] = useState([]);
+  const [ShowImage, SetShowimage] = useState([]);
   // SENT ID
   const [thunbID, SetThumbid] = useState([]);
   // ===============================
@@ -71,12 +71,16 @@ function Personelteacher(props) {
     SetMaster(educationTeacher[1]);
     SetDoctor(educationTeacher[0]);
   }, [educationTeacher]);
-  // Log Data  --------------------------------
+  // Set image
   useEffect(() => {
     if (thumbuser !== undefined) {
-      console.log('user is', ShowUser);
-      // console.log('thumbuser', thumbuser);
-      // console.log('ShowUser', ShowUser);
+      // let ImageValue;
+      const promises = Object.values(thumbuser).map((data) => import(`/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/teacher/${data._image}`).then((image) => image.default));
+      Promise.all(promises).then((imagePaths) => {
+        const ImageValue = [];
+        imagePaths.forEach((index) => ImageValue.push(index));
+        SetShowimage(ImageValue);
+      });
     }
   }, [thumbuser]);
   const handleOpenDialogSubject = () => {
@@ -105,7 +109,7 @@ function Personelteacher(props) {
         <Box sx={{ position: 'relative' }}>
           <Avatar
             alt={ShowUser.firstname}
-            // src={ShowImage}
+            src={ShowImage}
             sx={{ width: '100px', height: '100px' }}
           />
           <Box
@@ -121,6 +125,8 @@ function Personelteacher(props) {
             onClick={handleOpenDialogImage}>
             <FcPlus />
             <DialogImageTeacher
+              idrmutl={ShowUser.first_name}
+              state = {ShowUser.status}
               Status={Dialogimage}
               handleClose={handleCloseDialog}
             />
@@ -244,6 +250,7 @@ function Personelteacher(props) {
               </div>
             ) : null}
           </Card>
+          {/* วิชาที่รับชอบ */}
           <Card sx={{ marginTop: '1%', padding: '4%' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
               <Typography fontWeight={600} fontSize={18}>
@@ -318,6 +325,9 @@ function Personelteacher(props) {
               <DialogEducationTeacher
                 Status={showDialogEducation}
                 handleClose={handleCloseDialog}
+                Bachelor={Bachelor}
+                Master={Master}
+                Doctor={Doctor}
               />
             </Button>
           </Box>
