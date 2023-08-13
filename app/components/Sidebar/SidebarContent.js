@@ -1,21 +1,89 @@
 import React, { useState, useEffect } from 'react';
+import { Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 // Slider nav
 import { NavLink } from 'react-router-dom';
-// import Button from '@mui/material/Button';
-// import Menu from '@mui/material/Menu';
-// import MenuItem from '@mui/material/MenuItem';
 import Avatar from '@mui/material/Avatar';
 import brand from 'dan-api/dummy/brand';
-import dummy from 'dan-api/dummy/dummyContents';
-import logo from 'dan-images/logo.svg';
+import logo from 'dan-images/logo.png';
+import Cookies from 'js-cookie';
+import axios from 'axios';
 import MainMenu from './MainMenu';
 import useStyles from './sidebar-jss';
 
 function SidebarContent(props) {
   const { classes, cx } = useStyles();
   const [transform, setTransform] = useState(0);
-
+  const [user, setUsername] = useState('');
+  const [status, setStatus] = useState('');
+  const [showname, setShowname] = useState('');
+  const [showstatus, setShowstate] = useState('');
+  const [thumbuser, Setthumbuser] = useState([]);
+  const [ShowImage, SetShowimage] = useState([]);
+  // -------------------- getCookie
+  const username = Cookies.get('._jwtUsername');
+  const role = Cookies.get('._jwtRole');
+  // ---------------------
+  // -------------------- verify jwt
+  useEffect(() => {
+    axios
+      .post('http://0.0.0.0:3200/api/verify_authen', {
+        token: username,
+        tokenRole: role,
+      })
+      .then((data) => {
+        setUsername(data.data.User);
+        setStatus(data.data.stateRole);
+      });
+  }, []);
+    // ------------------- Fetch Data FristName Student && Teacher && admin
+    useEffect(() => {
+      if (user !== undefined) {
+        if (status === 'นักศึกษา') {
+          axios
+            .post('http://0.0.0.0:3200/api/ReadStudent', { username: user })
+            .then((data) => {
+              Setthumbuser(data.data);
+              const setFristName = data.data[0].first_name;
+              setShowname(setFristName);
+              setShowstate(status);
+            });
+        }
+        if (status === 'อาจารย์') {
+          axios
+            .post('http://0.0.0.0:3200/api/ReadTeacher', { username: user })
+            .then((data) => {
+              const setFristName = data.data[0].first_name;
+              Setthumbuser(data.data);
+              setShowname(setFristName);
+              setShowstate(status);
+            });
+        }
+      }
+    }, [user, status]);
+      // --------------------- set image
+  useEffect(() => {
+    if (thumbuser !== undefined) {
+      if (status === 'นักศึกษา') {
+        // let ImageValue;
+        const promises = Object.values(thumbuser).map((data) => import(`/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/student/${data.image}`).then((image) => image.default));
+        Promise.all(promises).then((imagePaths) => {
+          const ImageValue = [];
+          imagePaths.forEach((index) => ImageValue.push(index));
+          SetShowimage(ImageValue);
+        });
+      }
+      if (status === 'อาจารย์') {
+        const promises = Object.values(thumbuser).map((data) => import(`/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/teacher/${data._image}`).then((image) => image.default));
+        Promise.all(promises).then((imagePaths) => {
+          const ImageValue = [];
+          imagePaths.forEach((index) => ImageValue.push(index));
+          SetShowimage(ImageValue);
+        });
+      }
+    }
+  }, [thumbuser]);
+  // ======================= end effect ===============================
   const handleScroll = (event) => {
     const scroll = event.target.scrollTop;
     setTransform(scroll);
@@ -52,14 +120,14 @@ function SidebarContent(props) {
       )}>
       <div className={classes.drawerHeader}>
         <NavLink
-          to='/app'
+          to='/'
           className={cx(
             classes.brand,
             classes.brandBar,
             turnDarker && classes.darker,
           )}>
           <img src={logo} alt={brand.name} />
-          {brand.name}
+          <Typography>{brand.name}</Typography>
         </NavLink>
         {isLogin && (
           <div
@@ -69,12 +137,13 @@ function SidebarContent(props) {
               marginTop: transform * -0.3,
             }}>
             <Avatar
-              alt={dummy.user.name}
-              src={dummy.user.avatar}
+              alt={showname}
+              src={ShowImage}
               className={cx(classes.avatar, classes.bigAvatar)}
             />
             <div>
-              <h4>{dummy.user.name}</h4>
+              <Typography>สวัสดีคุณ {showname}</Typography>
+              <Typography>สถานะ {showstatus}</Typography>
               {/* <Menu
                 id="status-menu"
                 anchorEl={anchorEl}

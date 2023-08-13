@@ -4,58 +4,52 @@ const Datafooter = [
   {
     id: 1,
     footerdata: 'หน้าหลัก',
-    link: '/app/a',
+    link: '/',
   },
   {
     id: 2,
-    footerdata: 'ภาควิชา',
-    link: '/app/a',
+    footerdata: 'เกี่ยวกับภาควิชา',
+    link: '/aboutus',
   },
   {
     id: 3,
     footerdata: 'งานบริหาร',
-    link: '/app/a',
+    link: '/personal',
   },
   {
     id: 4,
-    footerdata: 'เกี่ยวกับภาควิชา',
-    link: '/app/a',
+    footerdata: 'หลักสูตร',
+    link: '/Coures',
   },
   {
     id: 5,
-    footerdata: 'หลักสูตร',
-    link: '/app/a',
+    footerdata: 'สหกิจ',
+    link: '/Cooperative',
   },
   {
     id: 6,
-    footerdata: 'สหกิจ',
-    link: '/app/a',
+    footerdata: 'ผลงานนักศึกษา',
+    link: '/app/pages/ComingSoon',
   },
   {
     id: 7,
-    footerdata: 'ผลงานนักศึกษา',
-    link: '/app/a',
+    footerdata: 'ปฏิทินการศึกษา',
+    link: '/aboutus/calender-study',
   },
-
   {
     id: 8,
-    footerdata: 'ปฏิทินการศึกษา',
-    link: '/app/a',
+    footerdata: 'ข่าวสารกิจกรรม',
+    link: '/aboutus/allNew',
   },
+  // {
+  //   id: 10,
+  //   footerdata: 'หลักสูตรที่เปิดสอน',
+  //   link: '/app/a',
+  // },
   {
     id: 9,
-    footerdata: 'ข่าวสารกิจกรรม',
-    link: '/app/a',
-  },
-  {
-    id: 10,
-    footerdata: 'หลักสูตรที่เปิดสอน',
-    link: '/app/a',
-  },
-  {
-    id: 11,
     footerdata: 'ติดต่อเรา',
-    link: '/app/a',
+    link: '/Contact-us',
   },
 ];
 

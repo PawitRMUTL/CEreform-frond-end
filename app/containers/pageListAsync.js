@@ -6,6 +6,10 @@
 import React from 'react';
 import Loading from 'dan-components/Loading';
 import loadable from '../utils/loadable';
+// CooperativeFrom
+export const CooperativeFrom = loadable(() => import('./Pages/Cooperative'), {
+  fallback: <Loading />,
+});
 // Backoffice
 export const Backoffice = loadable(() => import('./Pages/Backoffice'), {
   fallback: <Loading />,

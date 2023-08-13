@@ -21,7 +21,7 @@ function GridsLowwerBanner() {
 
   const history = useHistory();
   const handleClick = () => {
-    history.push('/app/pages/ComingSoon');
+    history.push('/Cooperative');
   };
   return (
     <div className={classes.ButtonRightWhatislooking}>

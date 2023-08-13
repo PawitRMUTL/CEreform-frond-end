@@ -26,6 +26,7 @@ import {
   StrutureCE,
   contactus,
   Backoffice,
+  CooperativeFrom,
 } from '../pageListAsync';
 
 function Application(props) {
@@ -45,6 +46,7 @@ function Application(props) {
         <Route path='/Coures-CPE-detail' component={StrtureOfCoures} />
         <Route path='/Contact-us' component={contactus} />
         <Route path='/Backoffice/personel' component={Backoffice} />
+        <Route path='/Cooperative' component={CooperativeFrom} />
         <Route path='/test' component={Createfrom} />
         <Route exact path='/app/blank-page' component={BlankPage} />
         <Route path='/app/pages/dashboard' component={DashboardPage} />

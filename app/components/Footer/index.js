@@ -7,12 +7,13 @@ import email from 'dan-images/email.png';
 import printer from 'dan-images/printer.png';
 import telephone from 'dan-images/telephone.png';
 import { Box, Typography, Stack } from '@mui/material';
+import { Link } from 'react-router-dom';
 import useStyles from './index-jss';
 
 import Datafooter from '../../api/dummy/Datafooter';
-const round1 = Datafooter.slice('', 4);
-const round2 = Datafooter.slice(4, 7);
-const round3 = Datafooter.slice(7, 10);
+const round1 = Datafooter.slice('', 3);
+const round2 = Datafooter.slice(3, 6);
+const round3 = Datafooter.slice(6, 8);
 
 export default function Footer() {
   const { classes } = useStyles();
@@ -43,27 +44,54 @@ export default function Footer() {
               <div style={{ marginRight: '42px' }}>
                 {Object.values(round1).map((txt) => (
                   <Box key={txt.id} className={classes.styleabouttxt}>
-                    {txt.footerdata}
+                    <Link
+                      style={{ textDecoration: 'none' }}
+                      key={txt.id}
+                      to={txt.link}
+                      className={classes.styleabouttxt} // Make sure you have defined this class
+                    >
+                      {txt.footerdata}
+                    </Link>
                   </Box>
                 ))}
               </div>
               <div style={{ marginRight: '42px' }}>
                 {Object.values(round2).map((txt) => (
                   <Box key={txt.id} className={classes.styleabouttxt}>
-                    {txt.footerdata}
+                    <Link
+                      style={{ textDecoration: 'none' }}
+                      key={txt.id}
+                      to={txt.link}
+                      className={classes.styleabouttxt} // Make sure you have defined this class
+                    >
+                      {txt.footerdata}
+                    </Link>
                   </Box>
                 ))}
               </div>
               <div style={{ marginRight: '42px' }}>
                 {Object.values(round3).map((txt) => (
                   <Box key={txt.id} className={classes.styleabouttxt}>
-                    {txt.footerdata}
+                    <Link
+                      style={{ textDecoration: 'none' }}
+                      key={txt.id}
+                      to={txt.link}
+                      className={classes.styleabouttxt} // Make sure you have defined this class
+                    >
+                      {txt.footerdata}
+                    </Link>
                   </Box>
                 ))}
               </div>
               <div className={classes.footerdata}>
                 <Box className={classes.styleabouttxt}>
-                  {Datafooter[10].footerdata}
+                  <Link
+                    style={{ textDecoration: 'none' }}
+                    to={Datafooter[8].link}
+                    className={classes.styleabouttxt} // Make sure you have defined this class
+                  >
+                    {Datafooter[8].footerdata}
+                  </Link>
                 </Box>
               </div>
             </Box>

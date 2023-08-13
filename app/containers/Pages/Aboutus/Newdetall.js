@@ -52,8 +52,8 @@ function newdetail() {
             <div className='newdetaillSubtile'>
               <span>เผยแพร่เมื่อ : 17 05 2565</span>
               <span>
-                โดย : ณัฏฐ์พัฒน์ คนมีฉลาด &nbsp; <AiOutlineEye /> จำนวนคนเข้าชม
-                100 ครั้ง
+                โดย : ณัฏฐ์พัฒน์ คนมีฉลาด &nbsp; <AiOutlineEye />
+                จำนวนคนเข้าชม {data.view} ครั้ง
               </span>
             </div>
           </div>
