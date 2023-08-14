@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Box, TextField, Typography } from '@mui/material';
+import axios from 'axios';
+import Swal from 'sweetalert2/src/sweetalert2.js';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
@@ -13,7 +15,7 @@ function CooperativeFrom() {
   const [selecteFirst, SetFirstname] = useState('');
   const [selecteLast, SetLastname] = useState('');
   const [selecteCooperativeTopic, SetCooperativeTopic] = useState('');
-  const [selecteCooperativeContect, SetCooperativeContect] = useState('');
+  const [selecteCooperativeContent, SetCooperativeContent] = useState('');
 
   const formatPhoneNumber = (input) => {
     const digits = input.replace(/\D/g, ''); // Remove non-numeric characters
@@ -29,21 +31,56 @@ function CooperativeFrom() {
   };
 
   const submitForm = (formData) => {
-    console.log(formData);
-    // axios
-    //   .post('http://0.0.0.0:3200/api/UpdateTeacherSubject', {
-    //     id: idteacher,
-    //     Subjectteach1: formData.selecteSubjectteach1,
-    //     Subjectteach2: formData.selecteSubjectteach2,
-    //     Subjectteach3: formData.selecteSubjectteach3,
-    //     Subjectteach4: formData.selecteSubjectteach4,
-    //     Subjectteach5: formData.selecteSubjectteach5,
-    //   })
-    //   .then((data) => {
-    //     if (data.status === 200) {
-    //       setOpen(!Status);๓
-    //     }
-    //   });
+    if (
+      formData.selecteCooperative === '' || formData.selecteCooperativeContent === '' || formData.selecteCooperativeTopic === '' || formData.selecteCooperativePhone === '' || formData.selecteFirst === '' || formData.selectePrefix === '' || formData.selecteLast === '') {
+      Swal.fire('โปรดตรวจสอบข้อมูล ?', 'โปรดกรอกข้อมูลให้ครบถ้วน', 'question');
+    } else {
+      Swal.fire({
+        title: 'ขอบคุณสำหรับการรายงาน',
+        text: `เรื่อง ${formData.selecteCooperativeTopic}`,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'ส่งรายงาน',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          console.log(formData);
+          axios
+            .post('http://0.0.0.0:3200/api/addReport_graduate', {
+              SelecteCooperative: formData.selecteCooperative,
+              SelecteCooperativePhone: formData.selecteCooperativePhone,
+              SelectePrefix: formData.selectePrefix,
+              SelecteFirst: formData.selecteFirst,
+              SelecteLast: formData.selecteLast,
+              SelecteCooperativeTopic: formData.selecteCooperativeTopic,
+              SelecteCooperativeContent: formData.selecteCooperativeContent,
+            })
+            .then((data) => {
+              console.log(data);
+              if (data.status === 200) {
+                let timerInterval;
+                Swal.fire({
+                  title: 'ขอบคุณสำหรับการรายงาน',
+                  html: 'หากมีเราตรวจสอบการรายงาน หากมีข้อสงสัยทางเราจะติดต่อกลับ',
+                  timer: 2000,
+                  timerProgressBar: true,
+                  didOpen: () => {
+                    Swal.showLoading();
+                    const b = Swal.getHtmlContainer().querySelector('b');
+                    timerInterval = setInterval(() => {
+                      b.textContent = Swal.getTimerLeft();
+                    }, 100);
+                  },
+                  willClose: () => {
+                    clearInterval(timerInterval);
+                    window.location.reload();
+                  },
+                });
+              }
+            });
+        }
+      });
+    }
   };
 
   const handleSubmit = (event) => {
@@ -55,7 +92,7 @@ function CooperativeFrom() {
       selecteFirst,
       selecteLast,
       selecteCooperativeTopic,
-      selecteCooperativeContect,
+      selecteCooperativeContent,
     });
   };
 
@@ -213,7 +250,7 @@ function CooperativeFrom() {
                 variant='standard'
                 sx={{ m: 1, width: '45ch' }}
                 fontSize={20}
-                onChange={(event) => SetCooperativeContect(event.target.value)}
+                onChange={(event) => SetCooperativeContent(event.target.value)}
               />
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'end', m: 1 }}>

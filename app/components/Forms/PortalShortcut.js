@@ -20,6 +20,7 @@ function PortalShortcut() {
 
   const linkHome = '/';
   const linkPersonel = '/Backoffice/personel';
+  const coomingsoon = '/app/pages/ComingSoon';
   // -------------------- verify jwt
   useEffect(() => {
     axios
@@ -67,29 +68,44 @@ function PortalShortcut() {
               </Button>
             </Box>
             <Box width={236} height={105} className={classes.layoutButton}>
-              Dashboard
+              <Typography>Dashboard</Typography>
             </Box>
           </Box>
           <Box className={classes.layoutBox}>
             <Box width={236} height={105} className={classes.layoutButton}>
-              Study Plan Recommendation
+              <Typography> Study Plan Recommendation</Typography>
+              <Button href={coomingsoon} sx={{ width: 9 }}>
+                <GrFormNextLink />
+              </Button>
             </Box>
             <Box width={236} height={105} className={classes.layoutButton}>
-              Project Management
+              <Typography>Project Management</Typography>
+              <Button href={coomingsoon} sx={{ width: 9 }}>
+                <GrFormNextLink />
+              </Button>
             </Box>
             <Box width={236} height={105} className={classes.layoutButton}>
-              Cooperative Education Management
+              <Typography>Cooperative Education Management</Typography>
+              <Button href={coomingsoon} sx={{ width: 9 }}>
+                <GrFormNextLink />
+              </Button>
             </Box>
           </Box>
           <Box className={classes.layoutBox}>
             <Box width={236} height={105} className={classes.layoutButton}>
-              Management
+              <Typography>Management</Typography>
             </Box>
             <Box width={236} height={105} className={classes.layoutButton}>
-              News Management
+              <Typography>News Management</Typography>
+              <Button href={'/Managemant/news'} sx={{ width: 9 }}>
+                <GrFormNextLink />
+              </Button>
             </Box>
             <Box width={236} height={105} className={classes.layoutButton}>
-              TCAS Management
+              <Typography>TCAS Management</Typography>
+              <Button href={coomingsoon} sx={{ width: 9 }}>
+                <GrFormNextLink />
+              </Button>
             </Box>
           </Box>
         </div>
@@ -112,13 +128,22 @@ function PortalShortcut() {
           </Box>
           <Box className={classes.layoutBox}>
             <Box width={236} height={105} className={classes.layoutButton}>
-              Management
+              <Typography>Study Plan Recommendation</Typography>
+              <Button href={coomingsoon} sx={{ width: 9 }}>
+                <GrFormNextLink />
+              </Button>
             </Box>
             <Box width={236} height={105} className={classes.layoutButton}>
-              News Management
+              <Typography>Project Management</Typography>
+              <Button href={coomingsoon} sx={{ width: 9 }}>
+                <GrFormNextLink />
+              </Button>
             </Box>
             <Box width={236} height={105} className={classes.layoutButton}>
-              TCAS Management
+              <Typography>Cooperative Education Management</Typography>
+              <Button href={coomingsoon} sx={{ width: 9 }}>
+                <GrFormNextLink />
+              </Button>
             </Box>
           </Box>
         </div>

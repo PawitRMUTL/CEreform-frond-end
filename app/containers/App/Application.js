@@ -27,6 +27,7 @@ import {
   contactus,
   Backoffice,
   CooperativeFrom,
+  newsManagemant,
 } from '../pageListAsync';
 
 function Application(props) {
@@ -47,6 +48,7 @@ function Application(props) {
         <Route path='/Contact-us' component={contactus} />
         <Route path='/Backoffice/personel' component={Backoffice} />
         <Route path='/Cooperative' component={CooperativeFrom} />
+        <Route path='/Managemant/news' component={newsManagemant} />
         <Route path='/test' component={Createfrom} />
         <Route exact path='/app/blank-page' component={BlankPage} />
         <Route path='/app/pages/dashboard' component={DashboardPage} />

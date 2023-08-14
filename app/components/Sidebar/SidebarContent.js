@@ -129,7 +129,7 @@ function SidebarContent(props) {
           <img src={logo} alt={brand.name} />
           <Typography>{brand.name}</Typography>
         </NavLink>
-        {isLogin && (
+        {username ? (
           <div
             className={cx(classes.profile, classes.user)}
             style={{
@@ -170,7 +170,7 @@ function SidebarContent(props) {
               </Menu> */}
             </div>
           </div>
-        )}
+        ) : (null)}
       </div>
       <div
         id='sidebar'
