@@ -10,36 +10,11 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { AiOutlinePlus } from 'react-icons/ai';
+import { AiOutlinePlus, AiOutlineEdit, AiFillDelete } from 'react-icons/ai';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-
-function createData(name, calories, fat, carbs, protein) {
-  return {
-    name,
-    calories,
-    fat,
-    carbs,
-    protein,
-  };
-}
-
-const rows = [
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Donut', 452, 25.0, 51, 4.9),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Honeycomb', 408, 3.2, 87, 6.5),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Jelly Bean', 375, 0.0, 94, 0.0),
-  createData('KitKat', 518, 26.0, 65, 7.0),
-  createData('Lollipop', 392, 0.2, 98, 0.0),
-  createData('Marshmallow', 318, 0, 81, 2.0),
-  createData('Nougat', 360, 19.0, 9, 37.0),
-  createData('Oreo', 437, 18.0, 63, 4.0),
-];
+import DialogEditNews from './dialogEditNews';
 
 const useStyles = makeStyles()((theme) => ({
   root: {
@@ -60,6 +35,11 @@ function newsManagemant() {
   const [user, setUsername] = useState('');
   const [status, setStatus] = useState('');
   const [islogin, setIslogin] = useState(false);
+  const [DataNews, setDataNews] = useState([]);
+  const [DataUpdate, setDateUpdate] = useState([]);
+  const [NewsDate, setNewsdate] = useState([]);
+  const [DialogEdit, setDialogEdit] = useState(false);
+
   // -------------------- verify jwt
   useEffect(() => {
     axios
@@ -80,6 +60,7 @@ function newsManagemant() {
       }
     }
   }, [user, status]);
+  //   --------------------- !login show dialog
   useEffect(() => {
     if (user === undefined) {
       let timerInterval;
@@ -106,18 +87,36 @@ function newsManagemant() {
       });
     }
   }, [user]);
+  //   ==================== fetch Data news
+  useEffect(() => {
+    axios.get('http://0.0.0.0:3200/api/GetNewlist').then((data) => {
+      setDataNews(data.data);
+      setNewsdate(data.data[0].news_date);
+    });
+  }, []);
+
   const { classes } = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  const handleChangePage = (event, newPage) => { setPage(newPage); };
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
 
-  const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+  const emptyRows = rowsPerPage - Math.min(rowsPerPage, DataNews.length - page * rowsPerPage);
+  const handleCloseDialog = () => {
+    setDialogEdit(false);
+  };
+  const clickid = (id) => {
+    const thunmbid = id - 1;
+    setDialogEdit(true);
+    setDateUpdate(DataNews[thunmbid]);
+  };
 
   return (
     <div>
@@ -134,10 +133,10 @@ function newsManagemant() {
             }}>
             <Typography>News Management</Typography>
             <Box display={'flex'} justifyContent={'space-between'}>
-              <Typography> xx records</Typography>
+              <Typography> {DataNews?.length} records</Typography>
               <Typography fontSize={10}>
                 Last Update
-                <Typography fontSize={12}>dd/mm/yy</Typography>
+                <Typography fontSize={12}>{NewsDate}</Typography>
               </Typography>
             </Box>
           </Card>
@@ -154,7 +153,7 @@ function newsManagemant() {
               <Typography fontSize={12}> Adds News</Typography>
             </Box>
           </Box>
-          <Box border={'2px solid red'} marginTop={'2%'}>
+          <Box marginTop={'2%'}>
             <div className={classes.root}>
               <Paper className={classes.paper}>
                 <TableContainer>
@@ -165,36 +164,43 @@ function newsManagemant() {
                     aria-label='enhanced table'>
                     <TableHead>
                       <TableRow>
-                        <TableCell>ชื่อข่าว</TableCell>
+                        <TableCell align='left'>ลำดับที่</TableCell>
+                        <TableCell align='left'>ชื่อข่าว</TableCell>
                         <TableCell align='center'>วันที่ลงข่าว</TableCell>
                         <TableCell align='right'>แก้ไข</TableCell>
                         <TableCell align='right'>ลบ</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      {rows
-                        .slice(
-                          page * rowsPerPage,
-                          page * rowsPerPage + rowsPerPage,
-                        )
-                        .map((row, index) => {
-                          const labelId = `enhanced-table-checkbox-${index}`;
-                          return (
-                            <TableRow hover tabIndex={-1} key={row.name}>
-                              <TableCell
-                                component='th'
-                                id={labelId}
-                                scope='row'>
-                                {row.name}
-                              </TableCell>
-                              <TableCell align='center'>
-                                {row.calories}
-                              </TableCell>
-                              <TableCell align='right'>{row.fat}</TableCell>
-                              <TableCell align='right'>{row.carbs}</TableCell>
-                            </TableRow>
-                          );
-                        })}
+                      {DataNews.slice(
+                        page * rowsPerPage,
+                        page * rowsPerPage + rowsPerPage,
+                      ).map((data, index) => {
+                        const labelId = `enhanced-table-checkbox-${index}`;
+                        return (
+                          <TableRow hover tabIndex={-1} key={data.id_image}>
+                            <TableCell component='th' id={labelId} scope='row'>
+                              {data.id_image}.
+                            </TableCell>
+                            <TableCell align='left'>{data.news_name}</TableCell>
+                            <TableCell align='center'>
+                              {data.news_date}
+                            </TableCell>
+                            <TableCell align='right'>
+                              <Box
+                                onClick={() => clickid(data.id_image)}
+                                style={{ cursor: 'pointer' }}>
+                                <AiOutlineEdit />
+                              </Box>
+                            </TableCell>
+                            <TableCell align='right'>
+                              <Box style={{ cursor: 'pointer' }}>
+                                <AiFillDelete />
+                              </Box>
+                            </TableCell>
+                          </TableRow>
+                        );
+                      })}
                       {emptyRows > 0 && (
                         <TableRow>
                           <TableCell colSpan={6} />
@@ -206,7 +212,7 @@ function newsManagemant() {
                 <TablePagination
                   rowsPerPageOptions={[5, 10, 25]}
                   component='div'
-                  count={rows.length}
+                  count={DataNews.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   onPageChange={handleChangePage}
@@ -215,6 +221,15 @@ function newsManagemant() {
               </Paper>
             </div>
           </Box>
+          {DialogEdit && (
+            <DialogEditNews
+              //   id={selectedId}
+              Username={user}
+              Status={DialogEdit}
+              handleClose={handleCloseDialog}
+              Data={DataUpdate}
+            />
+          )}
         </div>
       ) : null}
     </div>
