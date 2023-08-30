@@ -15,7 +15,6 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import DialogEditNews from './dialogEditNews';
-
 const useStyles = makeStyles()((theme) => ({
   root: {
     width: '100%',
@@ -94,7 +93,11 @@ function newsManagemant() {
       setNewsdate(data.data[0].news_date);
     });
   }, []);
-
+  useEffect(() => {
+    if (DataNews !== undefined) {
+      console.log('DataNews', DataNews);
+    }
+  }, [DataNews]);
   const { classes } = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -116,6 +119,51 @@ function newsManagemant() {
     const thunmbid = id - 1;
     setDialogEdit(true);
     setDateUpdate(DataNews[thunmbid]);
+  };
+
+  const isDelete = (Id) => {
+    if (Id !== undefined) {
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger',
+        },
+        buttonsStyling: false,
+      });
+
+      swalWithBootstrapButtons
+        .fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, delete it!',
+          cancelButtonText: 'No, cancel!',
+          reverseButtons: true,
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            axios
+              .post('http://0.0.0.0:3200/api/DeleteNews', { id: Id })
+              .then((data) => {
+                if (data.status === 200) {
+                  swalWithBootstrapButtons.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success',
+                  );
+                  window.location.reload(true);
+                }
+              });
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            swalWithBootstrapButtons.fire(
+              'Cancelled',
+              'Your News file is safe :)',
+              'error',
+            );
+          }
+        });
+    }
   };
 
   return (
@@ -167,6 +215,8 @@ function newsManagemant() {
                         <TableCell align='left'>ลำดับที่</TableCell>
                         <TableCell align='left'>ชื่อข่าว</TableCell>
                         <TableCell align='center'>วันที่ลงข่าว</TableCell>
+                        {/* view */}
+                        <TableCell align='center'>ยอดเข้าชม</TableCell>
                         <TableCell align='right'>แก้ไข</TableCell>
                         <TableCell align='right'>ลบ</TableCell>
                       </TableRow>
@@ -186,6 +236,7 @@ function newsManagemant() {
                             <TableCell align='center'>
                               {data.news_date}
                             </TableCell>
+                            <TableCell align='center'>{data.view}</TableCell>
                             <TableCell align='right'>
                               <Box
                                 onClick={() => clickid(data.id_image)}
@@ -193,9 +244,12 @@ function newsManagemant() {
                                 <AiOutlineEdit />
                               </Box>
                             </TableCell>
+                            {/* button delete */}
                             <TableCell align='right'>
                               <Box style={{ cursor: 'pointer' }}>
-                                <AiFillDelete />
+                                <AiFillDelete
+                                  onClick={() => isDelete(data.news_id)}
+                                />
                               </Box>
                             </TableCell>
                           </TableRow>

@@ -10,21 +10,34 @@ import DialogTitle from '@mui/material/DialogTitle';
 import PropTypes from 'prop-types';
 function DialogEditNews(props) {
   const {
-Status, handleClose, Data, Username
-} = props;
+    Status, handleClose, Data, Username
+  } = props;
   const [open, setOpen] = useState();
   const [newsCreate, setNewsCreate] = useState([]);
   const [imageToJson, setImageJson] = useState();
   const [nameCreate, setNameCreate] = useState([]);
+  const [newsname, setNewsname] = useState();
+  const [newsdate, setNewsdate] = useState();
+  const [newsheading, setNewsheading] = useState();
+  const [newscontent, setNewscontent] = useState();
+  const [newscontent2, setNewscontent2] = useState();
   useEffect(() => {
     setOpen(Status);
   }, [Status]);
+  // tempData
+  useEffect(() => {
+    setNewsname(newsCreate.news_name);
+    setNewsheading(newsCreate.news_heading);
+    setNewsdate(newsCreate.news_date);
+    setNewscontent(newsCreate.news_content);
+    setNewscontent2(newsCreate.news_content2);
+  }, [newsCreate]);
   //   Read_news_and_image
   useEffect(() => {
     axios
       .post('http://0.0.0.0:3200/api/ReadNewsAndImage', { id: Data.news_id })
       .then((data) => {
-        setNewsCreate(data.data);
+        setNewsCreate(data.data[0]);
         setImageJson(JSON.parse(data.data[0].image_filenames));
       });
   }, [open]);
@@ -35,24 +48,51 @@ Status, handleClose, Data, Username
       .then((data) => setNameCreate(data.data[0]));
   }, [Username]);
   useEffect(() => {
-    if (newsCreate !== undefined) {
-      console.log('newsCreate = ', newsCreate);
-    }
-  }, [newsCreate]);
-  useEffect(() => {
     if (nameCreate !== undefined) {
-      console.log('nameCreate = ', nameCreate);
+      // console.log('nameCreate = ', nameCreate);
     }
   }, [nameCreate]);
   useEffect(() => {
     if (imageToJson !== undefined) {
-      console.log('imageToJson = ', imageToJson);
+      // console.log('imageToJson = ', imageToJson);
     }
   }, [imageToJson]);
+  // submit
+  const submitForm = (formData) => {
+    const CreateBy = nameCreate.first_name + ' ' + nameCreate.last_name;
+    console.log(newsCreate.news_id);
+    console.log(formData);
+    axios
+      .post('http://0.0.0.0:3200/api/UpdatenewsByid', {
+        Newsid: newsCreate.news_id,
+        Newsname: formData.newsname,
+        Newsdate: formData.newsdate,
+        Newscontent: formData.newscontent,
+        Newscontent2: formData.newscontent2,
+        Newsheading: formData.newsheading,
+        Createby: CreateBy,
+      })
+      .then((data) => {
+        if (data.status === 200) {
+          console.log('succesfully');
+          // setOpen(!Status);
+        }
+      });
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    submitForm({
+      newsname,
+      newsheading,
+      newsdate,
+      newscontent,
+      newscontent2,
+    });
+  };
   return (
     <div>
       <Dialog open={open} onClose={handleClose}>
-        <form>
+        <form onSubmit={handleSubmit}>
           <DialogTitle>แก้ไขข้อมูลข่าวสาร และ ประชาสัมพันธ์</DialogTitle>
           <DialogContent>
             <DialogContentText>
@@ -64,33 +104,58 @@ Status, handleClose, Data, Username
               margin='dense'
               id='name_news'
               maxRows={2}
-              defaultValue={''}
+              defaultValue={newsCreate.news_name}
               label='ชื่อข่าว'
               type='text'
-              //   onChange={(event) => SetChagePrefix(event.target.value)}
+              onChange={(event) => setNewsname(event.target.value)}
               variant='standard'
               sx={{ m: 1, width: '20ch' }}></TextField>
+            {/* birthday */}
+            <TextField
+              autoFocus
+              sx={{ m: 1, width: '20ch' }}
+              variant='standard'
+              margin='dense'
+              id='date-picker'
+              label='Select Date'
+              type='date'
+              helperText={`Default date is ${newsCreate.news_date}`}
+              defaultValue={newsCreate.news_date}
+              InputLabelProps={{
+                shrink: true,
+              }}
+              // InputProps={{
+              //   inputProps: {
+              //     max: , // Optional: restrict future dates
+              //   },
+              // }}
+              onChange={(event) => {
+                setNewsdate(event.target.value);
+                // const formattedDate = formatDate(event.target.value);
+                // console.log('Formatted date:', formattedDate);
+              }}
+            />{' '}
             {/* news_heading */}
             <TextField
               multiline
               margin='dense'
               id='heading_news'
               maxRows={2}
-              defaultValue={''}
+              defaultValue={newsCreate.news_heading}
               label='หัวเรื่อง'
               type='text'
-              //   onChange={(event) => SetChagePrefix(event.target.value)}
+              onChange={(event) => setNewsheading(event.target.value)}
               variant='standard'
-              sx={{ m: 1, width: '20ch' }}></TextField>
+              sx={{ m: 1, width: '40ch' }}></TextField>
             {/* contect 1 */}
             <TextField
               multiline
               margin='dense'
               id='contect_news1'
-              defaultValue={''}
+              defaultValue={newsCreate.news_content}
               label='เนื้อหาข่าวคอลัมท์ 1'
               type='text'
-              //   onChange={(event) => SetChagePrefix(event.target.value)}
+              onChange={(event) => setNewscontent(event.target.value)}
               variant='standard'
               sx={{ m: 1, width: '40ch' }}></TextField>
             {/* contect 2 */}
@@ -98,10 +163,10 @@ Status, handleClose, Data, Username
               multiline
               margin='dense'
               id='contect_news2'
-              defaultValue={''}
+              defaultValue={newsCreate.news_content2}
               label='เนื้อหาข่าวคอลัมท์ 2'
               type='text'
-              //   onChange={(event) => SetChagePrefix(event.target.value)}
+              onChange={(event) => setNewscontent2(event.target.value)}
               variant='standard'
               sx={{ m: 1, width: '40ch' }}></TextField>
           </DialogContent>

@@ -14,8 +14,8 @@ function newdetail() {
   const [idNews, SetIdNews] = useState();
   const [checkvalue, Setcheckvalue] = useState(false);
   const [dataNew, SetDataNew] = useState([]);
+  const [DATE, SetDATE] = useState('');
   let newsid = [];
-
   useEffect(() => {
     newsid = location.state.news_id;
     SetIdNews(newsid);
@@ -27,11 +27,12 @@ function newdetail() {
           'http://0.0.0.0:3200/api/listnews_detail',
           {
             id: newsid,
-          }
+          },
         );
         if (!checkvalue) {
           Setcheckvalue(true);
           SetDataNew(response.data);
+          SetDATE(response.data[0].news_date);
         }
       } catch (error) {
         console.log('error fetchData is ', error);
@@ -41,7 +42,17 @@ function newdetail() {
 
     fetchData();
   }, [checkvalue]);
-
+  useEffect(() => {
+    if (DATE !== undefined) {
+      console.log('dataNew', DATE);
+    }
+  }, [DATE]);
+  const originalDate = new Date(DATE);
+  const convertedDate = originalDate.toLocaleString('th-TH', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
   return (
     <div>
       <section className='sectionnewdetaill'>
@@ -50,9 +61,9 @@ function newdetail() {
           <div key={data.news_id}>
             <h1>{data.news_name}</h1>
             <div className='newdetaillSubtile'>
-              <span>เผยแพร่เมื่อ : 17 05 2565</span>
+              <span>เผยแพร่เมื่อ : {convertedDate}</span>
               <span>
-                โดย : ณัฏฐ์พัฒน์ คนมีฉลาด &nbsp; <AiOutlineEye />
+                โดย : {data.created_by} &nbsp; <AiOutlineEye />
                 จำนวนคนเข้าชม {data.view} ครั้ง
               </span>
             </div>
