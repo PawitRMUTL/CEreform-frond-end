@@ -15,6 +15,7 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import DialogEditNews from './dialogEditNews';
+import DialogAddnews from './dialogAddnews';
 const useStyles = makeStyles()((theme) => ({
   root: {
     width: '100%',
@@ -38,6 +39,7 @@ function newsManagemant() {
   const [DataUpdate, setDateUpdate] = useState([]);
   const [NewsDate, setNewsdate] = useState([]);
   const [DialogEdit, setDialogEdit] = useState(false);
+  const [DialogNews, setDialogNews] = useState(false);
 
   // -------------------- verify jwt
   useEffect(() => {
@@ -88,16 +90,11 @@ function newsManagemant() {
   }, [user]);
   //   ==================== fetch Data news
   useEffect(() => {
-    axios.get('http://0.0.0.0:3200/api/GetNewlist').then((data) => {
+    axios.get('http://0.0.0.0:3200/api/GetNews').then((data) => {
       setDataNews(data.data);
       setNewsdate(data.data[0].news_date);
     });
   }, []);
-  useEffect(() => {
-    if (DataNews !== undefined) {
-      console.log('DataNews', DataNews);
-    }
-  }, [DataNews]);
   const { classes } = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -114,13 +111,17 @@ function newsManagemant() {
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, DataNews.length - page * rowsPerPage);
   const handleCloseDialog = () => {
     setDialogEdit(false);
+    setDialogNews(false);
   };
   const clickid = (id) => {
     const thunmbid = id - 1;
     setDialogEdit(true);
     setDateUpdate(DataNews[thunmbid]);
   };
-
+  const Addnews = () => {
+    console.log('Click Add news');
+    setDialogNews(true);
+  };
   const isDelete = (Id) => {
     if (Id !== undefined) {
       const swalWithBootstrapButtons = Swal.mixin({
@@ -130,7 +131,6 @@ function newsManagemant() {
         },
         buttonsStyling: false,
       });
-
       swalWithBootstrapButtons
         .fire({
           title: 'Are you sure?',
@@ -188,6 +188,7 @@ function newsManagemant() {
               </Typography>
             </Box>
           </Card>
+          {/* button add news */}
           <Box marginTop={'2%'}>
             <Box
               display={'flex'}
@@ -196,7 +197,12 @@ function newsManagemant() {
               width={120}
               borderRadius={30}
               padding={'10px'}
-              sx={{ color: '#fff', backgroundColor: '#000' }}>
+              sx={{
+                color: '#fff',
+                backgroundColor: '#000',
+                cursor: 'pointer',
+              }}
+              onClick={Addnews}>
               <AiOutlinePlus />
               <Typography fontSize={12}> Adds News</Typography>
             </Box>
@@ -228,9 +234,9 @@ function newsManagemant() {
                       ).map((data, index) => {
                         const labelId = `enhanced-table-checkbox-${index}`;
                         return (
-                          <TableRow hover tabIndex={-1} key={data.id_image}>
+                          <TableRow hover tabIndex={-1} key={data.news_id}>
                             <TableCell component='th' id={labelId} scope='row'>
-                              {data.id_image}.
+                              {data.news_id}
                             </TableCell>
                             <TableCell align='left'>{data.news_name}</TableCell>
                             <TableCell align='center'>
@@ -239,7 +245,7 @@ function newsManagemant() {
                             <TableCell align='center'>{data.view}</TableCell>
                             <TableCell align='right'>
                               <Box
-                                onClick={() => clickid(data.id_image)}
+                                onClick={() => clickid(data.news_id)}
                                 style={{ cursor: 'pointer' }}>
                                 <AiOutlineEdit />
                               </Box>
@@ -282,6 +288,13 @@ function newsManagemant() {
               Status={DialogEdit}
               handleClose={handleCloseDialog}
               Data={DataUpdate}
+            />
+          )}
+          {DialogNews && (
+            <DialogAddnews
+              Username={user}
+              Status={DialogNews}
+              handleClose={handleCloseDialog}
             />
           )}
         </div>

@@ -9,13 +9,9 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import PropTypes from 'prop-types';
 import Swal from 'sweetalert2';
-function DialogEditNews(props) {
-  const {
-    Status, handleClose, Data, Username
-  } = props;
+function DialogAddnews(props) {
+  const { Status, handleClose, Username } = props;
   const [open, setOpen] = useState();
-  const [newsCreate, setNewsCreate] = useState([]);
-  const [imageToJson, setImageJson] = useState();
   const [nameCreate, setNameCreate] = useState([]);
   const [newsname, setNewsname] = useState();
   const [newsdate, setNewsdate] = useState();
@@ -25,50 +21,34 @@ function DialogEditNews(props) {
   useEffect(() => {
     setOpen(Status);
   }, [Status]);
-  // tempData
-  useEffect(() => {
-    setNewsname(newsCreate.news_name);
-    setNewsheading(newsCreate.news_heading);
-    setNewsdate(newsCreate.news_date);
-    setNewscontent(newsCreate.news_content);
-    setNewscontent2(newsCreate.news_content2);
-  }, [newsCreate]);
-  //   Read_news_and_image
-  useEffect(() => {
-    axios
-      .post('http://0.0.0.0:3200/api/ReadNewsAndImage', { id: Data.news_id })
-      .then((data) => {
-        setNewsCreate(data.data[0]);
-        setImageJson(JSON.parse(data.data[0].image_filenames));
-      });
-  }, [open]);
   //   /api/ReadTeacher
   useEffect(() => {
     axios
       .post('http://0.0.0.0:3200/api/ReadTeacher', { username: Username })
       .then((data) => setNameCreate(data.data[0]));
   }, [Username]);
+
   useEffect(() => {
-    if (imageToJson !== undefined) {
-      // console.log('imageToJson = ', imageToJson);
+    if (nameCreate !== undefined) {
+      console.log('nameCreate', nameCreate);
     }
-  }, [imageToJson]);
+  }, [nameCreate]);
   // submit
   const submitForm = (formData) => {
     const CreateBy = nameCreate.first_name + ' ' + nameCreate.last_name;
-    setOpen(!Status);
     Swal.fire({
-      title: 'Do you want to save the changes?',
-      showDenyButton: true,
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Save',
-      denyButtonText: 'not save',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Add it!',
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
+        Swal.fire('AddNews!', 'Your Newspaper has been added', 'success');
         axios
-          .post('http://0.0.0.0:3200/api/UpdatenewsByid', {
-            Newsid: newsCreate.news_id,
+          .post('http://0.0.0.0:3200/api/Addnews', {
             Newsname: formData.newsname,
             Newsdate: formData.newsdate,
             Newscontent: formData.newscontent,
@@ -78,13 +58,10 @@ function DialogEditNews(props) {
           })
           .then((data) => {
             if (data.status === 200) {
-              Swal.fire('Saved!', '', 'success');
-                window.location.reload(true);
+              console.log('succesfully');
+              window.location.reload(true);
             }
           });
-      } else if (result.isDenied) {
-        handleClose;
-        Swal.fire('Changes are not saved', '', 'info');
       }
     });
   };
@@ -97,12 +74,13 @@ function DialogEditNews(props) {
       newscontent,
       newscontent2,
     });
+    setOpen(false);
   };
   return (
     <div>
       <Dialog open={open} onClose={handleClose}>
         <form onSubmit={handleSubmit}>
-          <DialogTitle>แก้ไขข้อมูลข่าวสาร และ ประชาสัมพันธ์</DialogTitle>
+          <DialogTitle>เพิ่มข้อมูลข่าวสาร และ ประชาสัมพันธ์</DialogTitle>
           <DialogContent>
             <DialogContentText>
               โปรดใส่ข้อมูลที่เป็นจริง และ ถูกต้อง / Please Insert real data .
@@ -113,7 +91,6 @@ function DialogEditNews(props) {
               margin='dense'
               id='name_news'
               maxRows={2}
-              defaultValue={newsCreate.news_name}
               label='ชื่อข่าว'
               type='text'
               onChange={(event) => setNewsname(event.target.value)}
@@ -128,20 +105,11 @@ function DialogEditNews(props) {
               id='date-picker'
               label='Select Date'
               type='date'
-              helperText={`Default date is ${newsCreate.news_date}`}
-              defaultValue={newsCreate.news_date}
               InputLabelProps={{
                 shrink: true,
               }}
-              // InputProps={{
-              //   inputProps: {
-              //     max: , // Optional: restrict future dates
-              //   },
-              // }}
               onChange={(event) => {
                 setNewsdate(event.target.value);
-                // const formattedDate = formatDate(event.target.value);
-                // console.log('Formatted date:', formattedDate);
               }}
             />{' '}
             {/* news_heading */}
@@ -150,7 +118,6 @@ function DialogEditNews(props) {
               margin='dense'
               id='heading_news'
               maxRows={2}
-              defaultValue={newsCreate.news_heading}
               label='หัวเรื่อง'
               type='text'
               onChange={(event) => setNewsheading(event.target.value)}
@@ -161,7 +128,6 @@ function DialogEditNews(props) {
               multiline
               margin='dense'
               id='contect_news1'
-              defaultValue={newsCreate.news_content}
               label='เนื้อหาข่าวคอลัมท์ 1'
               type='text'
               onChange={(event) => setNewscontent(event.target.value)}
@@ -172,7 +138,6 @@ function DialogEditNews(props) {
               multiline
               margin='dense'
               id='contect_news2'
-              defaultValue={newsCreate.news_content2}
               label='เนื้อหาข่าวคอลัมท์ 2'
               type='text'
               onChange={(event) => setNewscontent2(event.target.value)}
@@ -188,10 +153,9 @@ function DialogEditNews(props) {
     </div>
   );
 }
-DialogEditNews.propTypes = {
+DialogAddnews.propTypes = {
   Username: PropTypes.any,
   Status: PropTypes.any,
   handleClose: PropTypes.func,
-  Data: PropTypes.any,
 };
-export default DialogEditNews;
+export default DialogAddnews;
