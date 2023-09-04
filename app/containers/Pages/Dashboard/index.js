@@ -1,33 +1,50 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import brand from 'dan-api/dummy/brand';
-import { PapperBlock } from 'dan-components';
-import CompossedLineBarArea from './CompossedLineBarArea';
-import StrippedTable from '../Table/StrippedTable';
-
+import React, { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+// import { PapperBlock } from 'dan-components';
+// import { Typography } from '@mui/material';
+import ShownumberNews from './ShownumberNews';
+import './styles.css';
 function BasicTable() {
-  const title = brand.name + ' - Dashboard';
-  const description = brand.desc;
+  const [Islogin, Setlogin] = useState(false);
+  // -------------------- getCookie
+  const username = Cookies.get('._jwtUsername');
+  const role = Cookies.get('._jwtRole');
+  // ===============================
+  useEffect(() => {
+    axios
+      .post('http://0.0.0.0:3200/api/verify_authen', {
+        token: username,
+        tokenRole: role,
+      })
+      .then((data) => {
+        console.log(data.data.returnCode);
+        if (data.data.returnCode === '0') {
+          Swal.fire({
+            title: 'Oops...',
+            text: 'Please login ก่อนใช้งานทุกครั้ง',
+            icon: 'error',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'login',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = '/PortalLogin';
+            }
+          });
+        }
+        if (data.data.returnCode === '1') {
+          Setlogin(true);
+        }
+      });
+  }, []);
   return (
     <div>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
-      </Helmet>
-      <PapperBlock title="Statistic Chart" icon="ion-ios-stats-outline" desc="" overflowX>
-        <div>
-          <CompossedLineBarArea />
+      {Islogin ? (
+        <div className='section'>
+          <ShownumberNews />
         </div>
-      </PapperBlock>
-      <PapperBlock title="Table" whiteBg icon="ion-ios-menu-outline" desc="UI Table when no data to be shown">
-        <div>
-          <StrippedTable />
-        </div>
-      </PapperBlock>
+      ) : null}
     </div>
   );
 }

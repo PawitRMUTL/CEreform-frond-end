@@ -21,6 +21,7 @@ function PortalShortcut() {
   const linkHome = '/';
   const linkPersonel = '/Backoffice/personel';
   const coomingsoon = '/app/pages/ComingSoon';
+  const dashboard = '/app/pages/dashboard';
   // -------------------- verify jwt
   useEffect(() => {
     axios
@@ -69,6 +70,9 @@ function PortalShortcut() {
             </Box>
             <Box width={236} height={105} className={classes.layoutButton}>
               <Typography>Dashboard</Typography>
+              <Button href={dashboard} sx={{ width: 9 }}>
+                <GrFormNextLink />
+              </Button>
             </Box>
           </Box>
           <Box className={classes.layoutBox}>
