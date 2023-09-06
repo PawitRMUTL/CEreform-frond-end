@@ -67,9 +67,19 @@ function Personelteacher(props) {
     if (educationTeacher === undefined) {
       console.log('educationTeacher undefined', educationTeacher);
     }
-    SetBachelor(educationTeacher[2]);
-    SetMaster(educationTeacher[1]);
-    SetDoctor(educationTeacher[0]);
+    if (Array.isArray(educationTeacher)) {
+      for (let index = 0; index < educationTeacher.length; index++) {
+        if (educationTeacher[index].teacher_diploma === 'ปริญญาตรี') {
+          SetBachelor(educationTeacher[index]);
+        }
+        if (educationTeacher[index].teacher_diploma === 'ปริญญาโท') {
+          SetMaster(educationTeacher[index]);
+        }
+        if (educationTeacher[index].teacher_diploma === 'ปริญญาเอก') {
+          SetDoctor(educationTeacher[index]);
+        }
+      }
+    }
   }, [educationTeacher]);
   // Set image
   useEffect(() => {
@@ -126,7 +136,7 @@ function Personelteacher(props) {
             <FcPlus />
             <DialogImageTeacher
               idrmutl={ShowUser.first_name}
-              state = {ShowUser.status}
+              state={ShowUser.status}
               Status={Dialogimage}
               handleClose={handleCloseDialog}
             />

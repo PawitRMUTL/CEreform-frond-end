@@ -1,64 +1,46 @@
 /** @format */
 
 .section {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   margin-top: -1%;
-  padding: 1rem 4rem 0px 3rem;
+  padding: 1rem 4rem 1rem 3rem;
   /* gap: 20px; */
-  transition: ease-in-out 4s;
+  transition: ease-in-out 1s;
   font-family: 'Noto Sans Thai';
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 8%;
+  overflow-x: scroll;
+}
+.Shownumber_student {
+  border-radius: 20px;
+  padding: 20px;
+  transition: ease-in-out 1s;
+  width: 220px;
+  height: 100px;
+}
+.Shownumber_student:hover {
+  background-color: rgb(253, 114, 28);
+}
+.Report_Box {
+  width: 500px;
+  max-height: 500px;
+  /* border: 2px solid red; */
+  overflow-y: scroll;
+  padding: 20px;
 }
 /* Tablet Styles */
 @media (max-width: 768px) {
-  .cardnewstyles {
-    padding-left: 5px;
-    padding-right: 5px;
-    gap: 4px;
-  }
-  article {
-    height: 700;
-    gap: 10px;
-    display: flex;
-    flex-shrink: 1;
-    /* justify-content: space-evenly; */
-    flex-wrap: wrap;
-  }
-  .Card {
-    width: 320px;
-    height: 140px;
-    margin: 4px;
-    display: flex;
-    border-radius: 20px;
-  }
-  .sectionnewdetaill {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-  .tunmbnaill {
-    width: 100px;
-  }
-}
-
-/* Mobile Styles */
-@media (max-width: 480px) {
-  .cardnewstyles {
-    padding-left: 2%;
-    padding-right: 2%;
-    gap: 15px;
-  }
-  article {
-    height: 700;
-    gap: 10px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  .Shownumber_student {
+    margin-top: 3%;
   }
   .section {
-    padding: 1rem 1rem 0px 1rem;
-    transition: ease-in-out 2s;
-    font-family: 'Noto Sans Thai';
-  }
-  .newdetaillSubtile span {
-    font-size: 10px;
+    justify-content: center;
   }
 }
+/* Mobile Styles
+@media (max-width: 480px) {
+  /* .section {
+    margin-top: 2%;
+  } */

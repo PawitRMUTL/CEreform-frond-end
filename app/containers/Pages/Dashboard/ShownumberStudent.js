@@ -2,19 +2,21 @@ import { Box, Card, Typography } from '@mui/material';
 import React from 'react';
 import './styles.css';
 // FiUsers
-import { BiNews } from 'react-icons/bi';
+import { FiUsers } from 'react-icons/fi';
 
-function ShownumberNews() {
+function ShownumberStudent() {
   return (
     <Card className='Shownumber_student'>
-      <Typography sx={{ fontSize: '14px' }}>จำนวนข่าวในระบบทั้งหมด</Typography>
+      <Typography sx={{ fontSize: '14px' }}>
+        จำนวนนักศึกษาในระบบทั้งหมด
+      </Typography>
       <div style={{ position: 'relative' }}>
         <Box sx={{ display: 'flex', marginTop: '4%' }}>
           <Typography fontSize={'30px'} fontWeight={500}>
-            10
+            249
           </Typography>
         </Box>
-        <BiNews
+        <FiUsers
           style={{
             position: 'absolute',
             width: '40px',
@@ -29,4 +31,4 @@ function ShownumberNews() {
   );
 }
 
-export default ShownumberNews;
+export default ShownumberStudent;

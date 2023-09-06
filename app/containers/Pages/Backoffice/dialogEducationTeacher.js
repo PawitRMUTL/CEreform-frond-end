@@ -44,20 +44,42 @@ function DialogEducationTeacher(props) {
   const [open, setOpen] = useState(false);
   // Set Defalt Data
   useEffect(() => {
-    SetBachelorMajor(Bachelor.subject_eng);
-    SetBachelorCuriculum(Bachelor.subject);
-    SetBachelorYear(Bachelor.graduates_years);
-    SetBachelorUniversity(Bachelor.university);
+    if (Bachelor === undefined || Bachelor.length === 0) {
+      SetBachelorMajor('');
+      SetBachelorCuriculum('');
+      SetBachelorYear('');
+      SetBachelorUniversity('');
+    } else if (Bachelor !== undefined) {
+      // console.log('not emty');
+      SetBachelorMajor(Bachelor.subject_eng);
+      SetBachelorCuriculum(Bachelor.subject);
+      SetBachelorYear(Bachelor.graduates_years);
+      SetBachelorUniversity(Bachelor.university);
+    }
     // =================
-    SetMasterMajor(Master.subject_eng);
-    SetMasterCuriculum(Master.subject);
-    SetMasterYear(Master.graduates_years);
-    SetMasterUniversity(Master.university);
+    if (Master === undefined || Master.length === 0) {
+      SetMasterMajor('');
+      SetMasterCuriculum('');
+      SetMasterYear('');
+      SetMasterUniversity('');
+    } else if (Master !== undefined) {
+      SetMasterMajor(Master.subject_eng);
+      SetMasterCuriculum(Master.subject);
+      SetMasterYear(Master.graduates_years);
+      SetMasterUniversity(Master.university);
+    }
     // =================
-    SetDoctorMajor(Doctor.subject_eng);
-    SetDoctorCuriculum(Doctor.subject);
-    SetDoctorYear(Doctor.graduates_years);
-    SetDoctorUniversity(Doctor.university);
+    if (Doctor === undefined || Doctor.length === 0) {
+      SetDoctorMajor('');
+      SetDoctorCuriculum('');
+      SetDoctorYear('');
+      SetDoctorUniversity('');
+    } else if (Doctor !== undefined) {
+      SetDoctorMajor(Doctor.subject_eng);
+      SetDoctorCuriculum(Doctor.subject);
+      SetDoctorYear(Doctor.graduates_years);
+      SetDoctorUniversity(Doctor.university);
+    }
   }, [open]);
   // --------------------------------------------
   useEffect(() => {

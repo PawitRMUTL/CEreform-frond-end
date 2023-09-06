@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-// import { PapperBlock } from 'dan-components';
+import { Card } from '@mui/material';
 // import { Typography } from '@mui/material';
+import ShownumberStudent from './ShownumberStudent';
 import ShownumberNews from './ShownumberNews';
+import ShownumberTeacher from './ShownumberTeacher';
+import Report from './Report';
 import './styles.css';
 function BasicTable() {
   const [Islogin, Setlogin] = useState(false);
@@ -41,8 +44,20 @@ function BasicTable() {
   return (
     <div>
       {Islogin ? (
-        <div className='section'>
-          <ShownumberNews />
+        <div>
+          <div className='section'>
+            <ShownumberStudent />
+            <ShownumberTeacher />
+            <ShownumberNews />
+          </div>
+          <div
+            style={{
+              padding: ' 1rem 4rem 1rem 3rem',
+            }}>
+            <Card className='Report_Box'>
+              <Report />
+            </Card>
+          </div>
         </div>
       ) : null}
     </div>
