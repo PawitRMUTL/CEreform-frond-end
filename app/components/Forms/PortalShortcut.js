@@ -77,7 +77,7 @@ function PortalShortcut() {
           </Box>
           <Box className={classes.layoutBox}>
             <Box width={236} height={105} className={classes.layoutButton}>
-              <Typography> Study Plan Recommendation</Typography>
+              <Typography> Study Plan </Typography>
               <Button href={coomingsoon} sx={{ width: 9 }}>
                 <GrFormNextLink />
               </Button>
@@ -89,8 +89,8 @@ function PortalShortcut() {
               </Button>
             </Box>
             <Box width={236} height={105} className={classes.layoutButton}>
-              <Typography>Cooperative Education Management</Typography>
-              <Button href={coomingsoon} sx={{ width: 9 }}>
+              <Typography>Cooperative Management</Typography>
+              <Button href={coomingsoon} sx={{ width: 2 }}>
                 <GrFormNextLink />
               </Button>
             </Box>

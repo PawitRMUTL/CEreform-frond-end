@@ -1,10 +1,12 @@
 import { Box, Card, Typography } from '@mui/material';
 import React from 'react';
+import PropTypes from 'prop-types';
 import './styles.css';
 // FiUsers
 import { FiUsers } from 'react-icons/fi';
 
-function ShownumberStudent() {
+function ShownumberStudent(props) {
+  const { numberstu } = props;
   return (
     <Card className='Shownumber_student'>
       <Typography sx={{ fontSize: '14px' }}>
@@ -13,7 +15,7 @@ function ShownumberStudent() {
       <div style={{ position: 'relative' }}>
         <Box sx={{ display: 'flex', marginTop: '4%' }}>
           <Typography fontSize={'30px'} fontWeight={500}>
-            249
+            {numberstu}
           </Typography>
         </Box>
         <FiUsers
@@ -30,5 +32,7 @@ function ShownumberStudent() {
     </Card>
   );
 }
-
+ShownumberStudent.PropTypes = {
+  numberstu: PropTypes.any,
+};
 export default ShownumberStudent;

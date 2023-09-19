@@ -429,9 +429,13 @@ const useStyles = makeStyles()((theme, _params, classes) => ({
     justifyContent: 'center',
     flexWrap: 'wrap',
     alignItems: 'center',
-    backgroundColor: '#d6d6d6',
+    backgroundColor: '#f1f1f1f1',
     borderRadius: '10px',
-    // border: '3px solid red',
+    transition: 'background-color 1s, color 1s', // Add a transition for background-color property
+    '&:hover': {
+      backgroundColor: '#fe6f41', // Change the background color on hover
+      color: '#fff',
+    },
   },
 }));
 

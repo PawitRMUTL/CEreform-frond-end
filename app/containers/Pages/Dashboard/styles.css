@@ -24,7 +24,7 @@
   background-color: rgb(253, 114, 28);
 }
 .Report_Box {
-  width: 500px;
+  width: 450px;
   max-height: 500px;
   /* border: 2px solid red; */
   overflow-y: scroll;

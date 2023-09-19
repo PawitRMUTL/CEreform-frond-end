@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { Card } from '@mui/material';
+import { Card, Typography } from '@mui/material';
 // import { Typography } from '@mui/material';
 import ShownumberStudent from './ShownumberStudent';
 import ShownumberNews from './ShownumberNews';
@@ -11,6 +11,9 @@ import Report from './Report';
 import './styles.css';
 function BasicTable() {
   const [Islogin, Setlogin] = useState(false);
+  const [MaxStudent, Setmaxstu] = useState();
+  const [MaxTeacher, Setmaxtec] = useState();
+  const [MaxNews, Setmaxnews] = useState();
   // -------------------- getCookie
   const username = Cookies.get('._jwtUsername');
   const role = Cookies.get('._jwtRole');
@@ -22,7 +25,6 @@ function BasicTable() {
         tokenRole: role,
       })
       .then((data) => {
-        console.log(data.data.returnCode);
         if (data.data.returnCode === '0') {
           Swal.fire({
             title: 'Oops...',
@@ -41,19 +43,31 @@ function BasicTable() {
         }
       });
   }, []);
+  // ========== Read Dashborad
+  useEffect(() => {
+    axios.post('http://0.0.0.0:3200/api/dashboard').then((data) => {
+      Setmaxnews(data.data[2].max_id);
+      Setmaxstu(data.data[0].max_id);
+      Setmaxtec(data.data[1].max_id);
+    });
+  }, []);
+
   return (
     <div>
       {Islogin ? (
         <div>
           <div className='section'>
-            <ShownumberStudent />
-            <ShownumberTeacher />
-            <ShownumberNews />
+            <ShownumberStudent numberstu={MaxStudent} />
+            <ShownumberTeacher numbertac={MaxTeacher} />
+            <ShownumberNews numberNews={MaxNews} />
           </div>
           <div
             style={{
               padding: ' 1rem 4rem 1rem 3rem',
             }}>
+            <Typography variant='h5' sx={{ marginBottom: '1%' }}>
+              รายงานบัณฑิต
+            </Typography>
             <Card className='Report_Box'>
               <Report />
             </Card>
