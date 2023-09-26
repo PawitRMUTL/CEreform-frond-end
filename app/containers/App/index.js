@@ -9,6 +9,7 @@ import Application from './Application';
 import LoginDedicated from '../Pages/Standalone/LoginDedicated';
 import LoginStudent from '../Pages/Standalone/LoginStudent';
 import LoginTeacher from '../Pages/Standalone/LoginTeacher';
+import LoginAdmin from '../Pages/Standalone/LoginAdmin';
 import Portal from '../Pages/Standalone/Portal';
 import ThemeWrapper from './ThemeWrapper';
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
@@ -19,9 +20,11 @@ function App(props) {
     <ThemeWrapper>
       <Router history={history}>
         <Switch>
-          <Route path='/PortalLogin' exact component={LoginDedicated} />
+          {/* LoginAdmin */}
+          <Route path='/loginAdmin' component={LoginAdmin} />
+          <Route path='/PortalLogin' component={LoginDedicated} />
           <Route path='/loginStudent' component={LoginStudent} />
-          <Route path='/loginTeacher' exact component={LoginTeacher} />
+          <Route path='/loginTeacher' component={LoginTeacher} />
           <Route path='/Portal' exact component={Portal} />
           <Route path='/' component={Application} />
           {/* <Route component={Auth} /> */}

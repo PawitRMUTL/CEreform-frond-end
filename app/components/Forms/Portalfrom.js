@@ -29,7 +29,8 @@ function PortalForm() {
           <img src={logo} alt={brand.name} />
         </NavLink>
       )}
-      <Paper className={cx(classes.paperWrap && classes.petal)}>
+      <Paper
+        className={cx(classes.paperWrap && classes.petal)}>
         {!mdDown && (
           <div className={classes.topBar}>
             <NavLink to='/' className={classes.brand}>
@@ -47,11 +48,11 @@ function PortalForm() {
         <Box
           sx={{
             height: '300px',
-            // width: '1200px',
+            // width: 1000,
             display: 'flex',
             flexWrap: 'wrap',
             marginTop: '2%',
-            justifyContent: 'space-around',
+            justifyContent: 'space-evenly',
             alignContent: 'center',
           }}>
           <Button
@@ -60,8 +61,8 @@ function PortalForm() {
               color: '#000',
               fontWeight: '500',
               textAlign: 'center',
-              height: '216px',
-              width: '190px',
+              height: '200px',
+              width: '140px',
               boxShadow: '0px 4px 4px 1px rgba(0, 0, 0, 0.2)',
               display: 'flex',
               flexDirection: 'column',
@@ -79,8 +80,8 @@ function PortalForm() {
               color: '#000',
               fontWeight: '500',
               textAlign: 'center',
-              height: '216px',
-              width: '190px',
+              height: '200px',
+              width: '140px',
               boxShadow: '0px 4px 4px 1px rgba(0, 0, 0, 0.2)',
               display: 'flex',
               flexDirection: 'column',
@@ -98,8 +99,8 @@ function PortalForm() {
               color: '#000',
               fontWeight: '500',
               textAlign: 'center',
-              height: '216px',
-              width: '190px',
+              height: '200px',
+              width: '140px',
               boxShadow: '0px 4px 4px 1px rgba(0, 0, 0, 0.2)',
               display: 'flex',
               flexDirection: 'column',
@@ -110,6 +111,25 @@ function PortalForm() {
             ระบบล็อคอิน
             <br />
             สำหรับสหกิจ
+          </Button>
+          <Button
+            href='/loginAdmin'
+            sx={{
+              color: '#000',
+              fontWeight: '500',
+              textAlign: 'center',
+              height: '200px',
+              width: '140px',
+              boxShadow: '0px 4px 4px 1px rgba(0, 0, 0, 0.2)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-evenly',
+              alignContent: 'center',
+            }}>
+            {/* <img src={cooperative} style={{ width: '72px' }} /> */}
+            ระบบล็อคอิน
+            <br />
+            สำหรับ ADMIN
           </Button>
         </Box>
       </Paper>

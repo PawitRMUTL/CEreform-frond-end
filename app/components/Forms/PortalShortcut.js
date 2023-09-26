@@ -2,7 +2,6 @@
 
 import React, { Fragment, useEffect, useState } from 'react';
 import { GrFormNextLink } from 'react-icons/gr';
-
 import { Box, Button, Typography } from '@mui/material';
 import Cookies from 'js-cookie';
 import axios from 'axios';
@@ -33,13 +32,13 @@ function PortalShortcut() {
         setStatus(data.data.stateRole);
       });
   }, []);
-
   useEffect(() => {
+    console.log(status);
     if (status !== undefined) {
       if (status === 'นักศึกษา') {
         Setstudent(true);
       }
-      if (status === 'อาจารย์') {
+      if (status === 'อาจารย์' || status === 'admin') {
         // Setstudent(true);
         Setteacher(true);
       }
@@ -89,7 +88,7 @@ function PortalShortcut() {
               </Button>
             </Box>
             <Box width={236} height={105} className={classes.layoutButton}>
-              <Typography>Cooperative Management</Typography>
+              <Typography>Cooperative</Typography>
               <Button href={coomingsoon} sx={{ width: 2 }}>
                 <GrFormNextLink />
               </Button>

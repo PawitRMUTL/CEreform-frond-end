@@ -62,7 +62,7 @@ function Plancards() {
               sx={{ padding: '2px 0px 2px 0px', wordBreak: 'break-word' }}>
               พื้นฐานที่ควรมีเบื้งต้นเมื่อมาเรียน เช่น <br />
               <div style={{ color: '#716F6F' }}>
-                ภาษา C, C# , C++ , JAVA Scrip เป็นต้น
+                ภาษา C, C# , C++ , JavaScript เป็นต้น
                 <br />
               </div>
               เพราะมีความจำเป็นที่ต้องได้ใช้เรียนเป็นอย่างมาก <br />

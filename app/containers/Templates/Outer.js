@@ -7,35 +7,37 @@ import useStyles from './appStyles-jss';
 
 function Outer(props) {
   const { classes, cx } = useStyles();
-  const {
-    children,
-    gradient,
-    decoration
-  } = props;
+  const { children, gradient, decoration } = props;
   return (
-    <div className={cx(classes.appFrameOuter, gradient ? classes.gradientBg : classes.solidBg)}>
-      <main className={classes.outerContent} id="mainContent">
-        { decoration && <div className={classes.petal} /> }
-        {children}
+    <div
+      className={cx(
+        classes.appFrameOuter,
+        gradient ? classes.gradientBg : classes.solidBg,
+      )}>
+      <main className={classes.outerContent} id='mainContent'>
+        {decoration && <div className={classes.petal} />}
+        <div
+          style={{
+            // marginLeft: '15%',
+          }}>
+          {children}
+        </div>
       </main>
     </div>
   );
 }
 
 Outer.propTypes = {
-
   gradient: PropTypes.bool.isRequired,
   decoration: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   gradient: state.ui.gradient,
   decoration: state.ui.decoration,
 });
 
-const OuterMaped = connect(
-  mapStateToProps,
-)(Outer);
+const OuterMaped = connect(mapStateToProps)(Outer);
 
 export default OuterMaped;

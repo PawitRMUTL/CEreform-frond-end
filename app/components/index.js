@@ -12,6 +12,8 @@ export SearchUi from './Search/SearchUi';
 // Guide
 export GuideSlider from './GuideSlider';
 // Form
+// LoginAdminForm
+export LoginAdminForm from './Forms/LoginAdminForm.js';
 export LoginTeacherForm from './Forms/LoginTeacherForm';
 export PortalShortcut from './Forms/PortalShortcut';
 export PortalForm from './Forms/Portalfrom';

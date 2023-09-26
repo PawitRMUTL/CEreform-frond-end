@@ -47,6 +47,7 @@ function UserMenu() {
         tokenRole: role,
       })
       .then((data) => {
+        console.log(data);
         setUsername(data.data.User);
         setStatus(data.data.stateRole);
       });
@@ -67,6 +68,16 @@ function UserMenu() {
       if (status === 'อาจารย์') {
         axios
           .post('http://0.0.0.0:3200/api/ReadTeacher', { username: user })
+          .then((data) => {
+            const setFristName = data.data[0].first_name;
+            Setthumbuser(data.data);
+            setShowname(setFristName);
+            setShowstate(status);
+          });
+      }
+      if (status === 'admin') {
+        axios
+          .post('http://0.0.0.0:3200/api/ReadAdmin', { username: user })
           .then((data) => {
             const setFristName = data.data[0].first_name;
             Setthumbuser(data.data);
