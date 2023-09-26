@@ -11,8 +11,7 @@ import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import dummy from 'dan-api/dummy/dummyContents';
-import link from 'dan-api/ui/link';
+// import dummy from 'dan-api/dummy/dummyContents';
 import { Box, Typography } from '@mui/material';
 
 // import useStyles from './header-jss';
@@ -36,6 +35,8 @@ function UserMenu() {
   const [status, setStatus] = useState('');
   const [showname, setShowname] = useState('');
   const [showstatus, setShowstate] = useState('');
+  const [thumbuser, Setthumbuser] = useState([]);
+  const [ShowImage, SetShowimage] = useState([]);
   // ======================== end usestate   ================================
   // ======================== use effect =================================
   // -------------------- verify jwt
@@ -46,6 +47,7 @@ function UserMenu() {
         tokenRole: role,
       })
       .then((data) => {
+        console.log(data);
         setUsername(data.data.User);
         setStatus(data.data.stateRole);
       });
@@ -57,20 +59,62 @@ function UserMenu() {
         axios
           .post('http://0.0.0.0:3200/api/ReadStudent', { username: user })
           .then((data) => {
+            Setthumbuser(data.data);
             const setFristName = data.data[0].first_name;
+            setShowname(setFristName);
+            setShowstate(status);
+          });
+      }
+      if (status === 'อาจารย์') {
+        axios
+          .post('http://0.0.0.0:3200/api/ReadTeacher', { username: user })
+          .then((data) => {
+            const setFristName = data.data[0].first_name;
+            Setthumbuser(data.data);
+            setShowname(setFristName);
+            setShowstate(status);
+          });
+      }
+      if (status === 'admin') {
+        axios
+          .post('http://0.0.0.0:3200/api/ReadAdmin', { username: user })
+          .then((data) => {
+            const setFristName = data.data[0].first_name;
+            Setthumbuser(data.data);
             setShowname(setFristName);
             setShowstate(status);
           });
       }
     }
   }, [user, status]);
-
   // -------------------- set state switch login
   useEffect(() => {
     if (username !== undefined && role !== undefined) {
       setIslogin(true);
     }
   }, [username]);
+  // --------------------- set image
+  useEffect(() => {
+    if (thumbuser !== undefined) {
+      if (status === 'นักศึกษา') {
+        // let ImageValue;
+        const promises = Object.values(thumbuser).map((data) => import(`/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/student/${data.image}`).then((image) => image.default));
+        Promise.all(promises).then((imagePaths) => {
+          const ImageValue = [];
+          imagePaths.forEach((index) => ImageValue.push(index));
+          SetShowimage(ImageValue);
+        });
+      }
+      if (status === 'อาจารย์') {
+        const promises = Object.values(thumbuser).map((data) => import(`/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/teacher/${data._image}`).then((image) => image.default));
+        Promise.all(promises).then((imagePaths) => {
+          const ImageValue = [];
+          imagePaths.forEach((index) => ImageValue.push(index));
+          SetShowimage(ImageValue);
+        });
+      }
+    }
+  }, [thumbuser]);
   // ======================= end effect ===============================
   const handleMenu = (menu) => (event) => {
     const { openMenu } = menuState;
@@ -82,6 +126,9 @@ function UserMenu() {
   // ButtonLogout and Remove Token
   const handleClose = () => {
     setMenuState({ anchorEl: null, openMenu: null });
+  };
+  // handleLogout
+  const handleLogout = () => {
     Cookies.remove('._jwtUsername');
     Cookies.remove('._jwtRole');
     setTimeout(() => {
@@ -110,7 +157,7 @@ function UserMenu() {
               sx={{
                 fontSize: '14px',
               }}>
-              {showname}
+              สวัสดีคุณ {showname}
             </Typography>
             <Typography sx={{ fontSize: '12px', lineHeight: 0.7 }}>
               สถานะ : {showstatus}
@@ -118,8 +165,8 @@ function UserMenu() {
           </Box>
           <Button onClick={handleMenu('user-setting')}>
             <Avatar
-              alt={dummy.user.name}
-              src={dummy.user.avatar}
+              alt={showname}
+              src={ShowImage}
               sx={{ width: '50px', height: '50px' }}
             />
           </Button>
@@ -150,28 +197,18 @@ function UserMenu() {
         <Menu
           id='menu-appbar'
           anchorEl={anchorEl}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
           open={openMenu === 'user-setting'}
-          onClose={handleClose}>
-          <MenuItem component={Link} to={link.profile}>
+          onClose={handleClose}
+          placement='bottom-start'>
+          <MenuItem component={Link} to='/Portal'>
+            ShortCut Menu
+          </MenuItem>
+          <MenuItem component={Link} to='/Backoffice/personel'>
             My Profile
-          </MenuItem>
-          <MenuItem component={Link} to={link.calendar}>
-            My Calendar
-          </MenuItem>
-          <MenuItem component={Link} to={link.email}>
-            My Inbox
           </MenuItem>
           <Divider />
           {/* Login Zone */}
-          <MenuItem onClick={handleClose} component={Link}>
+          <MenuItem onClick={handleLogout} component={Link}>
             <ListItemIcon>
               <ExitToApp />
             </ListItemIcon>

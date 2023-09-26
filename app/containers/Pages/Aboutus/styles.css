@@ -2,9 +2,9 @@
 
 .section {
   /* border: 2px solid red; */
-  padding: 1rem 3rem 0px 3rem;
+  padding: 1rem 1rem 0px 3rem;
   /* gap: 20px; */
-  transition: ease-in-out 2s;
+  transition: ease-in-out 4s;
   font-family: 'Noto Sans Thai';
 }
 /* style={{ paddingLeft: '15%', paddingRight: '15%' }} */
@@ -88,13 +88,17 @@ button {
   gap: 20px;
   flex-wrap: wrap;
   margin-bottom: 2%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .imgsyles {
   width: 780px;
   object-fit: cover;
 }
-
+.tunmbnaill {
+  width: 200px;
+}
 /* Tablet Styles */
 @media (max-width: 768px) {
   .cardnewstyles {
@@ -120,6 +124,9 @@ button {
   .sectionnewdetaill {
     padding-left: 5%;
     padding-right: 5%;
+  }
+  .tunmbnaill {
+    width: 100px;
   }
 }
 

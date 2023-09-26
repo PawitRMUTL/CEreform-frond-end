@@ -15,17 +15,14 @@ function allNew() {
   const navigate = useHistory();
   const [imageDATA, setImageDATA] = useState([]);
   const [newList, SetnewList] = useState([]);
-  const [checkvalue, Setcheckvalue] = useState(false);
-  const [viewValue, SetviewValue] = useState(null);
-
-  useEffect(() => {
-    console.log('viewValue : ', viewValue);
-  }, [viewValue]);
-
+  const [viewValue, SetviewValue] = useState();
+  const [IdNews, SetNewsid] = useState();
+  const [originnalView, SetOriView] = useState();
+  const [Isplus, SetIsplus] = useState(false);
   useEffect(() => {
     if (newList !== undefined) {
       // let ImageValue;
-      const promises = Object.values(newList).map((data) => import(`../../ImageNew/${data.filename}`).then((image) => image.default));
+      const promises = Object.values(newList).map((data) => import(`/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/ImageNew/${data.filename}`).then((image) => image.default));
       Promise.all(promises).then((imagePaths) => {
         const ImageValue = [];
         imagePaths.forEach((index) => ImageValue.push(index));
@@ -33,28 +30,49 @@ function allNew() {
       });
     }
   }, [newList]);
-
+  // Read New
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://0.0.0.0:3200/api/GetNewlist');
-        if (!checkvalue) {
-          Setcheckvalue(true);
-          SetnewList(response.data);
-        }
-      } catch (error) {
-        console.log('error fetchData is ', error);
-      }
-    };
+    axios
+      .get('http://0.0.0.0:3200/api/GetNewlist')
+      .then((data) => {
+        SetnewList(data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  // ดึงค่า view เดิม
+  useEffect(() => {
+    if (originnalView !== undefined) {
+      SetviewValue(originnalView + 1);
+      SetIsplus(true);
+    }
+  }, [originnalView]);
 
-    fetchData();
-  }, [checkvalue]);
+  // path param id = id ของข่าว
   function valueID(id) {
-    SetviewValue(viewValue + 1);
-    // console.log(value);
-    // window.location.href = '/about-us/detail';
-    navigate.push('/aboutus/detail', { news_id: id });
+    SetNewsid(id);
+    const thumbId = id - 1; // ช่องใน object
+    SetOriView(newList[thumbId].view);
   }
+  // เพิ่มยอด view แล้วเปลี่ยนหน้า
+  useEffect(() => {
+    // SetviewValue(originnalView + 1);
+    if (Isplus === true) {
+      axios
+        .post('http://0.0.0.0:3200/api/addNewsViewByID', {
+          Id: IdNews,
+          View: viewValue,
+        })
+        .then(() => {
+          SetIsplus(false);
+          navigate.push('/aboutus/detail', { news_id: IdNews });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [Isplus]);
   return (
     <>
       <Box
@@ -121,32 +139,6 @@ function allNew() {
           </Card>
         ))}
       </div>
-      {/* <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          padding: '2rem',
-        }}>
-        <Button
-          sx={{
-            color: '#FE6F41',
-            background:
-              'linear-gradient(white, white) padding-box, linear-gradient(to right, #FE6F41, #F8BA1C) border-box',
-            borderRadius: '50em',
-            border: '1px solid transparent',
-            '&:hover': {
-              background: 'linear-gradient(#FE6F41, #F8BA1C)',
-              color: '#FFF',
-              border: '1px solid',
-              // scale: 1.2,
-              animation: 'pulse 1s infinite',
-            },
-          }}
-          // onClick={count}
-        >
-          อ่านเพิ่มเติม
-        </Button>
-      </div> */}
       <Footer />
     </>
   );

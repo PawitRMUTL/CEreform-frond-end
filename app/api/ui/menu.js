@@ -4,13 +4,13 @@ module.exports = [
   {
     key: 'no_child',
     name: 'หน้าหลัก',
-    icon: 'ion-ios-contact-outline',
+    icon: '',
     linkParent: '/',
   },
   {
     key: 'aboutus',
     name: 'ภาควิชา',
-    icon: 'ion-ios-paper-outline',
+    icon: '',
     child: [
       {
         key: 'aboutus_detaill',
@@ -40,13 +40,13 @@ module.exports = [
   {
     key: 'presonal',
     name: 'งานบริหาร',
-    icon: 'ion-ios-contact-outline',
+    icon: '',
     linkParent: '/personal',
   },
   {
     key: 'course',
     name: 'หลักสูตร',
-    icon: 'ion-ios-paw-outline',
+    icon: '',
     child: [
       {
         key: 'course_page',
@@ -70,20 +70,38 @@ module.exports = [
   {
     key: 'project',
     name: 'ผลงานนักศึกษา',
-    icon: 'ion-ios-contact-outline',
+    icon: '',
     linkParent: '/app/pages/ComingSoon',
   },
   {
-    key: 'cooperative',
+    key: 'Cooperative',
     name: 'สหกิจ',
-    icon: 'ion-ios-contact-outline',
-    linkParent: '/app/pages/ComingSoon',
+    icon: '',
+    child: [
+      {
+        key: 'Cooperative_page',
+        name: 'เกี่ยวกับสหกิจ หรือ สถานประกอบการ',
+        title: true,
+      },
+      {
+        key: 'Cooperative_page_feedback',
+        name: 'รายงานบัณฑิตสำหรับสถานประกอบการ',
+        link: '/Cooperative',
+        icon: 'ion-ios-warning-outline',
+      },
+      {
+        key: 'Cooperative_page_system',
+        name: 'ระบบสหกิจ',
+        link: '/app/pages/ComingSoon',
+        icon: 'ion-ios-warning-outline',
+      },
+    ],
   },
   {
     key: 'contactus',
     name: 'ติดต่อเรา',
-    icon: 'ion-ios-contact-outline',
-    linkParent: '/app/pages/demopage',
+    icon: '',
+    linkParent: '/Contact-us',
   },
   // {
   //   key: 'pages',

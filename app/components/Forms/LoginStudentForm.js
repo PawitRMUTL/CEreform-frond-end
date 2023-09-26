@@ -41,7 +41,7 @@ function LoginForm(props) {
 
   const {
     handleSubmit, pristine, submitting, deco
-  } = props;
+   } = props;
   return (
     <Fragment>
       {!mdUp && (
@@ -104,10 +104,10 @@ function LoginForm(props) {
                 />
               </FormControl>
             </div>
-            <div className={classes.btnArea}>
+            <div>
               <Button
                 variant='contained'
-                color='primary'
+                // color='primary'
                 size='large'
                 type='submit'>
                 Continue

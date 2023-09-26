@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react18-swipeable-views';
@@ -38,7 +36,7 @@ import useStyles from './settings-jss';
 
 function TabContainer({ children }) {
   return (
-    <Typography component='div' style={{ padding: 8 * 1.5 }}>
+    <Typography component="div" style={{ padding: 8 * 1.5 }}>
       {children}
     </Typography>
   );
@@ -63,20 +61,19 @@ function TemplateSettings(props) {
     setType(typeParam);
   };
 
-  const handleChangeIndexTab = (index) => {
+  const handleChangeIndexTab = index => {
     setType(index);
   };
 
   // Theme Mode Handle
-  const handleSwitchMode = (event) => {
+  const handleSwitchMode = () => {
     const { changeMode } = props;
-    const mode = event.target.checked ? 'light' : 'light';
-    changeMode(mode);
-    setDark(event.target.checked);
+    // const mode = event.target.checked ? 'light' : 'light';
+    changeMode('light');
+    setDark('light');
   };
 
-  const handeSwitchDirection = (event) => {
-    // eslint-disable-line
+  const handeSwitchDirection = event => { // eslint-disable-line
     const { changeDirection } = props;
     const dir = event.target.checked ? 'rtl' : 'ltr';
     changeDirection(dir);
@@ -84,28 +81,28 @@ function TemplateSettings(props) {
   };
 
   // Background Position Handle
-  const handleBgChangePosition = (event) => {
+  const handleBgChangePosition = event => {
     const { changeBgPosition } = props;
     setBgPosition(event.target.value);
     changeBgPosition(event.target.value);
   };
 
   // Decoration Handle
-  const handleChangeDecoration = (event) => {
+  const handleChangeDecoration = event => {
     const { changeDecoration } = props;
     setDecoration(event.target.checked);
     changeDecoration(event.target.checked);
   };
 
   // Decoration Handle
-  const handleChangeGradient = (event) => {
+  const handleChangeGradient = event => {
     const { changeGradient } = props;
     setGradient(event.target.checked);
     changeGradient(event.target.checked);
   };
 
   // Layout Handle
-  const handleChangeLayout = (event) => {
+  const handleChangeLayout = event => {
     const { changeLayout } = props;
     changeLayout(event.target.value);
   };
@@ -131,79 +128,85 @@ function TemplateSettings(props) {
     layout,
     direction,
     changeTheme,
-    changeRandomTheme,
+    changeRandomTheme
   } = props;
-  const getItem = (dataArray) => dataArray.map((item, index) => (
-      <FormControlLabel
-        key={index.toString()}
-        className={cx(
+  const getItem = dataArray => dataArray.map((item, index) => (
+    <FormControlLabel
+      key={index.toString()}
+      className={
+        cx(
           classes.themeField,
           index > 7 && !showAllThemes ? classes.hide : ''
-        )}
-        control={
-          <ThemeThumb
-            value={item.value}
-            selectedValue={selectedValue}
-            handleChange={changeTheme}
-            name={item.name}
-          />
-        }
-      />
-    ));
+        )
+      }
+      control={(
+        <ThemeThumb
+          value={item.value}
+          selectedValue={selectedValue}
+          handleChange={changeTheme}
+          name={item.name}
+        />
+      )}
+    />
+  ));
 
   return (
     <aside
-      className={cx(
-        classes.settingSidebar,
-        layout === 'right-sidebar',
-        show && classes.expanded
-      )}>
+      className={
+        cx(
+          classes.settingSidebar,
+          layout === 'right-sidebar' ? classes.leftSidebar : classes.rightSidebar,
+          show && classes.expanded
+        )
+      }
+    >
       <div className={classes.toggleButton}>
         <Fab
-          size='small'
-          color='primary'
-          aria-label='toggle'
+          size="small"
+          color="primary"
+          aria-label="toggle"
           className={classes.button}
           onClick={handleTogglePanel}
           classes={{
             root: classes.buttonDrawer,
-          }}>
+          }}
+        >
           {show ? <Close /> : <Palette />}
         </Fab>
       </div>
-      <Slide
-        direction={direction === 'rtl' ? 'right' : 'left'}
-        in={show}
-        mountOnEnter
-        unmountOnExit>
+      <Slide direction={direction === 'rtl' ? 'right' : 'left'} in={show} mountOnEnter unmountOnExit>
         <div className={classes.root}>
-          <AppBar position='fixed' className={classes.tab} color='default'>
+          <AppBar position="fixed" className={classes.tab} color="default">
             <div className={classes.header}>
               <IconButton
                 onClick={handleTogglePanel}
                 className={classes.backButton}
-                aria-label='Baack'
-                size='large'>
+                aria-label="Baack"
+                size="large">
                 <ArrowBack />
               </IconButton>
-              <Typography variant='button'>Template Settings</Typography>
+              <Typography variant="button">Template Settings</Typography>
             </div>
             <Tabs
               value={type}
               onChange={handleChangeTab}
-              indicatorColor='primary'
-              textColor='primary'
-              variant='fullWidth'>
-              <Tab label='Theme' />
-              <Tab label='Layout' />
+              indicatorColor="primary"
+              textColor="primary"
+              variant="fullWidth"
+            >
+              <Tab label="Theme" />
+              <Tab label="Layout" />
             </Tabs>
           </AppBar>
-          <SwipeableViews index={type} onChangeIndex={handleChangeIndexTab}>
+          <SwipeableViews
+            index={type}
+            onChangeIndex={handleChangeIndexTab}
+          >
             <TabContainer>
               <section className={classes.settingWraper}>
                 <Paper className={classes.optBlock}>
-                  <FormControl variant='standard' component='fieldset'>
-                    <FormLabel component='legend' className={classes.title}>
+                  <FormControl variant="standard" component="fieldset">
+                    <FormLabel component="legend" className={classes.title}>
                       <Icon className={classes.icon}>invert_colors</Icon>
                       Theme Mode
                     </FormLabel>
@@ -211,26 +214,26 @@ function TemplateSettings(props) {
                       <span>Light Mode</span>
                       <FormControlLabel
                         className={classes.switch}
-                        control={
+                        control={(
                           <Switch
-                            checked={mode === 'dark'}
+                            checked={mode === 'light'}
                             onChange={(e) => handleSwitchMode(e)}
-                            value='dark'
-                            color='default'
+                            value="dark"
+                            color="default"
                             classes={{
                               track: classes.themeCheckBar,
                               thumb: classes.themeCheck,
                             }}
                           />
-                        }
+                        )}
                       />
                       <span>Dark Mode</span>
                     </FormGroup>
                   </FormControl>
                 </Paper>
                 <Paper className={classes.optBlock}>
-                  <FormControl variant='standard' component='fieldset'>
-                    <FormLabel component='legend' className={classes.title}>
+                  <FormControl variant="standard" component="fieldset">
+                    <FormLabel component="legend" className={classes.title}>
                       <Icon className={classes.icon}>
                         format_textdirection_r_to_l
                       </Icon>
@@ -240,100 +243,93 @@ function TemplateSettings(props) {
                       <span>LTR</span>
                       <FormControlLabel
                         className={classes.switch}
-                        control={
+                        control={(
                           <Switch
                             checked={direction === 'rtl'}
                             onChange={(e) => handeSwitchDirection(e)}
-                            value='rtl'
-                            color='default'
+                            value="rtl"
+                            color="default"
                             classes={{
                               track: classes.themeCheckBar,
                               thumb: classes.themeCheck,
                             }}
                           />
-                        }
+                        )}
                       />
                       <span>RTL</span>
                     </FormGroup>
                   </FormControl>
                 </Paper>
                 <Paper className={classes.optBlock}>
-                  <FormControl
-                    variant='standard'
-                    component='fieldset'
-                    className={classes.themeGroup}>
-                    <FormLabel component='legend' className={classes.title}>
+                  <FormControl variant="standard" component="fieldset" className={classes.themeGroup}>
+                    <FormLabel component="legend" className={classes.title}>
                       <Icon className={classes.icon}>color_lens</Icon>
                       Theme Color
                     </FormLabel>
                     <div className={classes.randomThemeField}>
                       <ButtonBase onClick={() => changeRandomTheme()}>
-                        <img src='/images/random.jpg' alt='random' />
+                        <img src="/images/random.jpg" alt="random" />
                       </ButtonBase>
                     </div>
-                    {palette !== undefined && getItem(palette)}
+                    { palette !== undefined && getItem(palette) }
                     <div className={classes.center}>
-                      <Button color='primary' onClick={handleToggleAllThemes}>
+                      <Button color="primary" onClick={handleToggleAllThemes}>
                         {showAllThemes ? 'Hide Some' : 'Show All'}
                       </Button>
                     </div>
                   </FormControl>
                 </Paper>
                 <Paper className={classes.optBlock}>
-                  <FormControl variant='standard' component='fieldset'>
-                    <FormLabel component='legend' className={classes.title}>
+                  <FormControl variant="standard" component="fieldset">
+                    <FormLabel component="legend" className={classes.title}>
                       <Icon className={classes.icon}>branding_watermark</Icon>
                       Background Size
                     </FormLabel>
-                    <FormControl
-                      variant='standard'
-                      className={classes.formControl}>
-                      <InputLabel htmlFor='background-position'>
-                        Choose Size
-                      </InputLabel>
+                    <FormControl variant="standard" className={classes.formControl}>
+                      <InputLabel htmlFor="background-position">Choose Size</InputLabel>
                       <Select
-                        variant='standard'
+                        variant="standard"
                         value={bgPosition}
                         onChange={handleBgChangePosition}
                         inputProps={{
                           name: 'position',
                           id: 'background-position',
                         }}>
-                        <MenuItem value='header'>Header</MenuItem>
-                        <MenuItem value='half'>Half</MenuItem>
-                        <MenuItem value='full'>Full</MenuItem>
+                        <MenuItem value="header">Header</MenuItem>
+                        <MenuItem value="half">Half</MenuItem>
+                        <MenuItem value="full">Full</MenuItem>
                       </Select>
                     </FormControl>
                   </FormControl>
                 </Paper>
                 <Paper className={classes.optBlock}>
-                  <FormControl variant='standard' component='fieldset'>
-                    <FormLabel component='legend' className={classes.title}>
+                  <FormControl variant="standard" component="fieldset">
+                    <FormLabel component="legend" className={classes.title}>
                       <Icon className={classes.icon}>texture</Icon>
                       Art Decoration
                     </FormLabel>
                     <FormGroup row>
                       <FormControlLabel
-                        control={
+                        control={(
                           <Checkbox
                             checked={decoration}
                             onChange={(e) => handleChangeDecoration(e)}
-                            value='decorated'
+                            value="decorated"
                           />
-                        }
-                        label='Show Art Decoration'
+                        )}
+                        label="Show Art Decoration"
                       />
                     </FormGroup>
                     <FormGroup row>
                       <FormControlLabel
-                        control={
+                        control={(
                           <Checkbox
                             checked={gradient}
                             onChange={(e) => handleChangeGradient(e)}
-                            value='gradient'
+                            value="gradient"
                           />
-                        }
-                        label='Use Gradient'
+                        )}
+                        label="Use Gradient"
                       />
                     </FormGroup>
                   </FormControl>
@@ -344,59 +340,59 @@ function TemplateSettings(props) {
             <TabContainer>
               <section className={classes.settingWraper}>
                 <Paper className={classes.optBlock}>
-                  <FormControl variant='standard' component='fieldset'>
-                    <FormLabel component='legend' className={classes.title}>
+                  <FormControl variant="standard" component="fieldset">
+                    <FormLabel component="legend" className={classes.title}>
                       <Icon className={classes.icon}>chrome_reader_mode</Icon>
                       Navigation Layout
                     </FormLabel>
                     <FormGroup row>
                       <FormControlLabel
                         className={classes.layoutField}
-                        control={
+                        control={(
                           <LayoutThumb
-                            value='left-sidebar'
+                            value="left-sidebar"
                             selectedLayout={layout}
                             handleChange={handleChangeLayout}
-                            name='Left Sidebar'
+                            name="Left Sidebar"
                             preview={<LeftSidebarThumb />}
                           />
-                        }
+                        )}
                       />
                       <FormControlLabel
                         className={classes.layoutField}
-                        control={
+                        control={(
                           <LayoutThumb
-                            value='big-sidebar'
+                            value="big-sidebar"
                             selectedLayout={layout}
                             handleChange={handleChangeLayout}
-                            name='Left Big Sidebar'
+                            name="Left Big Sidebar"
                             preview={<LeftSidebarBigThumb />}
                           />
-                        }
+                        )}
                       />
                       <FormControlLabel
                         className={classes.layoutField}
-                        control={
+                        control={(
                           <LayoutThumb
-                            value='top-navigation'
+                            value="top-navigation"
                             selectedLayout={layout}
                             handleChange={handleChangeLayout}
-                            name='Top Navigation'
+                            name="Top Navigation"
                             preview={<TopNavigationThumb />}
                           />
-                        }
+                        )}
                       />
                       <FormControlLabel
                         className={classes.layoutField}
-                        control={
+                        control={(
                           <LayoutThumb
-                            value='mega-menu'
+                            value="mega-menu"
                             selectedLayout={layout}
                             handleChange={handleChangeLayout}
-                            name='Mega Menu'
+                            name="Mega Menu"
                             preview={<MegaMenuThumb />}
                           />
-                        }
+                        )}
                       />
                     </FormGroup>
                   </FormControl>
@@ -430,7 +426,7 @@ TemplateSettings.propTypes = {
 };
 
 TemplateSettings.defaultProps = {
-  palette: [],
+  palette: []
 };
 
 export default TemplateSettings;

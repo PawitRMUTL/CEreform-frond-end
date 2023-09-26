@@ -94,10 +94,10 @@ function HeaderMenu(props) {
           </div>
         )}
         <div className={classes.searchHeaderMenu}>
-          <div className={cx(classes.wrapper, classes.dark)}></div>
+          <div className={cx(classes.wrapper, classes.light)}></div>
         </div>
         <Toolbar>
-          <UserMenu dark />
+          <UserMenu light />
         </Toolbar>
       </div>
       {!lgDown && type === 'mega-menu' ? (
@@ -137,7 +137,7 @@ HeaderMenu.propTypes = {
   dataMenu: PropTypes.array.isRequired,
   openMobileNav: PropTypes.bool.isRequired,
   mode: PropTypes.string.isRequired,
-  changeMode: PropTypes.func.isRequired,
+  // changeMode: PropTypes.func.any,
   openGuide: PropTypes.func.isRequired,
   toggleDrawerOpen: PropTypes.func.isRequired,
   loadTransition: PropTypes.func.isRequired,

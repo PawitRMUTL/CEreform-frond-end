@@ -1,0 +1,46 @@
+/** @format */
+
+.section {
+  /* border: 2px solid red; */
+  margin-top: -1%;
+  padding: 1rem 4rem 1rem 3rem;
+  /* gap: 20px; */
+  transition: ease-in-out 1s;
+  font-family: 'Noto Sans Thai';
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 8%;
+  overflow-x: scroll;
+}
+.Shownumber_student {
+  border-radius: 20px;
+  padding: 20px;
+  transition: ease-in-out 1s;
+  width: 220px;
+  height: 100px;
+}
+.Shownumber_student:hover {
+  background-color: rgb(253, 114, 28);
+}
+.Report_Box {
+  width: 450px;
+  max-height: 500px;
+  /* border: 2px solid red; */
+  overflow-y: scroll;
+  padding: 20px;
+}
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .Shownumber_student {
+    margin-top: 3%;
+  }
+  .section {
+    justify-content: center;
+  }
+}
+/* Mobile Styles
+@media (max-width: 480px) {
+  /* .section {
+    margin-top: 2%;
+  } */

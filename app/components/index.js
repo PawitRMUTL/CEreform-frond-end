@@ -12,13 +12,17 @@ export SearchUi from './Search/SearchUi';
 // Guide
 export GuideSlider from './GuideSlider';
 // Form
+// LoginAdminForm
+export LoginAdminForm from './Forms/LoginAdminForm.js';
 export LoginTeacherForm from './Forms/LoginTeacherForm';
-export PortalForm from './Forms/Portal';
+export PortalShortcut from './Forms/PortalShortcut';
+export PortalForm from './Forms/Portalfrom';
 export LoginForm from './Forms/LoginStudentForm';
 export RegisterForm from './Forms/RegisterForm';
 export ResetForm from './Forms/ResetForm';
 export Notification from './Notification/Notification';
 export MaterialDropZone from './Forms/MaterialDropZone';
+export MaterialDropZoneUser from './Forms/MaterialDropZoneUser';
 // Table
 export EmptyData from './Tables/EmptyData';
 // Error

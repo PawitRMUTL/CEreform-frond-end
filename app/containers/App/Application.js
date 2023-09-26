@@ -1,10 +1,9 @@
 /** @format */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 import Dashboard from '../Templates/Dashboard';
-import { ThemeContext } from './ThemeWrapper';
 import {
   Parent,
   Portal,
@@ -25,13 +24,17 @@ import {
   Coures,
   StrtureOfCoures,
   StrutureCE,
+  contactus,
+  Backoffice,
+  CooperativeFrom,
+  newsManagemant,
 } from '../pageListAsync';
 
 function Application(props) {
   const { history } = props;
-  const changeMode = useContext(ThemeContext);
+  // const changeMode = useContext(ThemeContext); changeMode={changeMode}
   return (
-    <Dashboard history={history} changeMode={changeMode}>
+    <Dashboard history={history}>
       <Switch>
         <Route exact path='/' component={Portal} />
         <Route exact path='/aboutus' component={CECourses} />
@@ -42,6 +45,10 @@ function Application(props) {
         <Route path='/Coures' component={Coures} />
         <Route path='/Coures-CPE' component={StrutureCE} />
         <Route path='/Coures-CPE-detail' component={StrtureOfCoures} />
+        <Route path='/Contact-us' component={contactus} />
+        <Route path='/Backoffice/personel' component={Backoffice} />
+        <Route path='/Cooperative' component={CooperativeFrom} />
+        <Route path='/Managemant/news' component={newsManagemant} />
         <Route path='/test' component={Createfrom} />
         <Route exact path='/app/blank-page' component={BlankPage} />
         <Route path='/app/pages/dashboard' component={DashboardPage} />

@@ -71,7 +71,7 @@ function Dashboard(props) {
     deco,
     bgPosition,
     // layout,
-    changeMode,
+    // changeMode,
   } = props;
   const titleException = [
     '/app',
@@ -81,6 +81,7 @@ function Dashboard(props) {
   const parts = history.location.pathname.split('/');
   const place = parts[parts.length - 1].replace('-', ' ');
   const layout = 'top-navigation';
+  const changeMode = 'light';
   return (
     <div
       style={{ minHeight: appHeight }}
@@ -89,7 +90,7 @@ function Dashboard(props) {
         layout === 'top-navigation' || layout === 'mega-menu'
           ? classes.topNav
           : classes.sideNav,
-        mode === 'dark' ? 'dark-mode' : 'light-mode'
+        mode === 'dark' ? 'light-mode' : 'light-mode',
       )}>
       <GuideSlider openGuide={openGuide} closeGuide={handleCloseGuide} />
       {
@@ -207,7 +208,7 @@ Dashboard.propTypes = {
   initialOpen: PropTypes.func.isRequired,
   toggleDrawer: PropTypes.func.isRequired,
   loadTransition: PropTypes.func.isRequired,
-  changeMode: PropTypes.func.isRequired,
+  // changeMode: PropTypes.func.isRequired,
   sidebarOpen: PropTypes.bool.isRequired,
   pageLoaded: PropTypes.bool.isRequired,
   mode: PropTypes.string.isRequired,

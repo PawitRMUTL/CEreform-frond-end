@@ -75,7 +75,7 @@ function Login() {
       // setIslogin(true);
       setSucess(null);
       setTimeout(() => {
-        window.location.href = '/';
+        window.location.href = '/Portal';
       }, 1000);
     }
   }, [sucess]);

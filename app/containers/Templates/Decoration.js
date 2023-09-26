@@ -11,12 +11,13 @@ import useStyles from './appStyles-jss';
 function Decoration(props) {
   const { classes, cx } = useStyles();
   const {
-    mode,
+    // mode,
     gradient,
     decoration,
     // bgPosition,
     horizontalMenu,
   } = props;
+ const mode = 'light';
   const bgPosition = 'header';
   const getBgPosition = (position) => {
     if (position === 'header') {
