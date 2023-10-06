@@ -24,7 +24,7 @@ function newdetail() {
     const fetchData = async () => {
       try {
         const response = await axios.post(
-          'http://0.0.0.0:3200/api/listnews_detail',
+          'http://10.21.45.100:3000/api/listnews_detail',
           {
             id: newsid,
           },

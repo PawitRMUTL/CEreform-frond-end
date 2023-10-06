@@ -27,7 +27,7 @@ function SidebarContent(props) {
   // -------------------- verify jwt
   useEffect(() => {
     axios
-      .post('http://0.0.0.0:3200/api/verify_authen', {
+      .post('http://10.21.45.100:3000/api/verify_authen', {
         token: username,
         tokenRole: role,
       })
@@ -41,7 +41,7 @@ function SidebarContent(props) {
       if (user !== undefined) {
         if (status === 'นักศึกษา') {
           axios
-            .post('http://0.0.0.0:3200/api/ReadStudent', { username: user })
+            .post('http://10.21.45.100:3000/api/ReadStudent', { username: user })
             .then((data) => {
               Setthumbuser(data.data);
               const setFristName = data.data[0].first_name;
@@ -51,7 +51,7 @@ function SidebarContent(props) {
         }
         if (status === 'อาจารย์') {
           axios
-            .post('http://0.0.0.0:3200/api/ReadTeacher', { username: user })
+            .post('http://10.21.45.100:3000/api/ReadTeacher', { username: user })
             .then((data) => {
               const setFristName = data.data[0].first_name;
               Setthumbuser(data.data);

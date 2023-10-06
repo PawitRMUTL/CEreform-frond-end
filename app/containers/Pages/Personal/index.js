@@ -49,7 +49,7 @@ function personal() {
   useEffect(() => {
     if (tumbid !== undefined) {
       axios
-        .post('http://0.0.0.0:3200/api/ReadTeacherByID', { id: tumbid })
+        .post('http://10.21.45.100:3000/api/ReadTeacherByID', { id: tumbid })
         .then((response) => Settumbteacher(response.data))
         .catch((error) => {
           console.log(error);
@@ -61,7 +61,7 @@ function personal() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'http://0.0.0.0:3200/api/Teacher_list'
+          'http://10.21.45.100:3000/api/Teacher_list'
         );
         if (!checkvalue) {
           Setcheckvalue(true);

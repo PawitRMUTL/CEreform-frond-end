@@ -41,7 +41,7 @@ function DialogSubjectTeacher(props) {
   }, [open]);
   const submitForm = (formData) => {
     axios
-      .post('http://0.0.0.0:3200/api/UpdateTeacherSubject', {
+      .post('http://10.21.45.100:3000/api/UpdateTeacherSubject', {
         id: idteacher,
         Subjectteach1: formData.selecteSubjectteach1,
         Subjectteach2: formData.selecteSubjectteach2,

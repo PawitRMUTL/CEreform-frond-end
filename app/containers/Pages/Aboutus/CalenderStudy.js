@@ -15,7 +15,7 @@ function CalenderStudy() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://0.0.0.0:3200/api/GetfilePFD');
+        const response = await axios.get('http://10.21.45.100:3000/api/GetfilePFD');
         if (!checkvalue) {
           Setcheckvalue(true);
           Setnamefile(response.data);

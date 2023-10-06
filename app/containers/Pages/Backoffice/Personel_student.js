@@ -22,7 +22,7 @@ function Personelstudent(props) {
   //   console.log(username);
   useEffect(() => {
     axios
-      .post('http://0.0.0.0:3200/api/ReadStudentByUsername', {
+      .post('http://10.21.45.100:3000/api/ReadStudentByUsername', {
         username: idrmutl,
       })
       .then((data) => {

@@ -24,7 +24,7 @@ function DialogAddnews(props) {
   //   /api/ReadTeacher
   useEffect(() => {
     axios
-      .post('http://0.0.0.0:3200/api/ReadTeacher', { username: Username })
+      .post('http://10.21.45.100:3000/api/ReadTeacher', { username: Username })
       .then((data) => setNameCreate(data.data[0]));
   }, [Username]);
 
@@ -48,7 +48,7 @@ function DialogAddnews(props) {
       if (result.isConfirmed) {
         Swal.fire('AddNews!', 'Your Newspaper has been added', 'success');
         axios
-          .post('http://0.0.0.0:3200/api/Addnews', {
+          .post('http://10.21.45.100:3000/api/Addnews', {
             Newsname: formData.newsname,
             Newsdate: formData.newsdate,
             Newscontent: formData.newscontent,

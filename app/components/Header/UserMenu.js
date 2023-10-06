@@ -42,12 +42,11 @@ function UserMenu() {
   // -------------------- verify jwt
   useEffect(() => {
     axios
-      .post('http://0.0.0.0:3200/api/verify_authen', {
+      .post('http://10.21.45.100:3000/api/verify_authen', {
         token: username,
         tokenRole: role,
       })
       .then((data) => {
-        console.log(data);
         setUsername(data.data.User);
         setStatus(data.data.stateRole);
       });
@@ -57,7 +56,7 @@ function UserMenu() {
     if (user !== undefined) {
       if (status === 'นักศึกษา') {
         axios
-          .post('http://0.0.0.0:3200/api/ReadStudent', { username: user })
+          .post('http://10.21.45.100:3000/api/ReadStudent', { username: user })
           .then((data) => {
             Setthumbuser(data.data);
             const setFristName = data.data[0].first_name;
@@ -67,7 +66,7 @@ function UserMenu() {
       }
       if (status === 'อาจารย์') {
         axios
-          .post('http://0.0.0.0:3200/api/ReadTeacher', { username: user })
+          .post('http://10.21.45.100:3000/api/ReadTeacher', { username: user })
           .then((data) => {
             const setFristName = data.data[0].first_name;
             Setthumbuser(data.data);
@@ -77,7 +76,7 @@ function UserMenu() {
       }
       if (status === 'admin') {
         axios
-          .post('http://0.0.0.0:3200/api/ReadAdmin', { username: user })
+          .post('http://10.21.45.100:3000/api/ReadAdmin', { username: user })
           .then((data) => {
             const setFristName = data.data[0].first_name;
             Setthumbuser(data.data);

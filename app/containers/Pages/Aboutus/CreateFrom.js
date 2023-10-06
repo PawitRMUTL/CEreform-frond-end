@@ -11,7 +11,7 @@ function Createfrom() {
 
   const fetchImage = async () => {
     try {
-      const response = await axios.get('http://0.0.0.0:3200/api/Readimagenew');
+      const response = await axios.get('http://10.21.45.100:3000/api/Readimagenew');
       console.log(response);
       setImageData(response.data);
     } catch (error) {

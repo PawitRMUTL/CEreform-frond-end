@@ -5,7 +5,7 @@ import axios from 'axios';
 function Report() {
   const [topic, Settopic] = useState('');
   useEffect(() => {
-    axios.post('http://0.0.0.0:3200/api/Read_report').then((data) => {
+    axios.post('http://10.21.45.100:3000/api/Read_report').then((data) => {
       console.log(data.data);
       Settopic(data.data);
     });

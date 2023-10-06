@@ -24,7 +24,7 @@ function PortalShortcut() {
   // -------------------- verify jwt
   useEffect(() => {
     axios
-      .post('http://0.0.0.0:3200/api/verify_authen', {
+      .post('http://10.21.45.100:3000/api/verify_authen', {
         token: username,
         tokenRole: role,
       })

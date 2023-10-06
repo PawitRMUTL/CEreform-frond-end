@@ -20,7 +20,7 @@ function BasicTable() {
   // ===============================
   useEffect(() => {
     axios
-      .post('http://0.0.0.0:3200/api/verify_authen', {
+      .post('http://10.21.45.100:3000/api/verify_authen', {
         token: username,
         tokenRole: role,
       })
@@ -45,7 +45,7 @@ function BasicTable() {
   }, []);
   // ========== Read Dashborad
   useEffect(() => {
-    axios.post('http://0.0.0.0:3200/api/dashboard').then((data) => {
+    axios.post('http://10.21.45.100:3000/api/dashboard').then((data) => {
       Setmaxnews(data.data[2].max_id);
       Setmaxstu(data.data[0].max_id);
       Setmaxtec(data.data[1].max_id);

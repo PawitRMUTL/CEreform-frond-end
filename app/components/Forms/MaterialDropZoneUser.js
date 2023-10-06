@@ -168,7 +168,7 @@ function MaterialDropZoneUser(props) {
         });
         formData.append('owner', idrmutl);
         axios
-          .post('http://0.0.0.0:3200/api/uploadimageTeacher', formData)
+          .post('http://10.21.45.100:3000/api/uploadimageTeacher', formData)
           .then((response) => {
             onSucsessForm(response);
           })
@@ -189,7 +189,7 @@ function MaterialDropZoneUser(props) {
         });
         formData.append('owner', idrmutl);
         axios
-          .post('http://0.0.0.0:3200/api/uploadimageStudent', formData)
+          .post('http://10.21.45.100:3000/api/uploadimageStudent', formData)
           .then((response) => {
             onSucsessForm(response);
           })
