@@ -44,7 +44,7 @@ function AutoplayCarousel() {
   // /Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/ImageNew/${data.filename}
   useEffect(() => {
     if (newList !== undefined) {
-      const promises = Object.values(newList).map((data) => import(`/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/ImageNew/${data.filename}`).then(
+      const promises = Object.values(newList).map((data) => import(`/home/ce_reform/testdeployByAun/image/ImageNew/${data.filename}`).then(
           (image) => image.default,
         ),
       );

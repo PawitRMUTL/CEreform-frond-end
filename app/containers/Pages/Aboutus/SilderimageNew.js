@@ -34,7 +34,7 @@ function showimage(props) {
   useEffect(() => {
     if (imageresponse !== undefined) {
       // let ImageValue;
-      const promises = Object.values(imageresponse).map((data) => import(`/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/ImageNew/${data.filename}`).then((image) => image.default));
+      const promises = Object.values(imageresponse).map((data) => import(`/home/ce_reform/testdeployByAun/image/ImageNew/${data.filename}`).then((image) => image.default));
       Promise.all(promises).then((imagePaths) => {
         const ImageValue = [];
         imagePaths.forEach((index) => ImageValue.push(index));

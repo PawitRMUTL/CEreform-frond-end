@@ -34,7 +34,7 @@ function Personelstudent(props) {
   useEffect(() => {
     if (thumbuser !== undefined) {
       // let ImageValue;
-      const promises = Object.values(thumbuser).map((data) => import(`/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/student/${data.image}`).then((image) => image.default));
+      const promises = Object.values(thumbuser).map((data) => import(`/home/ce_reform/testdeployByAun/image/student/${data.image}`).then((image) => image.default));
       Promise.all(promises).then((imagePaths) => {
         const ImageValue = [];
         imagePaths.forEach((index) => ImageValue.push(index));
