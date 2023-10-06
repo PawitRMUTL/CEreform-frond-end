@@ -33,7 +33,7 @@ function allNew() {
   // Read New
   useEffect(() => {
     axios
-      .get('http://0.0.0.0:3200/api/GetNewlist')
+      .get('http://10.21.45.100:3000/api/GetNewlist')
       .then((data) => {
         SetnewList(data.data);
       })
@@ -60,7 +60,7 @@ function allNew() {
     // SetviewValue(originnalView + 1);
     if (Isplus === true) {
       axios
-        .post('http://0.0.0.0:3200/api/addNewsViewByID', {
+        .post('http://10.21.45.100:3000/api/addNewsViewByID', {
           Id: IdNews,
           View: viewValue,
         })

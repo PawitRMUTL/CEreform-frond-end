@@ -17,7 +17,7 @@ function showimage(props) {
       const fetchData = async () => {
         try {
           const response = await axios.post(
-            'http://0.0.0.0:3200/api/Getimagesnews',
+            'http://10.21.45.100:3000/api/Getimagesnews',
             { id: idNews }
           );
           // console.log(response);

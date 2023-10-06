@@ -165,7 +165,7 @@ function MaterialDropZone(props) {
       });
       formData.append('id_owner ', 10);
          axios
-         .post('http://0.0.0.0:3200/api/uploadimageNew', formData)
+         .post('http://10.21.45.100:3000/api/uploadimageNew', formData)
            .then((response) => {
            onSucsessForm(response);
           //  console.log(response);

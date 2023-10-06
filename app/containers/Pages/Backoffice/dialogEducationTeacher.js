@@ -94,7 +94,7 @@ function DialogEducationTeacher(props) {
     const IdDocter = Doctor.teacher_education_id;
     console.log(formData);
     axios
-      .post('http://0.0.0.0:3200/api/UpdateTeacher_education', {
+      .post('http://10.21.45.100:3000/api/UpdateTeacher_education', {
         IDowner: Idowner,
         IDBachelor: IdBachelor,
         IDMaster: IdMaster,

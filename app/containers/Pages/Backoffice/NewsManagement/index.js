@@ -44,7 +44,7 @@ function newsManagemant() {
   // -------------------- verify jwt
   useEffect(() => {
     axios
-      .post('http://0.0.0.0:3200/api/verify_authen', {
+      .post('http://10.21.45.100:3000/api/verify_authen', {
         token: username,
         tokenRole: role,
       })
@@ -90,7 +90,7 @@ function newsManagemant() {
   }, [user]);
   //   ==================== fetch Data news
   useEffect(() => {
-    axios.get('http://0.0.0.0:3200/api/GetNews').then((data) => {
+    axios.get('http://10.21.45.100:3000/api/GetNews').then((data) => {
       setDataNews(data.data);
       setNewsdate(data.data[0].news_date);
     });
@@ -144,7 +144,7 @@ function newsManagemant() {
         .then((result) => {
           if (result.isConfirmed) {
             axios
-              .post('http://0.0.0.0:3200/api/DeleteNews', { id: Id })
+              .post('http://10.21.45.100:3000/api/DeleteNews', { id: Id })
               .then((data) => {
                 if (data.status === 200) {
                   swalWithBootstrapButtons.fire(

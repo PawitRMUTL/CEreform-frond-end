@@ -31,12 +31,12 @@ function LoginAdminPage() {
       toast.addEventListener('mouseleave', Swal.resumeTimer);
     },
   });
-  // http://0.0.0.0:3200/api/authenticationadmin
+  // http://10.21.45.100:3000/api/authenticationadmin
 
   const submitForm = (values) => {
     console.log(values);
     axios
-      .post('http://0.0.0.0:3200/api/authenticationadmin', {
+      .post('http://10.21.45.100:3000/api/authenticationadmin', {
         username: values.username,
         password: values.password,
       })

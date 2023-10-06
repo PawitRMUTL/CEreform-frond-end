@@ -36,7 +36,7 @@ function DialogEditNews(props) {
   //   Read_news_and_image
   useEffect(() => {
     axios
-      .post('http://0.0.0.0:3200/api/ReadNewsAndImage', { id: Data.news_id })
+      .post('http://10.21.45.100:3000/api/ReadNewsAndImage', { id: Data.news_id })
       .then((data) => {
         setNewsCreate(data.data[0]);
         setImageJson(JSON.parse(data.data[0].image_filenames));
@@ -45,7 +45,7 @@ function DialogEditNews(props) {
   //   /api/ReadTeacher
   useEffect(() => {
     axios
-      .post('http://0.0.0.0:3200/api/ReadTeacher', { username: Username })
+      .post('http://10.21.45.100:3000/api/ReadTeacher', { username: Username })
       .then((data) => setNameCreate(data.data[0]));
   }, [Username]);
   useEffect(() => {
@@ -67,7 +67,7 @@ function DialogEditNews(props) {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         axios
-          .post('http://0.0.0.0:3200/api/UpdatenewsByid', {
+          .post('http://10.21.45.100:3000/api/UpdatenewsByid', {
             Newsid: newsCreate.news_id,
             Newsname: formData.newsname,
             Newsdate: formData.newsdate,

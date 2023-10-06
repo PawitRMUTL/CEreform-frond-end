@@ -33,7 +33,7 @@ function LoginTeacherPage() {
   });
   const submitForm = (values) => {
     axios
-      .post('http://0.0.0.0:3200/api/authenticationTEA-CHER', {
+      .post('http://10.21.45.100:3000/api/authenticationTEA-CHER', {
         username: values.username,
         password: values.password,
       })

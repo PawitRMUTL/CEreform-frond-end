@@ -75,7 +75,7 @@ function DialogTeacher(props) {
   }, [open]);
   const submitForm = (formData) => {
     axios
-      .post('http://0.0.0.0:3200/api/UpdateTeacher', {
+      .post('http://10.21.45.100:3000/api/UpdateTeacher', {
         id: idteacher,
         prefix: formData.selectePrefix,
         firstname: formData.selecteFirstname,

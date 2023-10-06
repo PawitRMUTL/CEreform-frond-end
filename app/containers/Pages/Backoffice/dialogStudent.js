@@ -57,7 +57,7 @@ function DialogStudent(props) {
 
   const submitForm = (formData) => {
     axios
-      .post('http://0.0.0.0:3200/api/UpdateStudent', {
+      .post('http://10.21.45.100:3000/api/UpdateStudent', {
         id: idrmutl,
         email: formData.selecteEmail,
         date: formData.selectedDate,

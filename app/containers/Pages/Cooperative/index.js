@@ -46,7 +46,7 @@ function CooperativeFrom() {
         if (result.isConfirmed) {
           console.log(formData);
           axios
-            .post('http://0.0.0.0:3200/api/addReport_graduate', {
+            .post('http://10.21.45.100:3000/api/addReport_graduate', {
               SelecteCooperative: formData.selecteCooperative,
               SelecteCooperativePhone: formData.selecteCooperativePhone,
               SelectePrefix: formData.selectePrefix,

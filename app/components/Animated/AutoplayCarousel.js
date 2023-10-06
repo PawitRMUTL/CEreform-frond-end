@@ -27,7 +27,7 @@ function AutoplayCarousel() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://0.0.0.0:3200/api/GetNewlist');
+        const response = await axios.get('http://10.21.45.100:3000/api/GetNewlist');
         const tumbdata = response.data;
         const Removedata = tumbdata.splice(0, 4);
         if (!checkvalue) {
@@ -41,12 +41,12 @@ function AutoplayCarousel() {
     };
     fetchData();
   }, [checkvalue]);
-
+  // /Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/ImageNew/${data.filename}
   useEffect(() => {
     if (newList !== undefined) {
-      const promises = Object.values(newList).map((data) => import(
-          `/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/ImageNew/${data.filename}`
-        ).then((image) => image.default)
+      const promises = Object.values(newList).map((data) => import(`/Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/ImageNew/${data.filename}`).then(
+          (image) => image.default,
+        ),
       );
       Promise.all(promises).then((imagePaths) => {
         const ImageValue = [];
@@ -111,8 +111,7 @@ function AutoplayCarousel() {
                   variant='text'
                   size='medium'
                   style={{ color: '#FE6439' }}
-                  onClick={() => valueID(data.news_id)}
-                >
+                  onClick={() => valueID(data.news_id)}>
                   อ่านต่อ
                   <KeyboardArrowRight />
                 </Button>

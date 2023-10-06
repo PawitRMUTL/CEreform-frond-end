@@ -40,7 +40,7 @@ function Personelteacher(props) {
   // fectch Data teacher  --------------------------------
   useEffect(() => {
     axios
-      .post('http://0.0.0.0:3200/api/ReadTeacherByEmail', {
+      .post('http://10.21.45.100:3000/api/ReadTeacherByEmail', {
         email: idrmutl,
       })
       .then((data) => {
@@ -53,7 +53,7 @@ function Personelteacher(props) {
   // fetch educate   --------------------------------
   useEffect(() => {
     axios
-      .post('http://0.0.0.0:3200/api/ReadEducateTeacherById', {
+      .post('http://10.21.45.100:3000/api/ReadEducateTeacherById', {
         id: thunbID,
       })
       .then((data) => {
