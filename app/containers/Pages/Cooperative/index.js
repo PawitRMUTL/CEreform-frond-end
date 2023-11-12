@@ -6,6 +6,7 @@ import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import prefixData from '../../../api/dummy/prefixData';
+import { hostBackend } from '../../../../env';
 
 function CooperativeFrom() {
   const [phone, setPhone] = useState('');
@@ -46,7 +47,7 @@ function CooperativeFrom() {
         if (result.isConfirmed) {
           console.log(formData);
           axios
-            .post('http://10.21.45.100:3000/api/addReport_graduate', {
+            .post(`${hostBackend}/api/addReport_graduate`, {
               SelecteCooperative: formData.selecteCooperative,
               SelecteCooperativePhone: formData.selecteCooperativePhone,
               SelectePrefix: formData.selectePrefix,

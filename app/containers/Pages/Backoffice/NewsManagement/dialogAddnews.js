@@ -9,6 +9,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import PropTypes from 'prop-types';
 import Swal from 'sweetalert2';
+import { hostBackend } from '../../../../../env';
 function DialogAddnews(props) {
   const { Status, handleClose, Username } = props;
   const [open, setOpen] = useState();
@@ -24,7 +25,7 @@ function DialogAddnews(props) {
   //   /api/ReadTeacher
   useEffect(() => {
     axios
-      .post('http://10.21.45.100:3000/api/ReadTeacher', { username: Username })
+      .post(`${hostBackend}/api/ReadTeacher`, { username: Username })
       .then((data) => setNameCreate(data.data[0]));
   }, [Username]);
 
@@ -48,7 +49,7 @@ function DialogAddnews(props) {
       if (result.isConfirmed) {
         Swal.fire('AddNews!', 'Your Newspaper has been added', 'success');
         axios
-          .post('http://10.21.45.100:3000/api/Addnews', {
+          .post(`${hostBackend}/api/Addnews`, {
             Newsname: formData.newsname,
             Newsdate: formData.newsdate,
             Newscontent: formData.newscontent,

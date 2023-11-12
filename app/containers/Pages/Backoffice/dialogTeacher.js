@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 import prefixData from '../../../api/dummy/prefixData';
 import religionData from '../../../api/dummy/religionData';
 import nationalityData from '../../../api/dummy/nationalityData';
+import { hostBackend } from '../../../../env';
 // CommonJS
 function DialogTeacher(props) {
   const {
@@ -75,7 +76,7 @@ function DialogTeacher(props) {
   }, [open]);
   const submitForm = (formData) => {
     axios
-      .post('http://10.21.45.100:3000/api/UpdateTeacher', {
+      .post(`${hostBackend}/api/UpdateTeacher`, {
         id: idteacher,
         prefix: formData.selectePrefix,
         firstname: formData.selecteFirstname,

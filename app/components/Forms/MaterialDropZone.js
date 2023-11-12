@@ -13,7 +13,7 @@ import Snackbar from '@mui/material/Snackbar';
 import CloudUpload from '@mui/icons-material/CloudUpload';
 import 'dan-styles/vendors/react-dropzone/react-dropzone.css';
 import isImage from './helpers/helpers.js';
-
+import { hostBackend } from '../../../env.js';
 const useStyles = makeStyles()((theme) => ({
   dropItem: {
     borderColor: theme.palette.divider,
@@ -165,7 +165,7 @@ function MaterialDropZone(props) {
       });
       formData.append('id_owner ', 10);
          axios
-         .post('http://10.21.45.100:3000/api/uploadimageNew', formData)
+         .post(`${hostBackend}/api/uploadimageNew`, formData)
            .then((response) => {
            onSucsessForm(response);
           //  console.log(response);

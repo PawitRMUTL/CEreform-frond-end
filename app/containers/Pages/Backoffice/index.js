@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 import Personelstudent from './Personel_student';
 import Personelteacher from './Personel_teacher';
+import { hostBackend } from '../../../../env';
 function Backoffice() {
   const [status, setStatus] = useState('');
   const [name, setName] = useState('');
@@ -15,7 +16,7 @@ function Backoffice() {
   // ===============================
   useEffect(() => {
     axios
-      .post('http://10.21.45.100:3000/api/verify_authen', {
+      .post(`${hostBackend}/api/verify_authen`, {
         token: username,
         tokenRole: role,
       })

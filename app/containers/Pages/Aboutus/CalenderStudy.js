@@ -7,6 +7,7 @@ import axios from 'axios';
 import './styles.css';
 import PDF from '../../../../public/images/pdf.png';
 import { Footer } from '../../../components';
+import { hostBackend } from '../../../../env';
 
 function CalenderStudy() {
   const [namefile, Setnamefile] = useState([]);
@@ -15,7 +16,7 @@ function CalenderStudy() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://10.21.45.100:3000/api/GetfilePFD');
+        const response = await axios.get(`${hostBackend}/api/GetfilePFD`);
         if (!checkvalue) {
           Setcheckvalue(true);
           Setnamefile(response.data);

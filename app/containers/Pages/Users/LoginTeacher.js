@@ -8,6 +8,7 @@ import { LoginTeacherForm } from 'dan-components';
 import useStyles from 'dan-components/Forms/user-jss';
 import Cookies from 'js-cookie';
 import Swal from 'sweetalert2';
+import { hostBackend } from '../../../../env';
 const now = new Date();
 
 // experis 3 minutes Add 3 minutes (in milliseconds) to the current time
@@ -33,7 +34,7 @@ function LoginTeacherPage() {
   });
   const submitForm = (values) => {
     axios
-      .post('http://10.21.45.100:3000/api/authenticationTEA-CHER', {
+      .post(`${hostBackend}/api/authenticationTEA-CHER`, {
         username: values.username,
         password: values.password,
       })

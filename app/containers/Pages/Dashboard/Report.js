@@ -1,11 +1,12 @@
 import { Card, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { hostBackend } from '../../../../env';
 
 function Report() {
   const [topic, Settopic] = useState('');
   useEffect(() => {
-    axios.post('http://10.21.45.100:3000/api/Read_report').then((data) => {
+    axios.post(`${hostBackend}/api/Read_report`).then((data) => {
       console.log(data.data);
       Settopic(data.data);
     });

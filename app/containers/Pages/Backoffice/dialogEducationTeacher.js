@@ -11,6 +11,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Divider, Typography } from '@mui/material';
 import Swal from 'sweetalert2';
+import { hostBackend } from '../../../../env';
 // import MenuItem from '@mui/material/MenuItem';
 
 function DialogEducationTeacher(props) {
@@ -94,7 +95,7 @@ function DialogEducationTeacher(props) {
     const IdDocter = Doctor.teacher_education_id;
     console.log(formData);
     axios
-      .post('http://10.21.45.100:3000/api/UpdateTeacher_education', {
+      .post(`${hostBackend}/api/UpdateTeacher_education`, {
         IDowner: Idowner,
         IDBachelor: IdBachelor,
         IDMaster: IdMaster,

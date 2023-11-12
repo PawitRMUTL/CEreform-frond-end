@@ -9,6 +9,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import PropTypes from 'prop-types';
 import Swal from 'sweetalert2';
+import { hostBackend } from '../../../../../env';
 function DialogEditNews(props) {
   const {
     Status, handleClose, Data, Username
@@ -36,7 +37,7 @@ function DialogEditNews(props) {
   //   Read_news_and_image
   useEffect(() => {
     axios
-      .post('http://10.21.45.100:3000/api/ReadNewsAndImage', { id: Data.news_id })
+      .post(`${hostBackend}/api/ReadNewsAndImage`, { id: Data.news_id })
       .then((data) => {
         setNewsCreate(data.data[0]);
         setImageJson(JSON.parse(data.data[0].image_filenames));
@@ -45,7 +46,7 @@ function DialogEditNews(props) {
   //   /api/ReadTeacher
   useEffect(() => {
     axios
-      .post('http://10.21.45.100:3000/api/ReadTeacher', { username: Username })
+      .post(`${hostBackend}/api/ReadTeacher`, { username: Username })
       .then((data) => setNameCreate(data.data[0]));
   }, [Username]);
   useEffect(() => {
@@ -67,7 +68,7 @@ function DialogEditNews(props) {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         axios
-          .post('http://10.21.45.100:3000/api/UpdatenewsByid', {
+          .post(`${hostBackend}/api/UpdatenewsByid`, {
             Newsid: newsCreate.news_id,
             Newsname: formData.newsname,
             Newsdate: formData.newsdate,

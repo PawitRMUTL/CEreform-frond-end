@@ -8,6 +8,7 @@ import Avatar from '@mui/material/Avatar';
 import DialogStudent from './dialogStudent';
 import DialogImageStudent from './dialogImageStudent';
 import useStyles from './index-jss';
+import { hostBackend, urlImage } from '../../../../env';
 
 function Personelstudent(props) {
   const { classes } = useStyles();
@@ -18,11 +19,10 @@ function Personelstudent(props) {
   const [showDialog, setShowDialog] = useState(false);
   const [Dialogimage, setDialogImage] = useState(false);
   const [ShowImage, SetShowimage] = useState([]);
-
   //   console.log(username);
   useEffect(() => {
     axios
-      .post('http://10.21.45.100:3000/api/ReadStudentByUsername', {
+      .post(`${hostBackend}/api/ReadStudentByUsername`, {
         username: idrmutl,
       })
       .then((data) => {
@@ -34,7 +34,7 @@ function Personelstudent(props) {
   useEffect(() => {
     if (thumbuser !== undefined) {
       // let ImageValue;
-      const promises = Object.values(thumbuser).map((data) => import(`/home/ce_reform/testdeployByAun/image/student/${data.image}`).then((image) => image.default));
+      const promises = Object.values(thumbuser).map((data) => import(`${urlImage}/student/${data.image}`).then((image) => image.default));
       Promise.all(promises).then((imagePaths) => {
         const ImageValue = [];
         imagePaths.forEach((index) => ImageValue.push(index));

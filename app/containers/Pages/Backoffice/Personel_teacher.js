@@ -10,6 +10,7 @@ import DialogEducationTeacher from './dialogEducationTeacher';
 import DialogImageTeacher from './dialogImageTeacher';
 import DialogSubjectTeacher from './dialogSubjectTeacher';
 import useStyles from './index-jss';
+import { hostBackend, urlImage } from '../../../../env';
 function Personelteacher(props) {
   const { classes } = useStyles();
   const { idrmutl } = props;
@@ -40,7 +41,7 @@ function Personelteacher(props) {
   // fectch Data teacher  --------------------------------
   useEffect(() => {
     axios
-      .post('http://10.21.45.100:3000/api/ReadTeacherByEmail', {
+      .post(`${hostBackend}/api/ReadTeacherByEmail`, {
         email: idrmutl,
       })
       .then((data) => {
@@ -53,7 +54,7 @@ function Personelteacher(props) {
   // fetch educate   --------------------------------
   useEffect(() => {
     axios
-      .post('http://10.21.45.100:3000/api/ReadEducateTeacherById', {
+      .post(`${hostBackend}/api/ReadEducateTeacherById`, {
         id: thunbID,
       })
       .then((data) => {
@@ -85,7 +86,7 @@ function Personelteacher(props) {
   useEffect(() => {
     if (thumbuser !== undefined) {
       // let ImageValue;
-      const promises = Object.values(thumbuser).map((data) => import(`/home/ce_reform/testdeployByAun/image/teacher/${data._image}`).then((image) => image.default));
+      const promises = Object.values(thumbuser).map((data) => import(`${urlImage}teacher/${data._image}`).then((image) => image.default));
       Promise.all(promises).then((imagePaths) => {
         const ImageValue = [];
         imagePaths.forEach((index) => ImageValue.push(index));

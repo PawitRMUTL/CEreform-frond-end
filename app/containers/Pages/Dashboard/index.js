@@ -9,6 +9,8 @@ import ShownumberNews from './ShownumberNews';
 import ShownumberTeacher from './ShownumberTeacher';
 import Report from './Report';
 import './styles.css';
+import { hostBackend } from '../../../../env';
+
 function BasicTable() {
   const [Islogin, Setlogin] = useState(false);
   const [MaxStudent, Setmaxstu] = useState();
@@ -20,7 +22,7 @@ function BasicTable() {
   // ===============================
   useEffect(() => {
     axios
-      .post('http://10.21.45.100:3000/api/verify_authen', {
+      .post(`${hostBackend}/api/verify_authen`, {
         token: username,
         tokenRole: role,
       })
@@ -45,7 +47,7 @@ function BasicTable() {
   }, []);
   // ========== Read Dashborad
   useEffect(() => {
-    axios.post('http://10.21.45.100:3000/api/dashboard').then((data) => {
+    axios.post(`${hostBackend}/api/dashboard`).then((data) => {
       Setmaxnews(data.data[2].max_id);
       Setmaxstu(data.data[0].max_id);
       Setmaxtec(data.data[1].max_id);

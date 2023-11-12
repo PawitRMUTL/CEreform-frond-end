@@ -8,6 +8,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { hostBackend } from '../../../../env';
 
 function DialogSubjectTeacher(props) {
   const {
@@ -41,7 +42,7 @@ function DialogSubjectTeacher(props) {
   }, [open]);
   const submitForm = (formData) => {
     axios
-      .post('http://10.21.45.100:3000/api/UpdateTeacherSubject', {
+      .post(`${hostBackend}/api/UpdateTeacherSubject`, {
         id: idteacher,
         Subjectteach1: formData.selecteSubjectteach1,
         Subjectteach2: formData.selecteSubjectteach2,

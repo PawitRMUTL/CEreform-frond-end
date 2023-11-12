@@ -9,6 +9,7 @@ import { useLocation } from 'react-router';
 import Sliderimage from './SilderimageNew';
 import './styles.css';
 import { Footer } from '../../../components';
+import { hostBackend } from '../../../../env';
 function newdetail() {
   const location = useLocation();
   const [idNews, SetIdNews] = useState();
@@ -24,7 +25,7 @@ function newdetail() {
     const fetchData = async () => {
       try {
         const response = await axios.post(
-          'http://10.21.45.100:3000/api/listnews_detail',
+          `${hostBackend}/api/listnews_detail`,
           {
             id: newsid,
           },

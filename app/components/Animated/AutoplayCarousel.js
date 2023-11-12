@@ -14,7 +14,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import useStyles from './index-jss';
 import divider from '../../../public/images/divider.svg';
 import './styles.css';
-
+import { hostBackend, urlImage } from '../../../env';
 // const handleDragStart = (e) => e.preventDefault();
 
 function AutoplayCarousel() {
@@ -27,7 +27,9 @@ function AutoplayCarousel() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://10.21.45.100:3000/api/GetNewlist');
+        const response = await axios.get(
+          `${hostBackend}/api/GetNewlist`,
+        );
         const tumbdata = response.data;
         const Removedata = tumbdata.splice(0, 4);
         if (!checkvalue) {
@@ -41,13 +43,9 @@ function AutoplayCarousel() {
     };
     fetchData();
   }, [checkvalue]);
-  // /Users/baconinhell/Desktop/dandelion-pro_v25/starter-project/image/ImageNew/${data.filename}
   useEffect(() => {
     if (newList !== undefined) {
-      const promises = Object.values(newList).map((data) => import(`/home/ce_reform/testdeployByAun/image/ImageNew/${data.filename}`).then(
-          (image) => image.default,
-        ),
-      );
+      const promises = Object.values(newList).map((data) => import(`${urlImage}/ImageNew/${data.filename}`).then((image) => image.default),);
       Promise.all(promises).then((imagePaths) => {
         const ImageValue = [];
         imagePaths.forEach((index) => ImageValue.push(index));

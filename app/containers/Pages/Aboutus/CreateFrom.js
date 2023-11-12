@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 import { MaterialDropZone } from '../../../components';
+import { hostBackend } from '../../../../env';
 function Createfrom() {
   const [files] = useState([]);
   const [imageData, setImageData] = useState();
@@ -11,7 +12,7 @@ function Createfrom() {
 
   const fetchImage = async () => {
     try {
-      const response = await axios.get('http://10.21.45.100:3000/api/Readimagenew');
+      const response = await axios.get(`${hostBackend}/api/Readimagenew`);
       console.log(response);
       setImageData(response.data);
     } catch (error) {

@@ -8,6 +8,7 @@ import { LoginAdminForm } from 'dan-components';
 import useStyles from 'dan-components/Forms/user-jss';
 import Cookies from 'js-cookie';
 import Swal from 'sweetalert2';
+import { hostBackend } from '../../../../env';
 const now = new Date();
 
 // experis 3 minutes Add 3 minutes (in milliseconds) to the current time
@@ -31,12 +32,11 @@ function LoginAdminPage() {
       toast.addEventListener('mouseleave', Swal.resumeTimer);
     },
   });
-  // http://10.21.45.100:3000/api/authenticationadmin
 
   const submitForm = (values) => {
     console.log(values);
     axios
-      .post('http://10.21.45.100:3000/api/authenticationadmin', {
+      .post(`${hostBackend}/api/authenticationadmin`, {
         username: values.username,
         password: values.password,
       })

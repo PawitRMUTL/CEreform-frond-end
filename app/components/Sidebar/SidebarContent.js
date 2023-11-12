@@ -10,7 +10,7 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 import MainMenu from './MainMenu';
 import useStyles from './sidebar-jss';
-
+import { hostBackend, urlImage } from '../../../env';
 function SidebarContent(props) {
   const { classes, cx } = useStyles();
   const [transform, setTransform] = useState(0);
@@ -27,7 +27,7 @@ function SidebarContent(props) {
   // -------------------- verify jwt
   useEffect(() => {
     axios
-      .post('http://10.21.45.100:3000/api/verify_authen', {
+      .post(`${hostBackend}/api/verify_authen`, {
         token: username,
         tokenRole: role,
       })
@@ -41,7 +41,7 @@ function SidebarContent(props) {
       if (user !== undefined) {
         if (status === 'นักศึกษา') {
           axios
-            .post('http://10.21.45.100:3000/api/ReadStudent', { username: user })
+            .post(`${hostBackend}/api/ReadStudent`, { username: user })
             .then((data) => {
               Setthumbuser(data.data);
               const setFristName = data.data[0].first_name;
@@ -51,7 +51,7 @@ function SidebarContent(props) {
         }
         if (status === 'อาจารย์') {
           axios
-            .post('http://10.21.45.100:3000/api/ReadTeacher', { username: user })
+            .post(`${hostBackend}/api/ReadTeacher`, { username: user })
             .then((data) => {
               const setFristName = data.data[0].first_name;
               Setthumbuser(data.data);
@@ -66,7 +66,7 @@ function SidebarContent(props) {
     if (thumbuser !== undefined) {
       if (status === 'นักศึกษา') {
         // let ImageValue;
-        const promises = Object.values(thumbuser).map((data) => import(`/home/ce_reform/testdeployByAun/image/student/${data.image}`).then((image) => image.default));
+        const promises = Object.values(thumbuser).map((data) => import(`${urlImage}/teacher/${data.image}`).then((image) => image.default));
         Promise.all(promises).then((imagePaths) => {
           const ImageValue = [];
           imagePaths.forEach((index) => ImageValue.push(index));
@@ -74,7 +74,7 @@ function SidebarContent(props) {
         });
       }
       if (status === 'อาจารย์') {
-        const promises = Object.values(thumbuser).map((data) => import(`/home/ce_reform/testdeployByAun/image/teacher/${data._image}`).then((image) => image.default));
+        const promises = Object.values(thumbuser).map((data) => import(`${urlImage}/teacher/${data._image}`).then((image) => image.default));
         Promise.all(promises).then((imagePaths) => {
           const ImageValue = [];
           imagePaths.forEach((index) => ImageValue.push(index));

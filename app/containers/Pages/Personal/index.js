@@ -11,6 +11,7 @@ import email from 'dan-images/email.png';
 import telephone from 'dan-images/telephone.png';
 import { GrClose } from 'react-icons/Gr';
 import './styles.css';
+import { hostBackend, urlImage } from '../../../../env';
 
 const style = {
   position: 'absolute',
@@ -49,7 +50,7 @@ function personal() {
   useEffect(() => {
     if (tumbid !== undefined) {
       axios
-        .post('http://10.21.45.100:3000/api/ReadTeacherByID', { id: tumbid })
+        .post(`${hostBackend}/api/ReadTeacherByID`, { id: tumbid })
         .then((response) => Settumbteacher(response.data))
         .catch((error) => {
           console.log(error);
@@ -61,7 +62,7 @@ function personal() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'http://10.21.45.100:3000/api/Teacher_list'
+          `${hostBackend}/api/Teacher_list`
         );
         if (!checkvalue) {
           Setcheckvalue(true);
@@ -77,7 +78,7 @@ function personal() {
   useEffect(() => {
     if (teacherData !== undefined) {
       // let ImageValue;
-      const promises = Object.values(teacherData).map((data) => import(`/home/ce_reform/testdeployByAun/image/teacher/${data._image}`).then((image) => image.default));
+      const promises = Object.values(teacherData).map((data) => import(`${urlImage}/teacher/${data._image}`).then((image) => image.default));
       Promise.all(promises).then((imagePaths) => {
         const ImageValue = [];
         imagePaths.forEach((index) => ImageValue.push(index));

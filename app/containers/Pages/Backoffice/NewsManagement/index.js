@@ -16,6 +16,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import DialogEditNews from './dialogEditNews';
 import DialogAddnews from './dialogAddnews';
+import { hostBackend } from '../../../../../env';
 const useStyles = makeStyles()((theme) => ({
   root: {
     width: '100%',
@@ -44,7 +45,7 @@ function newsManagemant() {
   // -------------------- verify jwt
   useEffect(() => {
     axios
-      .post('http://10.21.45.100:3000/api/verify_authen', {
+      .post(`${hostBackend}/api/verify_authen`, {
         token: username,
         tokenRole: role,
       })
@@ -90,7 +91,7 @@ function newsManagemant() {
   }, [user]);
   //   ==================== fetch Data news
   useEffect(() => {
-    axios.get('http://10.21.45.100:3000/api/GetNews').then((data) => {
+    axios.get(`${hostBackend}/api/GetNews`).then((data) => {
       setDataNews(data.data);
       setNewsdate(data.data[0].news_date);
     });
@@ -144,7 +145,7 @@ function newsManagemant() {
         .then((result) => {
           if (result.isConfirmed) {
             axios
-              .post('http://10.21.45.100:3000/api/DeleteNews', { id: Id })
+              .post(`${hostBackend}/api/DeleteNews`, { id: Id })
               .then((data) => {
                 if (data.status === 200) {
                   swalWithBootstrapButtons.fire(

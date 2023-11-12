@@ -12,6 +12,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import MenuItem from '@mui/material/MenuItem';
 import religionData from '../../../api/dummy/religionData';
 import nationalityData from '../../../api/dummy/nationalityData';
+import { hostBackend } from '../../../../env';
 
 function DialogStudent(props) {
   const {
@@ -57,7 +58,7 @@ function DialogStudent(props) {
 
   const submitForm = (formData) => {
     axios
-      .post('http://10.21.45.100:3000/api/UpdateStudent', {
+      .post(`${hostBackend}/api/UpdateStudent`, {
         id: idrmutl,
         email: formData.selecteEmail,
         date: formData.selectedDate,

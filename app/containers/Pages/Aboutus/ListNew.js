@@ -10,6 +10,7 @@ import divider from '../../../../public/images/divider.svg';
 import useStyles from './index-jss';
 import { Footer } from '../../../components';
 import './styles.css';
+import { hostBackend, urlImage } from '../../../../env';
 function allNew() {
   const { classes } = useStyles();
   const navigate = useHistory();
@@ -22,7 +23,7 @@ function allNew() {
   useEffect(() => {
     if (newList !== undefined) {
       // let ImageValue;
-      const promises = Object.values(newList).map((data) => import(`/home/ce_reform/testdeployByAun/image/ImageNew/${data.filename}`).then((image) => image.default));
+      const promises = Object.values(newList).map((data) => import(`${urlImage}/ImageNew/${data.filename}`).then((image) => image.default));
       Promise.all(promises).then((imagePaths) => {
         const ImageValue = [];
         imagePaths.forEach((index) => ImageValue.push(index));
@@ -33,7 +34,7 @@ function allNew() {
   // Read New
   useEffect(() => {
     axios
-      .get('http://10.21.45.100:3000/api/GetNewlist')
+      .get(`${hostBackend}/api/GetNewlist`)
       .then((data) => {
         SetnewList(data.data);
       })
@@ -60,7 +61,7 @@ function allNew() {
     // SetviewValue(originnalView + 1);
     if (Isplus === true) {
       axios
-        .post('http://10.21.45.100:3000/api/addNewsViewByID', {
+        .post(`${hostBackend}/api/addNewsViewByID`, {
           Id: IdNews,
           View: viewValue,
         })

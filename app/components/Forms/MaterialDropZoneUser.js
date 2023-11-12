@@ -13,6 +13,7 @@ import Snackbar from '@mui/material/Snackbar';
 import CloudUpload from '@mui/icons-material/CloudUpload';
 import 'dan-styles/vendors/react-dropzone/react-dropzone.css';
 import isImage from './helpers/helpers.js';
+import { hostBackend } from '../../../env.js';
 
 const useStyles = makeStyles()((theme) => ({
   dropItem: {
@@ -168,7 +169,7 @@ function MaterialDropZoneUser(props) {
         });
         formData.append('owner', idrmutl);
         axios
-          .post('http://10.21.45.100:3000/api/uploadimageTeacher', formData)
+          .post(`${hostBackend}/api/uploadimageTeacher`, formData)
           .then((response) => {
             onSucsessForm(response);
           })
@@ -189,7 +190,7 @@ function MaterialDropZoneUser(props) {
         });
         formData.append('owner', idrmutl);
         axios
-          .post('http://10.21.45.100:3000/api/uploadimageStudent', formData)
+          .post(`${hostBackend}/api/uploadimageStudent`, formData)
           .then((response) => {
             onSucsessForm(response);
           })

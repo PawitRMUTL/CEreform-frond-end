@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import axios from 'axios';
 import useStyles from './index-jss';
+import { hostBackend, urlImage } from '../../../../env';
 function showimage(props) {
   const { classes } = useStyles();
   const { idNews } = props;
@@ -17,7 +18,7 @@ function showimage(props) {
       const fetchData = async () => {
         try {
           const response = await axios.post(
-            'http://10.21.45.100:3000/api/Getimagesnews',
+            `${hostBackend}/api/Getimagesnews`,
             { id: idNews }
           );
           // console.log(response);
@@ -34,7 +35,7 @@ function showimage(props) {
   useEffect(() => {
     if (imageresponse !== undefined) {
       // let ImageValue;
-      const promises = Object.values(imageresponse).map((data) => import(`/home/ce_reform/testdeployByAun/image/ImageNew/${data.filename}`).then((image) => image.default));
+      const promises = Object.values(imageresponse).map((data) => import(`${urlImage}/ImageNew/${data.filename}`).then((image) => image.default));
       Promise.all(promises).then((imagePaths) => {
         const ImageValue = [];
         imagePaths.forEach((index) => ImageValue.push(index));

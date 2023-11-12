@@ -13,6 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 // import dummy from 'dan-api/dummy/dummyContents';
 import { Box, Typography } from '@mui/material';
+import { hostBackend, urlImage } from '../../../env';
 
 // import useStyles from './header-jss';
 
@@ -42,7 +43,7 @@ function UserMenu() {
   // -------------------- verify jwt
   useEffect(() => {
     axios
-      .post('http://10.21.45.100:3000/api/verify_authen', {
+      .post(`${hostBackend}/api/verify_authen`, {
         token: username,
         tokenRole: role,
       })
@@ -56,7 +57,7 @@ function UserMenu() {
     if (user !== undefined) {
       if (status === 'นักศึกษา') {
         axios
-          .post('http://10.21.45.100:3000/api/ReadStudent', { username: user })
+          .post(`${hostBackend}/api/ReadStudent`, { username: user })
           .then((data) => {
             Setthumbuser(data.data);
             const setFristName = data.data[0].first_name;
@@ -66,7 +67,7 @@ function UserMenu() {
       }
       if (status === 'อาจารย์') {
         axios
-          .post('http://10.21.45.100:3000/api/ReadTeacher', { username: user })
+          .post(`${hostBackend}/api/ReadTeacher`, { username: user })
           .then((data) => {
             const setFristName = data.data[0].first_name;
             Setthumbuser(data.data);
@@ -76,7 +77,7 @@ function UserMenu() {
       }
       if (status === 'admin') {
         axios
-          .post('http://10.21.45.100:3000/api/ReadAdmin', { username: user })
+          .post(`${hostBackend}/api/ReadAdmin`, { username: user })
           .then((data) => {
             const setFristName = data.data[0].first_name;
             Setthumbuser(data.data);
@@ -97,7 +98,7 @@ function UserMenu() {
     if (thumbuser !== undefined) {
       if (status === 'นักศึกษา') {
         // let ImageValue;
-        const promises = Object.values(thumbuser).map((data) => import(`/home/ce_reform/testdeployByAun/image/student/${data.image}`).then((image) => image.default));
+        const promises = Object.values(thumbuser).map((data) => import(`${urlImage}/teacher/${data.image}`).then((image) => image.default));
         Promise.all(promises).then((imagePaths) => {
           const ImageValue = [];
           imagePaths.forEach((index) => ImageValue.push(index));
@@ -105,7 +106,7 @@ function UserMenu() {
         });
       }
       if (status === 'อาจารย์') {
-        const promises = Object.values(thumbuser).map((data) => import(`/home/ce_reform/testdeployByAun/image/teacher/${data._image}`).then((image) => image.default));
+        const promises = Object.values(thumbuser).map((data) => import(`${urlImage}/teacher/${data._image}`).then((image) => image.default));
         Promise.all(promises).then((imagePaths) => {
           const ImageValue = [];
           imagePaths.forEach((index) => ImageValue.push(index));
