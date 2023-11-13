@@ -13,7 +13,7 @@ import {
   RiNumber3,
   RiNumber4,
   RiStarFill,
-} from 'react-icons/Ri';
+} from 'react-icons/ri';
 import timelineData from '../../api/dummy/timeline';
 import round1image from '../../../public/images/tcas/round1.png';
 import round2image from '../../../public/images/tcas/round2.png';

@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import email from 'dan-images/email.png';
 import telephone from 'dan-images/telephone.png';
-import { GrClose } from 'react-icons/Gr';
+import { GrClose } from 'react-icons/gr';
 import './styles.css';
 import { hostBackend, urlImage } from '../../../../env';
 
