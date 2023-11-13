@@ -15,6 +15,11 @@ import {
   RiStarFill,
 } from 'react-icons/Ri';
 import timelineData from '../../api/dummy/timeline';
+import round1image from '../../../public/images/tcas/round1.png';
+import round2image from '../../../public/images/tcas/round2.png';
+import round3image from '../../../public/images/tcas/round3.png';
+import round4image from '../../../public/images/tcas/round4.png';
+
 // console.log(timelineData[0].subtitle);
 import useStyles from './index-jss';
 
@@ -59,7 +64,7 @@ function Timelinetcas() {
               </a>
             </Box>
             <Box sx={{ width: '50%' }}>
-              <img src={timelineData[0].imgPath} />
+              <img src={round1image} />
             </Box>
           </Box>
         </VerticalTimelineElement>
@@ -86,7 +91,7 @@ function Timelinetcas() {
           }}>
           <Box sx={{ display: 'flex', width: '100%' }}>
             <Box sx={{ width: '50%' }}>
-              <img src={timelineData[1].imgPath} />
+              <img src={round2image} />
             </Box>
             <Box
               sx={{
@@ -140,7 +145,7 @@ function Timelinetcas() {
               </a>
             </Box>
             <Box sx={{ width: '50%' }}>
-              <img src={timelineData[2].imgPath} />
+              <img src={round3image} />
             </Box>
           </Box>
         </VerticalTimelineElement>
@@ -174,7 +179,7 @@ function Timelinetcas() {
                 flexDirection: 'column',
                 alignItems: 'center', // Center horizontally
               }}>
-              <img src={timelineData[3].imgPath} />
+              <img src={round4image} />
             </Box>
             <Box
               sx={{
